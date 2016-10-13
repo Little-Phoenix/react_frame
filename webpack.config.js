@@ -1,17 +1,17 @@
 var webpack = require('webpack')
 var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-// var node_modules = path.resolve(__dirname, 'node_modules');
-// var pathToReact = path.resolve(node_modules, 'react/dist/react.min.js');
+var ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 var config = require('./config');
 var entryPath = './src/'
 var pageData = config.pageData;
 
 module.exports = {
+  watch: true,
   output: {
-    path: './dest',
-    filename:  'script/[name].js',
+    // path: './dest',
+    filename:  '[name].js',
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.sass', '.css']
@@ -25,13 +25,14 @@ module.exports = {
         query: {//babel-core版本在6.0以上需要如此配置，否则jsx无法解析
           presets: ['react', 'es2015']
         }
-      }
+      },
+      {test: /\.sass/, loader: 'style!css!sass?sourceMap'}
     ],
     // noParse: [pathToReact]
   },
   plugins: [
-    new webpack.BannerPlugin('This file is created by lcf')
-
+    new webpack.BannerPlugin('This file is created by lcf'),
+    new ExtractTextPlugin('[name].css')
   ]
 }
 
@@ -44,15 +45,10 @@ Object.keys(pageData).forEach(function(item, index) {
 
   var HtmlWebpackPluginIns = new HtmlWebpackPlugin({
     filename: 'views/' + item + '.html',
-    // template: 'src/' + item + '/' + item + '.html',
-    // chunks: [item + '/' + pageName, 'vendor'],
-    // title: pageData[item],
-    // link: (splitIndex < 1 ? '../../' : '../../../') + item + '/' + pageName + '.css',
-    // relativePath: (splitIndex < 1? '../' : '../../'),
-    // pagePath: (splitIndex < 1 ? './' : '../'),
-    // item: pageName,
-    // host: config.host
+    title: pageData[item],
+    link: (splitIndex < 1? '../' : '../../') + item + '/' + pageName + '.css',
+    inject: true,
   });
-  module.exports.entry[pageName] = entryPath + item + '/' + pageName;
+  module.exports.entry[item+'/'+pageName] = entryPath + item + '/' + pageName;
   module.exports.plugins.push(HtmlWebpackPluginIns);
 })

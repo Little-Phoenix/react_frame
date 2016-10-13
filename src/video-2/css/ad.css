@@ -1,0 +1,182 @@
+/*竖屏*/
+html{
+	height: 100%;
+	overflow: hidden;
+}
+body{
+	margin: 0;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: transparent;
+}
+/*img{
+	width: 100%;
+	height: 100%;
+}*/
+ul{
+	padding: 0;
+	margin: 0;
+}
+li{
+	list-style: none;
+}
+
+h2{
+	padding: 0;
+	margin: 0;
+}
+
+p{
+	margin: 0;
+}
+.logo{
+	width: 96px;
+	height: 14px;
+	margin: 0 auto;
+	left: 50%;
+	margin-top: 7.8%
+}
+.ad-img {
+	position: relative;
+}
+.cancel-btn{
+	border-radius: 50%;
+	overflow: hidden;
+	background: url('../img/cancel.png') no-repeat center center rgba(0, 0, 0, 0.1);
+	background-size: cover;
+}
+
+.refresh-btn{
+	border-radius: 50%;
+	overflow: hidden;
+	background: url('../img/refresh.png') no-repeat center center rgba(0, 0, 0, 0.1);
+	background-size: cover;
+}
+
+h2 img{
+	margin: 0 auto;
+	display: block;
+	width: 100%;
+}
+
+@media only screen and (min-device-width: 320px) and (orientation: landscape) {
+	/*横屏*/
+	.ad-img {
+		/*height: auto;*/
+		/*width: 57%;*/
+		float: left;
+		height: 100%;
+		width: 100%;
+	}
+
+	.ad-img img{
+		width: auto;
+		height: auto;
+	}
+
+	.cancel-btn{
+		position: absolute;
+		left: 15px;
+		top: 15px;
+		width: 32px;
+		height: 32px;
+	}
+	.refresh-btn{
+		position: absolute;
+		left: 15px;
+		bottom: 15px;
+		width: 32px;
+		height: 32px;
+	}
+
+}
+
+@media  only screen and (orientation: portrait) {
+/*竖屏*/
+
+	.cancel-btn{
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		width: 32px;
+		height: 32px;
+	}
+	.refresh-btn{
+		position: absolute;
+		left: 15px;
+		top: 15px;
+		width: 32px;
+		height: 32px;
+	}
+	/*.content-wrap{
+		padding-top: 15px;
+	}*/
+
+	.content-wrap{
+		position: relative;
+		height: 20%;
+	}
+
+	.content-info:before, .content-info:after{
+		clear: both;
+		content: '';
+		display: block;
+	}
+
+	.content-adinfo-wrap{
+		overflow: hidden;
+		/*padding: 0 15px 1rem*/
+		width: 100%;
+		/*height: 100%;*/
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		top: 50%;
+		left: 50%;
+		position: absolute;
+	}
+	/*ad-content*/
+	.ad-content{
+		float: left;
+		padding-left: 4.2%;
+		width: 70%;
+	}
+	.ad-desc{
+		line-height: 1.6rem;
+		font-size: 1.5rem;
+		/*padding: 6px 0;*/
+		/*font-weight: bold;*/
+	}
+
+	.ad-desc-2{
+		font-size: .7rem;
+		width: 46%;
+		line-height: 1.3rem;
+		margin-left: 15px;
+		display: inline-block;
+		vertical-align: middle;
+		text-align: center;
+
+	}
+
+	.ad-desc-2 span{
+		max-height: 5.1rem;
+		overflow: hidden;
+		display: block;
+	}
+
+	.ad-btn{
+		display: inline-block;
+		width: 46%;
+		vertical-align: middle;
+	}
+
+	.ad-download{
+		height: 3.5rem;
+		line-height: 3.5rem;
+		font-size: 1.4rem;
+		/*margin: 6.1% 0 15.5%;*/
+		clear: both;
+	}
+}

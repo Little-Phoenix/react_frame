@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-store,must-revalidate">
+		<meta http-equiv="expires" content="0">
+		<title>{ad_name}</title>
+		<link rel="icon" href="data:;base64,=">
+		<link rel="stylesheet" href="css/ad.css" title="{ad_name}" charset="utf-8">
+	</head>
+	<body>
+		<script>
+			"use strict";
+			function fontResize() {
+				var width = document.body.offsetWidth;
+				var fontSize = width / 320 * 12;
+				document.querySelector('html').style.fontSize = fontSize + 'px';
+			}
+			fontResize();
+
+		</script>
+		<div class="ad-img">
+			<div class="ad-img-div">
+				<a href="my-video:downloadurl={ad_url}">
+					<img  class="ad-img-img-h" src="./img/test1.jpg" style="display: none" alt="" />
+					<img  class="ad-img-img-v" src="./img/test.jpg" style="display: none" alt="" />
+				</a>
+				<!-- <img class="ad-img-img" src="{v_img}" alt="" /> -->
+			</div>
+			<a class="cancel-btn" href="my-video:back">
+			</a>
+			<a class="refresh-btn" href="请填写重放协议">
+      </a>
+		</div>
+		<script>
+			"use strict";
+
+			var adImgImg = document.getElementsByClassName('ad-img-img')[0];
+			
+			function resizeImg(){
+				var height = document.body.offsetHeight;
+				var width = document.body.offsetWidth;
+				var adImgImg;
+
+				var adImgImgH = document.getElementsByClassName('ad-img-img-h')[0];
+				var adImgImgV = document.getElementsByClassName('ad-img-img-v')[0];
+				adImgImgH.style.display = 'none';
+				adImgImgV.style.display = 'none';
+
+				if(height > width){
+					// console.log(adImgDiv.offsetHeight);
+					adImgImg	= adImgImgV;
+					adImgImg.style.display = 'block';
+					adImgImg.style.width = 'auto';
+					adImgImg.style.height = height + 'px';
+
+					var imgWidth = adImgImg.offsetWidth;
+
+					adImgImg.style.marginLeft = '-' + (imgWidth - width)/2 + 'px';
+					adImgImg.style.marginTop = '0';
+					adImgImg.style.left = '50%';
+					adImgImg.style.top = '0';
+				}else{
+					adImgImg = adImgImgH;
+					adImgImg.style.display = 'block';
+					adImgImg.style.height =  'auto';
+					adImgImg.style.width = width + 'px';
+
+					var imgHeight = adImgImg.offsetHeight;
+
+					adImgImg.style.marginTop = '-' + (imgHeight - height)/2 + 'px';
+					adImgImg.style.marginLeft = '0';
+					adImgImg.style.top = '50%';
+					adImgImg.style.left = '0';
+				}
+			}
+
+			window.onload = function(){
+				resizeImg();
+			}
+
+			window.onresize = function() {
+				fontResize();
+				resizeImg();
+			};
+
+		</script>
+	</body>
+</html>

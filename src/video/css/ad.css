@@ -1,0 +1,313 @@
+/*竖屏*/
+html{
+	height: 100%;
+	overflow: hidden;
+}
+body{
+	margin: 0;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: transparent;
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+ul{
+	padding: 0;
+	margin: 0;
+}
+li{
+	list-style: none;
+}
+
+h2{
+	padding: 0;
+	margin: 0;
+}
+
+p{
+	margin: 0;
+}
+.logo{
+	width: 96px;
+	height: 14px;
+	margin: 0 auto;
+	left: 50%;
+	margin-top: 7.8%
+}
+.ad-img {
+	position: relative;
+}
+.cancel-btn{
+	border-radius: 50%;
+	overflow: hidden;
+	background: url('../img/cancel.png') no-repeat center center rgba(0, 0, 0, 0.1);
+	background-size: cover;
+}
+
+.refresh-btn{
+	border-radius: 50%;
+	overflow: hidden;
+	background: url('../img/refresh.png') no-repeat center center rgba(0, 0, 0, 0.1);
+	background-size: cover;
+}
+
+.content-wrap{
+	box-sizing: border-box;
+}
+.content-adinfo-wrap{
+	overflow: hidden;
+}
+
+.ad-btn{
+	position: absolute;
+	right: 0px;
+	/*height: 100%;*/
+}
+
+/*ad-content*/
+.ad-download{
+	text-decoration: none;
+	background: #00a0e9;
+	height: 2rem;
+	line-height: 2rem;
+	text-align: center;
+	display: block;
+	color: #fff;
+	border-radius: .5rem;
+	overflow: hidden;
+	font-size: .8rem;
+}
+
+h2 img{
+	margin: 0 auto;
+	display: block;
+	width: 100%;
+}
+
+.ad-desc, .ad-desc-2 {
+	word-break: break-all;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
+.ad-desc-2 span{
+	word-break: break-all;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
+.ad-img-div{
+	height:100%;
+	width: 100%;
+	overflow: hidden;
+	position:relative;
+}
+
+.ad-img-img{
+	position: absolute;
+}
+
+
+@media only screen and (min-device-width: 320px) and (orientation: landscape) {
+	/*横屏*/
+	.ad-img {
+		height: 100%;
+		/*width: 57%;*/
+		float: left;
+		height: 100%;
+		width: 100%;
+	}
+	.cancel-btn{
+		position: absolute;
+		left: 15px;
+		top: 15px;
+		width: 32px;
+		height: 32px;
+	}
+	.refresh-btn{
+		position: absolute;
+		left: 15px;
+		bottom: 15px;
+		width: 32px;
+		height: 32px;
+	}
+	.content-wrap{
+		/*float: left;*/
+		width: 43%;
+		height: 100%;
+		position: absolute;
+		width: 100%;
+		height: 20%;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.5);
+		color: #fff;
+	}
+	.content-adinfo-wrap{
+		overflow: visible;
+		/*padding: 0 10px 0px;*/
+		position: absolute;
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		left: 50%;
+		top: 50%;
+		width: 86%;
+		width: 100%;
+	}
+
+	.ad-desc{
+		/*padding: 6.25% 0 0;*/
+		font-size: 0.5rem;
+		margin: 0 auto 2px;
+		width: 90%;
+		line-height: 1.7rem;
+		text-align: center;
+	}
+
+	.ad-desc-2{
+		/*padding: 3.5% 0 0;*/
+		font-size: .7rem;
+		width: 90%;
+		line-height: 0.9rem;
+		text-align: center;
+		display: inline-block;
+		width: 46%;
+		vertical-align: middle;
+		margin-left: 15px;
+	}
+
+	.ad-desc-2 span{
+		max-height: 2.7rem;
+		/*overflow: hidden;*/
+		/*display: block;*/
+		-webkit-line-clamp: 2;
+	}
+
+	.ad-btn{
+		width: 48%;
+		vertical-align: middle;
+		display: inline-block;
+	}
+	.ad-download{
+		height: auto;
+		line-height: 1rem;
+		/*border-radius: 6px;*/
+		font-size: 1rem;
+		vertical-align: middle;
+		overflow: hidden;
+		font-size: .8rem;
+		margin-top: -0.15rem;
+		margin-right: 15px;
+	}
+}
+
+@media  only screen and (orientation: portrait) {
+/*竖屏*/
+
+	.ad-img{
+		width: 100%;
+		height: 100%;
+	}
+	.cancel-btn{
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		width: 32px;
+		height: 32px;
+	}
+	.refresh-btn{
+		position: absolute;
+		left: 15px;
+		top: 15px;
+		width: 32px;
+		height: 32px;
+	}
+	/*.content-wrap{
+		padding-top: 15px;
+	}*/
+
+	.content-wrap{
+		position: absolute;
+		height: 15%;
+		width: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		color: #fff;
+		bottom: 0;
+	}
+
+	.content-info:before, .content-info:after{
+		clear: both;
+		content: '';
+		display: block;
+	}
+
+	.content-adinfo-wrap{
+		overflow: hidden;
+		/*padding: 0 15px 1rem*/
+		width: 100%;
+		/*height: 100%;*/
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		overflow: visible;
+	}
+	/*ad-content*/
+	.ad-content{
+		float: left;
+		padding-left: 4.2%;
+		width: 70%;
+	}
+	.ad-desc{
+		line-height: 1.6rem;
+		font-size: 1.5rem;
+		/*padding: 6px 0;*/
+		/*font-weight: bold;*/
+	}
+
+	.ad-desc-2{
+		font-size: .7rem;
+		width: 46%;
+		line-height: 1.3rem;
+		margin-left: 15px;
+		display: inline-block;
+		vertical-align: middle;
+		text-align: center;
+
+	}
+
+	.ad-desc-2 span{
+		max-height: 3.8rem;
+		/*overflow: hidden;*/
+		/*display: block;*/
+	}
+
+	.ad-btn{
+		display: inline-block;
+		width: 48%;
+		vertical-align: middle;
+	}
+
+	.ad-download{
+		height: auto;
+		line-height: 2rem;
+		font-size: 1.4rem;
+		/*margin: 6.1% 0 15.5%;*/
+		clear: both;
+		margin-right: 10px
+	}
+
+	.ad-download-line-2{
+		line-height: 3.5rem;
+	}
+}

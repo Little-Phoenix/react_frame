@@ -7,6 +7,10 @@ var config = require('./config');
 var entryPath = './src/'
 var pageData = config.pageData;
 
+var ExtractTextPluginInstance = new ExtractTextPlugin('style.css', {
+  allChunks: true
+})
+
 module.exports = {
   watch: true,
   output: {
@@ -32,7 +36,7 @@ module.exports = {
   },
   plugins: [
     new webpack.BannerPlugin('This file is created by lcf'),
-    new ExtractTextPlugin('[name].css')
+    ExtractTextPluginInstance
   ]
 }
 
@@ -44,11 +48,17 @@ Object.keys(pageData).forEach(function(item, index) {
   var pageName = item.substr( ++splitIndex );
 
   var HtmlWebpackPluginIns = new HtmlWebpackPlugin({
+    files: {
+      "css" : '../' + item + '/' + pageName + '.css',
+      'js': '../' + item + '/' + pageName + '.js'
+    },
+    template: 'src/' + item + '/' + pageName + '.html',
     filename: 'views/' + item + '.html',
     title: pageData[item],
-    link: (splitIndex < 1? '../' : '../../') + item + '/' + pageName + '.css',
     inject: true,
+	  xhtml: true
   });
   module.exports.entry[item+'/'+pageName] = entryPath + item + '/' + pageName;
+  // module.exports.plugins.push(new ExtractTextPlugin( '../' + item + '/' + pageName + '.css') )
   module.exports.plugins.push(HtmlWebpackPluginIns);
 })

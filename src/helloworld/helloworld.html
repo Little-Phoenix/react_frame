@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <%= htmlWebpackPlugin.options.link%>
-    <link rel="stylesheet" href=<%=htmlWebpackPlugin.options.link%> media="screen" title="no title">
+    <%= htmlWebpackPlugin.options.link %>
+    <link rel="stylesheet" href='<%=htmlWebpackPlugin.options.files.css%>' media="screen" title="no title">
   </head>
   <body>
 
+    <script src="<%=htmlWebpackPlugin.options.files.js%>" charset="utf-8"></script>
   </body>
 </html>

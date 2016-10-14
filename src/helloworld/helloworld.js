@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import Hello from './component'
 
-
 main();
 
 function main() {

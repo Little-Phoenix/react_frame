@@ -14,7 +14,11 @@ gulp.task('sass', function(){
   gulp.src('./src/**/*.sass')
       .pipe(sass().on('error', sass.logError))
       .pipe(minifyCss({zindex: false}))
-      .pipe(gulp.dest('dest/'))
+      .pipe(gulp.dest('dest/'));
+  gulp.src('./src/*.sass')
+      .pipe(sass().on('error', sass.logError))
+      .pipe(minifyCss({zindex: false}))
+      .pipe(gulp.dest('dest'))
 })
 
 gulp.task('default', ['webpack', 'sass'], function(){

@@ -10,7 +10,7 @@ var storeA = {
     this.data = payload.data
   },
   dispatch: function(payload, waitFor){
-    switch(payload.type){
+    switch(payload.actionType){
       case 'ADD_NEW_ITEM':
         ListStore.addNewItemHandler(payload.text);
         ListStore.emitChange();

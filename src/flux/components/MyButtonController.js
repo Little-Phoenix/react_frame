@@ -11,22 +11,15 @@ var MyButtonController = React.createClass({
     }
   },
 
-  methods: {
-    createNewItem: function(event){
-      console.log('createNewItem')
-      ButtonActions.addNewItem('new item');
-    },
-    _onChange: function(){
-      this.setState({
-        items: ListStore.getAll()
-      });
-    },
-
-    createNewItem: function(event){
-      ButtonActions.addNewItem('new Item');
-    }
+  createNewItem: function(event){
+    // console.log('createNewItem')
+    ButtonActions.addNewItem('new item');
   },
-
+  _onChange: function(){
+    this.setState({
+      items: ListStore.getAll()
+    });
+  },
   componentDidMount: function(){
     ListStore.addChangeListener(this._onChange);
   },
@@ -36,7 +29,7 @@ var MyButtonController = React.createClass({
   },
 
   render: function(){
-    return <MyButton items={this.state.items} onClick={this.createNewItem}/>
+    return <MyButton items={this.state.items} clickBtn={this.createNewItem}/>
   }
 })
 

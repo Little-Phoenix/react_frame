@@ -10,10 +10,12 @@ var ListStore = {
 
   addNewItemHandler: function(text){
     this.items.push(text);
+    console.log(this.items);
   },
 
   emitChange: function(){
-    this.emit('change');
+    // this.emit('change');
+    EventEmitter.emit('change');
   },
 
   addChangeListener: function(callback){

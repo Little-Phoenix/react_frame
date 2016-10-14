@@ -12,10 +12,12 @@ var ExtractTextPluginInstance = new ExtractTextPlugin('style.css', {
 })
 
 module.exports = {
-  watch: true,
+  watch: true, //监听js、jsx文件的修改，类似执行webpack -w
   output: {
     // path: './dest',
     filename:  '[name].js',
+    publicPath: '/',
+    chunkFileName: '[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.sass', '.css']
@@ -49,16 +51,20 @@ Object.keys(pageData).forEach(function(item, index) {
 
   var HtmlWebpackPluginIns = new HtmlWebpackPlugin({
     files: {
-      "css" : '../' + item + '/' + pageName + '.css',
-      'js': '../' + item + '/' + pageName + '.js'
+      css : '../' + item + '/' + pageName + '.css',
+      js: '../' + item + '/' + pageName + '.js',
+      chunks: {
+        head: {
+          css: ['style.css']
+        }
+      }
     },
     template: 'src/' + item + '/' + pageName + '.html',
     filename: 'views/' + item + '.html',
     title: pageData[item],
     inject: true,
-	  xhtml: true
+    chunks: [item + '/' + pageName] //chunks限制html中加载的js文件，列出哪个js，则对哪个js进行加载
   });
   module.exports.entry[item+'/'+pageName] = entryPath + item + '/' + pageName;
-  // module.exports.plugins.push(new ExtractTextPlugin( '../' + item + '/' + pageName + '.css') )
   module.exports.plugins.push(HtmlWebpackPluginIns);
 })

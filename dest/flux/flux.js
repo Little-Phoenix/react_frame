@@ -35,7 +35,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -21489,8 +21489,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 	var MyButtonController = _react2.default.createClass({
 	  displayName: 'MyButtonController',
 
@@ -21500,21 +21498,15 @@
 	    };
 	  },
 
-	  methods: _defineProperty({
-	    createNewItem: function createNewItem(event) {
-	      console.log('createNewItem');
-	      _ButtonAction2.default.addNewItem('new item');
-	    },
-	    _onChange: function _onChange() {
-	      this.setState({
-	        items: _ListStore2.default.getAll()
-	      });
-	    }
-
-	  }, 'createNewItem', function createNewItem(event) {
-	    _ButtonAction2.default.addNewItem('new Item');
-	  }),
-
+	  createNewItem: function createNewItem(event) {
+	    // console.log('createNewItem')
+	    _ButtonAction2.default.addNewItem('new item');
+	  },
+	  _onChange: function _onChange() {
+	    this.setState({
+	      items: _ListStore2.default.getAll()
+	    });
+	  },
 	  componentDidMount: function componentDidMount() {
 	    _ListStore2.default.addChangeListener(this._onChange);
 	  },
@@ -21524,7 +21516,7 @@
 	  },
 
 	  render: function render() {
-	    return _react2.default.createElement(_MyButton2.default, { items: this.state.items, onClick: this.createNewItem });
+	    return _react2.default.createElement(_MyButton2.default, { items: this.state.items, clickBtn: this.createNewItem });
 	  }
 	});
 
@@ -21548,10 +21540,12 @@
 
 	  addNewItemHandler: function addNewItemHandler(text) {
 	    this.items.push(text);
+	    console.log(this.items);
 	  },
 
 	  emitChange: function emitChange() {
-	    this.emit('change');
+	    // this.emit('change');
+	    EventEmitter.emit('change');
 	  },
 
 	  addChangeListener: function addChangeListener(callback) {
@@ -21890,7 +21884,7 @@
 	    this.data = payload.data;
 	  },
 	  dispatch: function dispatch(payload, waitFor) {
-	    switch (payload.type) {
+	    switch (payload.actionType) {
 	      case 'ADD_NEW_ITEM':
 	        _ListStore2.default.addNewItemHandler(payload.text);
 	        _ListStore2.default.emitChange();
@@ -22813,16 +22807,16 @@
 	var MyButton = function (_React$Component) {
 	  _inherits(MyButton, _React$Component);
 
-	  function MyButton() {
+	  function MyButton(props) {
 	    _classCallCheck(this, MyButton);
 
-	    return _possibleConstructorReturn(this, (MyButton.__proto__ || Object.getPrototypeOf(MyButton)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (MyButton.__proto__ || Object.getPrototypeOf(MyButton)).call(this, props));
 	  }
 
 	  _createClass(MyButton, [{
 	    key: 'btnClick',
 	    value: function btnClick(event) {
-	      this.props.onClick();
+	      this.props.clickBtn();
 	    }
 	  }, {
 	    key: 'render',
@@ -22845,7 +22839,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'button',
-	          { onClick: this.btnClick },
+	          { onClick: this.btnClick.bind(this) },
 	          'New Item'
 	        )
 	      );

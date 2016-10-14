@@ -2,9 +2,12 @@ import React from 'react';
 
 export default class MyButton extends React.Component{
 
+  constructor(props){
+    super(props)
+  }
 
   btnClick(event){
-    this.props.onClick();
+    this.props.clickBtn();
   }
 
   render(){
@@ -14,7 +17,7 @@ export default class MyButton extends React.Component{
     })
     return <div>
       <ul>{itemHtml}</ul>
-      <button onClick={this.btnClick}>New Item</button>
+      <button onClick={this.btnClick.bind(this)}>New Item</button>
     </div>
   }
 }

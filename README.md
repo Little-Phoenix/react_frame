@@ -5,7 +5,7 @@ gulp + webpack + react框架搭建 取代react-frame
 ### gulp配置
 
   gulp中可以配置sass的构建，同时可以将webpack的执行命令放到gulp中进行控制，这样开发的时候，只需要执行gulp命令即可，原来需要开两个git bash,一个执行gulp，一个执行webpack -w
-  
+
   ### gulpfile.js:
  ```
   gulp.task('webpack', function(){
@@ -29,10 +29,10 @@ gulp + webpack + react框架搭建 取代react-frame
   gulp.task('default', ['webpack', 'sass'], function(){
 
   })
-  
+
   ```
   ### webpack.config.js:
-  
+
   ```
   var webpack = require('webpack')
   var path = require('path')
@@ -48,7 +48,7 @@ gulp + webpack + react框架搭建 取代react-frame
   })
 
   module.exports = {
-    watch: true, //执行gulp后相当于执行了webpack -w
+    watch: true, //监听js、jsx文件的修改，类似执行webpack -w
     output: {
       // path: './dest',
       filename:  '[name].js',
@@ -80,23 +80,24 @@ gulp + webpack + react框架搭建 取代react-frame
 
   Object.keys(pageData).forEach(function(item, index) {
 
-  var splitIndex = item.lastIndexOf('/');
-  var pageName = item.substr( ++splitIndex );
+    var splitIndex = item.lastIndexOf('/');
+    var pageName = item.substr( ++splitIndex );
 
-  var HtmlWebpackPluginIns = new HtmlWebpackPlugin({
-    files: {
-      "css" : '../' + item + '/' + pageName + '.css',
-      'js': '../' + item + '/' + pageName + '.js'
-    },
-    template: 'src/' + item + '/' + pageName + '.html',
-    filename: 'views/' + item + '.html',
-    title: pageData[item],
-    inject: true,
-	  xhtml: true
-  });
-  module.exports.entry[item+'/'+pageName] = entryPath + item + '/' + pageName;
-  // module.exports.plugins.push(new ExtractTextPlugin( '../' + item + '/' + pageName + '.css') )
-  module.exports.plugins.push(HtmlWebpackPluginIns);
-})
+    var HtmlWebpackPluginIns = new HtmlWebpackPlugin({
+      files: {
+        "css" : '../' + item + '/' + pageName + '.css',
+        'js': '../' + item + '/' + pageName + '.js'
+      },
+      template: 'src/' + item + '/' + pageName + '.html',
+      filename: 'views/' + item + '.html',
+      title: pageData[item],
+      inject: true,
+      chunks: [item + '/' + pageName] //chunks限制html中加载的js文件，列出哪个js，则对哪个js进行加载
+    });
+    module.exports.entry[item+'/'+pageName] = entryPath + item + '/' + pageName;
+    module.exports.plugins.push(HtmlWebpackPluginIns);
+  })
+
+
 
   ```

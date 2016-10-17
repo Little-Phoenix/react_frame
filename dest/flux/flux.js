@@ -21499,7 +21499,6 @@
 	  },
 
 	  createNewItem: function createNewItem(event) {
-	    // console.log('createNewItem')
 	    _ButtonAction2.default.addNewItem('new item');
 	  },
 	  _onChange: function _onChange() {
@@ -21531,7 +21530,7 @@
 	var EventEmitter = __webpack_require__(174).EventEmitter;
 	var assign = __webpack_require__(4);
 
-	var ListStore = {
+	var ListStore = assign({}, EventEmitter.prototype, {
 	  items: [],
 
 	  getAll: function getAll() {
@@ -21540,22 +21539,20 @@
 
 	  addNewItemHandler: function addNewItemHandler(text) {
 	    this.items.push(text);
-	    console.log(this.items);
 	  },
 
 	  emitChange: function emitChange() {
-	    // this.emit('change');
-	    EventEmitter.emit('change');
+	    this.emit('change');
 	  },
 
 	  addChangeListener: function addChangeListener(callback) {
-	    // this.on('change', callback);
+	    this.on('change', callback);
 	  },
 
 	  removeChangeListener: function removeChangeListener(callback) {
 	    this.removeListener('change', callback);
 	  }
-	};
+	});
 
 	module.exports = ListStore;
 

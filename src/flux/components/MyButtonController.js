@@ -12,7 +12,6 @@ var MyButtonController = React.createClass({
   },
 
   createNewItem: function(event){
-    // console.log('createNewItem')
     ButtonActions.addNewItem('new item');
   },
   _onChange: function(){

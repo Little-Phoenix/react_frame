@@ -30,7 +30,7 @@
     "css-loader": "^0.25.0",
     "events": "^1.1.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "flux-react-dispatcher": "^1.2.5",
+    "flux-react-dispatcher": "^1.2.5", 
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.2",

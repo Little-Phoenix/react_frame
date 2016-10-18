@@ -1,14 +1,11 @@
 ## Redux
 
-### Éè¼ÆË¼Ïë
-	webÓ¦ÓÃÊÇÒ»¸ö×´Ì¬»ú£¬ÊÓÍ¼Óë×´Ì¬ÊÇÒ»Ò»¶ÔÓ¦µÄËùÓÐµÄ×´Ì¬£¬±£´æÔÚÒ»¸ö¶ÔÏóÀïÃæ¡£
-	
+### è®¾è®¡æ€æƒ³
+	webåº”ç”¨æ˜¯ä¸€ä¸ªçŠ¶æ€æœºï¼Œ è§†å›¾ä¸ŽçŠ¶æ€æ˜¯ä¸€ä¸€å¯¹åº”çš„æ‰€æœ‰çš„çŠ¶æ€ï¼Œä¿å­˜åœ¨ä¸€ä¸ªå¯¹è±¡é‡Œé¢
 #### Store
-	Store¾ÍÊÇ±£´æÊý¾ÝµÄµØ·½£¬¿ÉÒÔ°ÑËü¿´³ÉÒ»¸öÈÝÆ÷£¬Õû¸öÓ¦ÓÃÖ»ÄÜÓÐÒ»¸öStore¡£
-	
+	Storeå°±æ˜¯ä¿å­˜æ•°æ®çš„åœ°æ–¹ï¼Œå¯ä»¥æŠŠå®ƒçœ‹æˆä¸€ä¸ªå®¹å™¨ï¼Œæ•´ä¸ªåº”ç”¨åªèƒ½ä¸€ä¸ªStoreã€‚
+
 	import {createStore} from 'redux';
 	const store = createStore(fn);
-	
-	ÉÏÃæµÄ´úÂëÖÐ£¬createStoreº¯Êý½ÓÊÜÁíÒ»¸öº¯Êý×÷Îª²ÎÊý£¬·µ»ØÐÂÉú³ÉµÄStore¶ÔÏó¡£
-	
-	
+
+	ä¸Šé¢çš„ä»£ç ä¸­ï¼ŒcreateStoreå‡½æ•°æŽ¥å—å¦ä¸€ä¸ªå‡½æ•°ä½œä¸ºå‚æ•°ï¼Œè¿”å›žæ–°ç”Ÿæˆçš„Storeå¯¹è±¡ã€‚

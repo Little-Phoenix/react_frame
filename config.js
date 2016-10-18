@@ -3,7 +3,8 @@ module.exports = {
     'flux' : 'flux',
     'helloworld' : 'helloworld',
     'todo': '待办',
-    'redux': 'redux学习'
+    'redux': 'redux学习',
+    'redux-zjj': '中间件-日志'
     // 'video' : 'video'
   }
 }

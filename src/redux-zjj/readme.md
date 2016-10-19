@@ -1,4 +1,4 @@
-# 中间件使用
+n# 中间件使用
 
   ```
     import { applyMiddleware, createStore }  from 'redux';
@@ -54,17 +54,17 @@
 
   以向服务器取出数据为例， 三种 Action 可以有两种不同的写法。
 
-    ```
+  ```
     // 写法一： 名称相同，参数不同
-      { type: 'FETCH_POSTS' }
-      { type: 'FETCH_POSTS', status: 'error', error: 'Oops'}
-      { type: 'FETCH_POSTS', status: 'success', response: {...} }
+    { type: 'FETCH_POSTS' }
+    { type: 'FETCH_POSTS', status: 'error', error: 'Oops'}
+    { type: 'FETCH_POSTS', status: 'success', response: {...} }
 
     // 写法二： 名称不同
-      { type: 'FETCH_POSTS_REQUEST' }
-      { type: 'FETCH_POSTS_FAILURE', error: 'Oops'}
-      { type: 'FETCH_POSTS_SUCCESS', response: { ... }}
-    ```
+    { type: 'FETCH_POSTS_REQUEST' }
+    { type: 'FETCH_POSTS_FAILURE', error: 'Oops'}
+    { type: 'FETCH_POSTS_SUCCESS', response: { ... }}
+  ```
   除了 Action 种类不同，异步操作的 State 也要进行改造， 反映不同的操作状态。
 
   ```

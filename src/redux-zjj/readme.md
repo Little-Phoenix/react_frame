@@ -97,3 +97,107 @@ n# 中间件使用
   ```
 
   上面代码是一个异步组件的例子。加载成功后（componentDidMount 方法），它送出了（dispatch方法）一个Action，服务器要求数据fetchPosts(selectedSubreddit)。这里的fetchPosts 就是 Action Creator。
+  ```
+    import fetch from 'isomorphic-fetch';
+
+    export function fetchFriends(){
+      return dispatch => {
+        dispatch({ type: 'FETCH_FRIENDS' });
+        return fetch('http://localhost/api/friends/')
+          .then(response => response.json())
+          .then(json => {
+              dispatch({ type: 'RECEIVE_FRIENDS', payload: json});
+            });
+      };
+    }
+
+    const fetchPosts = postTitle => (dispatch, getState) => {
+      dispatch(requestPosts(postTitle));
+      return fetch('/some/API/${postTitle}.json')
+        .then(response => response.json())
+        .then(json => dispatch(receivePosts(postTitle, json)));
+    }
+
+    //使用方法一
+    store.dispatch(fetchPosts('reactjs'));
+    //使用方法二
+    store.dispatch(fetchPosts('reactjs')).then(
+      () => console.log(store.getState())
+    )
+  ```
+
+  上面代码中， fetchPosts 是一个 Action Creator （动作生成器），返回一个函数。这个函数执行后， 先发出一个 Action （requestPosts(postTitle)），然后进行异步操作。拿到结果后，先将结果转成JSON格式，然后再发出一个 Action （receivePosts(postTitle, json)）
+
+  上面代码中，有几个地方需要注意
+
+    1. fetchPosts 返回了一个函数，而普通的 Action Creator 默认返回一个对象
+    2. 返回的函数的参数是 dispatch 和 getState 这两个 Redux 方法， 普通的 Action Creator 的参数是 Action 内容
+    3. 在返回的函数之中，先发出一个 Action （requestPosts(postTitle)），表示操作开始。
+    4. 异步操作结束之后，再发出一个 Action （receivePosts(postTitle, json)），表示操作结束
+
+  这样的处理，就解决了自动发送第二个 Action 的问题。 但是， 又带来了一个新的问题， Action 是由 store.dispatch方法发送的。而 store.dispatch 方法正常情况下，参数只能是对象，不能是函数，这是，就要使用中间件 redux-thunk
+  ```
+    import { creatorStore, applyMiddleware } from 'redux';
+    import thunk from 'redux-thunk';
+    import reducer from './reducers';
+
+    // Note: this API requires redux@ > 3.1.0
+    const store = createStore(
+      reducer,
+      applyMiddleware(thunk)
+    )
+  ```
+  上面代码使用 redux-thunk 中间件， 改造 store.dispatch， 使得后者可以接受函数作为参数。
+  因此，异步操作的第一种解决方案就是，写出一个返回函数的 Action Creator ， 然后使用 redux-thunk 中间件改造 store.dispatch
+
+### redux-promise 中间件
+  既然 Action Creator 可以返回函数， 当然也可以返回其他值。另一种异步操作的解决方案， 就是让 Action Creator 返回一个 Promise 对象。
+  这就需要使用 redux-promise 中间件
+
+  ```
+    import { creatorStore, applyMiddleware } from 'redux';
+    import promiseMiddleware from 'redux-promise';
+    import reducer from './reducers';
+
+    const store = createStore(
+      reducer,
+      applyMiddleware(promiseMiddleware)
+    );
+  ```
+
+  这个中间件使得store.dispatch 方法可以接受 Promise 对象作为参数。 这时， Action Creator 有两种写法。写法一，返回值是一个 Promise 对象。
+
+  ```
+    const fetchPosts =
+      (dispatch, postTitle) => new Promise(function(resolve, reject) {
+          dispatch(requestPosts(postTitle));
+          return fetch('/some/API/${postTitle}.json')
+            .then(response => {
+              type: 'FETCH_POSTS',
+              payload: response.json()
+            });
+      })
+  ```
+
+  写法二， Action 对象的 payload 属性是一个 Promise 对象。 这需要从 redux-actions 模块引入 createAction 方法，并且写法也要变成下面这样。
+
+  ```
+    import { createAction } from 'redux-actions';
+
+    class AsyncApp extends Component {
+      componentDidMount(){
+        const { dispatch, selectedPost } = this.props;
+
+        //发出同步 Action
+        dispatch(requestPosts(selectedPost));
+
+        //发出异步 Action
+        disaptch(requestAction(
+          'FETCH_POSTS',
+          fetch('/some/API/${postTitle}.json')
+            .then(response => response.json())
+          ))
+      }
+    }
+  ```
+  上面代码中，第二个 dispatch 方法发出的是异步 Action， 只有等到操作结束， 这个 Action 才会实际发出。 注意， createAction 的第二个参数必须是一个Promise对象。

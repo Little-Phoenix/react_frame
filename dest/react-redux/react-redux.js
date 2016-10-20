@@ -61,7 +61,7 @@
 
 	var _reactRedux = __webpack_require__(208);
 
-	var _ValueComp = __webpack_require__(228);
+	var _ValueComp = __webpack_require__(221);
 
 	var _ValueComp2 = _interopRequireDefault(_ValueComp);
 
@@ -23395,14 +23395,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

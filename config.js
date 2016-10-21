@@ -6,9 +6,10 @@ module.exports = {
     'redux': 'redux学习',
     'redux-zjj': '中间件-日志',
     'react-redux': 'counter',
-    'todomvc-redux': '待办',
-    'animation': '动画',
-    'bind-help': '两种link方法'
+    // 'todomvc-redux': '待办',
+    'animation': 'add-ons: 动画',
+    'bind-help': 'add-ons: 两种link方法',
+    'test': 'add-ons: 测试组件'
     // 'video' : 'video'
   }
 }

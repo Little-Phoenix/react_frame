@@ -3,12 +3,6 @@ import classnames from 'classnames';
 import TodoTextInput from './TodoTextInput';
 
 export default class TodoItem extends Component{
-  static propTypes = {
-    todo: PropTypes.object.isRequired,
-    editTodo: PropTypes.func.isRequired,
-    deleteTodo: PropTypes.func.isRequired,
-    completedTodo: PropTypes.func.isRequired
-  }
 
   state = {
     editing: false
@@ -64,4 +58,12 @@ export default class TodoItem extends Component{
       </li>
     )
   }
+}
+
+
+TodoItem.propTypes = {
+  todo: PropTypes.object.isRequired,
+  editTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  completedTodo: PropTypes.func.isRequired
 }

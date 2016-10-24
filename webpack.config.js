@@ -29,7 +29,7 @@ module.exports = {
         test: /\.jsx?$/,
         loader: 'babel',
         query: {//babel-core版本在6.0以上需要如此配置，否则jsx无法解析
-          presets: ['react', 'es2015']
+          presets: ['react', 'es2015', 'stage-2']
         }
       },
       {test: /\.sass/, loader: 'style!css!sass?sourceMap'}

@@ -28,25 +28,22 @@ export default function todos(state = initialState, action){
       )
     case EDIT_TODO:
       return state.map(todo =>
-        // todo.id === action.id ? { ...todo, text: action.text } : todo
-        todo
+        todo.id === action.id ? { ...todo, text: action.text } : todo
       )
 
     case COMPLETE_TODO:
       return state.map(todo =>
-        // todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-        todo
+        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
       )
 
     case COMPLETE_ALL:
       const areAllMarked = state.every(todo => todo.completed)
 
       return state.map(todo =>
-        // ({
-        //   ...todo,
-        //   completed: !areAllMarked
-        // })
-        todo
+        ({
+          ...todo,
+          completed: !areAllMarked
+        })
       )
 
     case CLEAR_COMPLETED:

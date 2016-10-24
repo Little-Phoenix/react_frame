@@ -61,13 +61,13 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _index = __webpack_require__(284);
+	var _reducers = __webpack_require__(289);
 
-	var _index2 = _interopRequireDefault(_index);
+	var _reducers2 = _interopRequireDefault(_reducers);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var store = (0, _redux.createStore)(_index2.default);
+	var store = (0, _redux.createStore)(_reducers2.default);
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRedux.Provider,
 	  { store: store },
@@ -23385,11 +23385,11 @@
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _MainSection = __webpack_require__(281);
+	var _MainSection = __webpack_require__(283);
 
 	var _MainSection2 = _interopRequireDefault(_MainSection);
 
-	var _actions = __webpack_require__(282);
+	var _actions = __webpack_require__(287);
 
 	var TodoActions = _interopRequireWildcard(_actions);
 
@@ -23513,7 +23513,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(289);
+	var _classnames = __webpack_require__(281);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -23597,6 +23597,71 @@
 /* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+
+	(function () {
+		'use strict';
+
+		var hasOwn = {}.hasOwnProperty;
+
+		function classNames() {
+			var classes = [];
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg === 'undefined' ? 'undefined' : _typeof(arg);
+
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+
+			return classes.join(' ');
+		}
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if ("function" === 'function' && _typeof(__webpack_require__(282)) === 'object' && __webpack_require__(282)) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	})();
+
+/***/ },
+/* 282 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, {}))
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -23613,15 +23678,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _TodoItem = __webpack_require__(286);
+	var _TodoItem = __webpack_require__(284);
 
 	var _TodoItem2 = _interopRequireDefault(_TodoItem);
 
-	var _Footer = __webpack_require__(287);
+	var _Footer = __webpack_require__(285);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	var _TodoFilters = __webpack_require__(288);
+	var _TodoFilters = __webpack_require__(286);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23736,162 +23801,7 @@
 	};
 
 /***/ },
-/* 282 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.clearCompleted = exports.completeAll = exports.completeTodo = exports.editTodo = exports.deleteTodo = exports.addTodo = undefined;
-
-	var _ActionTypes = __webpack_require__(283);
-
-	var types = _interopRequireWildcard(_ActionTypes);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	var addTodo = exports.addTodo = function addTodo(text) {
-	  return { type: types.ADD_TODO, text: text };
-	};
-	var deleteTodo = exports.deleteTodo = function deleteTodo(text) {
-	  return { type: types.DELETE_TODO, id: id };
-	};
-	var editTodo = exports.editTodo = function editTodo(id, text) {
-	  return { type: types.EDIT_TODO, id: id, text: text };
-	};
-	var completeTodo = exports.completeTodo = function completeTodo(id) {
-	  return { type: types.COMPLETE_TODO, id: id };
-	};
-	var completeAll = exports.completeAll = function completeAll() {
-	  return { type: types.COMPLETE_ALL };
-	};
-	var clearCompleted = exports.clearCompleted = function clearCompleted() {
-	  return { type: types.CLEAR_COMPLETED };
-	};
-
-/***/ },
-/* 283 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var ADD_TODO = exports.ADD_TODO = 'ADD_TODO';
-	var DELETE_TODO = exports.DELETE_TODO = 'DELETE_TODO';
-	var EDIT_TODO = exports.EDIT_TODO = 'EDIT_TODO';
-	var COMPLETE_TODO = exports.COMPLETE_TODO = 'COMPLETE_TODO';
-	var COMPLETE_ALL = exports.COMPLETE_ALL = 'COMPLETE_ALL';
-	var CLEAR_COMPLETED = exports.CLEAR_COMPLETED = 'CLEAR_COMPLETED';
-
-/***/ },
 /* 284 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _redux = __webpack_require__(208);
-
-	var _todos = __webpack_require__(285);
-
-	var _todos2 = _interopRequireDefault(_todos);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var rootReducer = (0, _redux.combineReducers)({
-	  todos: _todos2.default
-	});
-
-	exports.default = rootReducer;
-
-/***/ },
-/* 285 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = todos;
-
-	var _ActionTypes = __webpack_require__(283);
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-	var initialState = [{
-	  text: 'Use Redux',
-	  completed: false,
-	  id: 0
-	}];
-
-	function todos() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _ActionTypes.ADD_TODO:
-	      return [{
-	        id: state.reduce(function (maxId, todo) {
-	          return Math.max(todo.id, maxId);
-	        }, -1) + 1,
-	        completed: false,
-	        text: action.text
-	      }].concat(_toConsumableArray(state));
-
-	    case _ActionTypes.DELETE_TODO:
-	      return state.filter(function (todo) {
-	        return todo.id !== action.id;
-	      });
-	    case _ActionTypes.EDIT_TODO:
-	      return state.map(function (todo) {
-	        return (
-	          // todo.id === action.id ? { ...todo, text: action.text } : todo
-	          todo
-	        );
-	      });
-
-	    case _ActionTypes.COMPLETE_TODO:
-	      return state.map(function (todo) {
-	        return (
-	          // todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-	          todo
-	        );
-	      });
-
-	    case _ActionTypes.COMPLETE_ALL:
-	      var areAllMarked = state.every(function (todo) {
-	        return todo.completed;
-	      });
-
-	      return state.map(function (todo) {
-	        return (
-	          // ({
-	          //   ...todo,
-	          //   completed: !areAllMarked
-	          // })
-	          todo
-	        );
-	      });
-
-	    case _ActionTypes.CLEAR_COMPLETED:
-	      return state.filter(function (todo) {
-	        return todo.completed === false;
-	      });
-
-	      defalut: return state;
-	  }
-	}
-
-/***/ },
-/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23906,7 +23816,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(289);
+	var _classnames = __webpack_require__(281);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -24016,7 +23926,7 @@
 	};
 
 /***/ },
-/* 287 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24033,11 +23943,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(289);
+	var _classnames = __webpack_require__(281);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _TodoFilters = __webpack_require__(288);
+	var _TodoFilters = __webpack_require__(286);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24136,7 +24046,7 @@
 	};
 
 /***/ },
-/* 288 */
+/* 286 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24149,69 +24059,172 @@
 	var SHOW_ACTIVE = exports.SHOW_ACTIVE = 'show_active';
 
 /***/ },
+/* 287 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.clearCompleted = exports.completeAll = exports.completeTodo = exports.editTodo = exports.deleteTodo = exports.addTodo = undefined;
+
+	var _ActionTypes = __webpack_require__(288);
+
+	var types = _interopRequireWildcard(_ActionTypes);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	var addTodo = exports.addTodo = function addTodo(text) {
+	  return { type: types.ADD_TODO, text: text };
+	};
+	var deleteTodo = exports.deleteTodo = function deleteTodo(text) {
+	  return { type: types.DELETE_TODO, id: id };
+	};
+	var editTodo = exports.editTodo = function editTodo(id, text) {
+	  return { type: types.EDIT_TODO, id: id, text: text };
+	};
+	var completeTodo = exports.completeTodo = function completeTodo(id) {
+	  return { type: types.COMPLETE_TODO, id: id };
+	};
+	var completeAll = exports.completeAll = function completeAll() {
+	  return { type: types.COMPLETE_ALL };
+	};
+	var clearCompleted = exports.clearCompleted = function clearCompleted() {
+	  return { type: types.CLEAR_COMPLETED };
+	};
+
+/***/ },
+/* 288 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var ADD_TODO = exports.ADD_TODO = 'ADD_TODO';
+	var DELETE_TODO = exports.DELETE_TODO = 'DELETE_TODO';
+	var EDIT_TODO = exports.EDIT_TODO = 'EDIT_TODO';
+	var COMPLETE_TODO = exports.COMPLETE_TODO = 'COMPLETE_TODO';
+	var COMPLETE_ALL = exports.COMPLETE_ALL = 'COMPLETE_ALL';
+	var CLEAR_COMPLETED = exports.CLEAR_COMPLETED = 'CLEAR_COMPLETED';
+
+/***/ },
 /* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
+	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 
-	/*!
-	  Copyright (c) 2016 Jed Watson.
-	  Licensed under the MIT License (MIT), see
-	  http://jedwatson.github.io/classnames
-	*/
-	/* global define */
+	var _redux = __webpack_require__(208);
 
-	(function () {
-		'use strict';
+	var _todos = __webpack_require__(290);
 
-		var hasOwn = {}.hasOwnProperty;
+	var _todos2 = _interopRequireDefault(_todos);
 
-		function classNames() {
-			var classes = [];
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-			for (var i = 0; i < arguments.length; i++) {
-				var arg = arguments[i];
-				if (!arg) continue;
+	var rootReducer = (0, _redux.combineReducers)({
+	  todos: _todos2.default
+	});
 
-				var argType = typeof arg === 'undefined' ? 'undefined' : _typeof(arg);
-
-				if (argType === 'string' || argType === 'number') {
-					classes.push(arg);
-				} else if (Array.isArray(arg)) {
-					classes.push(classNames.apply(null, arg));
-				} else if (argType === 'object') {
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(key);
-						}
-					}
-				}
-			}
-
-			return classes.join(' ');
-		}
-
-		if (typeof module !== 'undefined' && module.exports) {
-			module.exports = classNames;
-		} else if ("function" === 'function' && _typeof(__webpack_require__(290)) === 'object' && __webpack_require__(290)) {
-			// register as 'classnames', consistent with npm package name
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-				return classNames;
-			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		} else {
-			window.classNames = classNames;
-		}
-	})();
+	exports.default = rootReducer;
 
 /***/ },
 /* 290 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
+	'use strict';
 
-	/* WEBPACK VAR INJECTION */}.call(exports, {}))
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.default = todos;
+
+	var _ActionTypes = __webpack_require__(288);
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	var initialState = [{
+	  text: 'Use Redux',
+	  completed: false,
+	  id: 0
+	}];
+
+	function todos() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+	  var action = arguments[1];
+
+	  var _ret = function () {
+	    switch (action.type) {
+	      case _ActionTypes.ADD_TODO:
+	        return {
+	          v: [{
+	            id: state.reduce(function (maxId, todo) {
+	              return Math.max(todo.id, maxId);
+	            }, -1) + 1,
+	            completed: false,
+	            text: action.text
+	          }].concat(_toConsumableArray(state))
+	        };
+
+	      case _ActionTypes.DELETE_TODO:
+	        return {
+	          v: state.filter(function (todo) {
+	            return todo.id !== action.id;
+	          })
+	        };
+	      case _ActionTypes.EDIT_TODO:
+	        return {
+	          v: state.map(function (todo) {
+	            return todo.id === action.id ? _extends({}, todo, { text: action.text }) : todo;
+	          })
+	        };
+
+	      case _ActionTypes.COMPLETE_TODO:
+	        return {
+	          v: state.map(function (todo) {
+	            return todo.id === action.id ? _extends({}, todo, { completed: !todo.completed }) : todo;
+	          })
+	        };
+
+	      case _ActionTypes.COMPLETE_ALL:
+	        var areAllMarked = state.every(function (todo) {
+	          return todo.completed;
+	        });
+
+	        return {
+	          v: state.map(function (todo) {
+	            return _extends({}, todo, {
+	              completed: !areAllMarked
+	            });
+	          })
+	        };
+
+	      case _ActionTypes.CLEAR_COMPLETED:
+	        return {
+	          v: state.filter(function (todo) {
+	            return todo.completed === false;
+	          })
+	        };
+
+	        defalut: return {
+	          v: state
+	        };
+	    }
+	  }();
+
+	  if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+	}
 
 /***/ }
 /******/ ]);

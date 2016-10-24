@@ -55,13 +55,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _redux = __webpack_require__(204);
+	var _redux = __webpack_require__(208);
 
-	var _Counter = __webpack_require__(233);
+	var _Counter = __webpack_require__(237);
 
 	var _Counter2 = _interopRequireDefault(_Counter);
 
-	var _reducers = __webpack_require__(234);
+	var _reducers = __webpack_require__(238);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -21520,7 +21520,11 @@
 /* 201 */,
 /* 202 */,
 /* 203 */,
-/* 204 */
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -21528,27 +21532,27 @@
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 
-	var _createStore = __webpack_require__(205);
+	var _createStore = __webpack_require__(209);
 
 	var _createStore2 = _interopRequireDefault(_createStore);
 
-	var _combineReducers = __webpack_require__(214);
+	var _combineReducers = __webpack_require__(218);
 
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 
-	var _bindActionCreators = __webpack_require__(216);
+	var _bindActionCreators = __webpack_require__(220);
 
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 
-	var _applyMiddleware = __webpack_require__(217);
+	var _applyMiddleware = __webpack_require__(221);
 
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 
-	var _compose = __webpack_require__(218);
+	var _compose = __webpack_require__(222);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
-	var _warning = __webpack_require__(215);
+	var _warning = __webpack_require__(219);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -21574,7 +21578,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 205 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21585,11 +21589,11 @@
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
 
-	var _isPlainObject = __webpack_require__(206);
+	var _isPlainObject = __webpack_require__(210);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _symbolObservable = __webpack_require__(210);
+	var _symbolObservable = __webpack_require__(214);
 
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 
@@ -21844,13 +21848,13 @@
 	}
 
 /***/ },
-/* 206 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var getPrototype = __webpack_require__(207),
-	    isObjectLike = __webpack_require__(209);
+	var getPrototype = __webpack_require__(211),
+	    isObjectLike = __webpack_require__(213);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -21918,12 +21922,12 @@
 	module.exports = isPlainObject;
 
 /***/ },
-/* 207 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var overArg = __webpack_require__(208);
+	var overArg = __webpack_require__(212);
 
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -21931,7 +21935,7 @@
 	module.exports = getPrototype;
 
 /***/ },
-/* 208 */
+/* 212 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -21953,7 +21957,7 @@
 	module.exports = overArg;
 
 /***/ },
-/* 209 */
+/* 213 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -21991,15 +21995,15 @@
 	module.exports = isObjectLike;
 
 /***/ },
-/* 210 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(211);
+	module.exports = __webpack_require__(215);
 
 /***/ },
-/* 211 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
@@ -22008,7 +22012,7 @@
 	  value: true
 	});
 
-	var _ponyfill = __webpack_require__(213);
+	var _ponyfill = __webpack_require__(217);
 
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 
@@ -22032,10 +22036,10 @@
 
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(212)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(216)(module)))
 
 /***/ },
-/* 212 */
+/* 216 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22052,7 +22056,7 @@
 	};
 
 /***/ },
-/* 213 */
+/* 217 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22080,7 +22084,7 @@
 	};
 
 /***/ },
-/* 214 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -22088,13 +22092,13 @@
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
 
-	var _createStore = __webpack_require__(205);
+	var _createStore = __webpack_require__(209);
 
-	var _isPlainObject = __webpack_require__(206);
+	var _isPlainObject = __webpack_require__(210);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _warning = __webpack_require__(215);
+	var _warning = __webpack_require__(219);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -22230,7 +22234,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 215 */
+/* 219 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22260,7 +22264,7 @@
 	}
 
 /***/ },
-/* 216 */
+/* 220 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22318,7 +22322,7 @@
 	}
 
 /***/ },
-/* 217 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22337,7 +22341,7 @@
 
 	exports['default'] = applyMiddleware;
 
-	var _compose = __webpack_require__(218);
+	var _compose = __webpack_require__(222);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
@@ -22391,7 +22395,7 @@
 	}
 
 /***/ },
-/* 218 */
+/* 222 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22434,10 +22438,6 @@
 	}
 
 /***/ },
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
 /* 223 */,
 /* 224 */,
 /* 225 */,
@@ -22448,7 +22448,11 @@
 /* 230 */,
 /* 231 */,
 /* 232 */,
-/* 233 */
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22553,7 +22557,7 @@
 	exports.default = Counter;
 
 /***/ },
-/* 234 */
+/* 238 */
 /***/ function(module, exports) {
 
 	'use strict';

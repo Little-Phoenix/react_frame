@@ -11,13 +11,16 @@ const TODO_FILTERS = {
 
 export default class MainSection extends Component {
 
-  state = { filter: SHOW_ALL }
+  constructor(props){
+    super(props)
+    this.state = {filter : SHOW_ALL}
+  }
 
-  handleClearCompleted = () => {
+  handleClearCompleted() {
     this.props.actions.clearCompeted()
   }
 
-  handleShow = filter => {
+  handleShow(filter) {
     this.setState({ filter })
   }
 

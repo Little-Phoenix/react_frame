@@ -13,7 +13,9 @@ module.exports = {
     'key-fragments': 'key-fragments',
     'immutability-helpers': 'immutability-helpers',
     'shallow-compare': 'shallow-compare',
-    'link-mixin': 'link mixin'
+    'link-mixin': 'link mixin',
+    'redux-counter': 'redux-counter',
+    'redux-todos': 'redux-tods'
     // 'video' : 'video'
   }
 }

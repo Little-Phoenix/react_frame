@@ -68,6 +68,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var store = (0, _redux.createStore)(_reducers2.default);
+	console.log(store.getState());
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRedux.Provider,
 	  { store: store },
@@ -23403,9 +23404,9 @@
 
 	var _MainSection2 = _interopRequireDefault(_MainSection);
 
-	var _index = __webpack_require__(301);
+	var _action = __webpack_require__(305);
 
-	var TodoActions = _interopRequireWildcard(_index);
+	var TodoActions = _interopRequireWildcard(_action);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -23473,19 +23474,24 @@
 	  _inherits(Header, _Component);
 
 	  function Header() {
+	    var _ref;
+
+	    var _temp, _this, _ret;
+
 	    _classCallCheck(this, Header);
 
-	    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Header.__proto__ || Object.getPrototypeOf(Header)).call.apply(_ref, [this].concat(args))), _this), _this.handleSave = function (text) {
+	      if (text.length !== 0) {
+	        _this.props.addTodo(text);
+	      }
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 
 	  _createClass(Header, [{
-	    key: 'handleSave',
-	    value: function handleSave(text) {
-	      if (text.length !== 0) {
-	        this.props.addTodo(text);
-	      }
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -23504,12 +23510,10 @@
 	  return Header;
 	}(_react.Component);
 
-	exports.default = Header;
-
-
 	Header.propTypes = {
 	  addTodo: _react.PropTypes.func.isRequired
 	};
+	exports.default = Header;
 
 /***/ },
 /* 294 */
@@ -23547,6 +23551,26 @@
 
 	    var _this = _possibleConstructorReturn(this, (TodoTextInput.__proto__ || Object.getPrototypeOf(TodoTextInput)).call(this, props));
 
+	    _this.handleSubmit = function (e) {
+	      var text = e.target.value.trim();
+	      if (e.which === 13) {
+	        _this.props.onSave(text);
+	        if (_this.props.newTodo) {
+	          _this.setState({ text: '' });
+	        }
+	      }
+	    };
+
+	    _this.handleChange = function (e) {
+	      _this.setState({ text: e.target.value });
+	    };
+
+	    _this.handleBlur = function (e) {
+	      if (!_this.props.newTodo) {
+	        _this.props.onSave(e.target.value);
+	      }
+	    };
+
 	    _this.state = {
 	      text: props.text || ''
 	    };
@@ -23554,29 +23578,6 @@
 	  }
 
 	  _createClass(TodoTextInput, [{
-	    key: 'handleSubmit',
-	    value: function handleSubmit(e) {
-	      var text = e.target.value.trim();
-	      if (e.which === 13) {
-	        this.props.onSave(text);
-	        if (this.props.newTodo) {
-	          this.setState({ text: '' });
-	        }
-	      }
-	    }
-	  }, {
-	    key: 'handleChange',
-	    value: function handleChange(e) {
-	      this.setState({ text: e.target.value });
-	    }
-	  }, {
-	    key: 'handleBlur',
-	    value: function handleBlur(e) {
-	      if (!this.props.newTodo) {
-	        this.props.onSave(e.target.value);
-	      }
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement('input', { className: (0, _classnames2.default)({
@@ -23728,26 +23729,18 @@
 
 	    var _this = _possibleConstructorReturn(this, (MainSection.__proto__ || Object.getPrototypeOf(MainSection)).call(this, props));
 
-	    _this.state = { filter: _TodoFilters.SHOW_ALL };
-	    return _this;
-	  }
+	    _this.handleClearCompleted = function () {
+	      _this.props.actions.clearCompleted();
+	    };
 
-	  _createClass(MainSection, [{
-	    key: 'handleClearCompleted',
-	    value: function handleClearCompleted() {
-	      this.props.actions.clearCompeted();
-	    }
-	  }, {
-	    key: 'handleShow',
-	    value: function handleShow(filter) {
-	      this.setState({ filter: filter });
-	    }
-	  }, {
-	    key: 'renderToggleAll',
-	    value: function renderToggleAll(completedCount) {
-	      var _props = this.props;
-	      var todos = _props.todos;
-	      var actions = _props.actions;
+	    _this.handleShow = function (filter) {
+	      _this.setState({ filter: filter });
+	    };
+
+	    _this.renderToggleAll = function (completedCount) {
+	      var _this$props = _this.props;
+	      var todos = _this$props.todos;
+	      var actions = _this$props.actions;
 
 
 	      if (todos.length > 0) {
@@ -23756,8 +23749,13 @@
 	          checked: completedCount === todos.length,
 	          onChange: actions.completeAll });
 	      }
-	    }
-	  }, {
+	    };
+
+	    _this.state = { filter: _TodoFilters.SHOW_ALL };
+	    return _this;
+	  }
+
+	  _createClass(MainSection, [{
 	    key: 'renderFooter',
 	    value: function renderFooter(completedCount) {
 	      var todos = this.props.todos;
@@ -23776,9 +23774,9 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _props2 = this.props;
-	      var todos = _props2.todos;
-	      var actions = _props2.actions;
+	      var _props = this.props;
+	      var todos = _props.todos;
+	      var actions = _props.actions;
 	      var filter = this.state.filter;
 
 
@@ -23854,6 +23852,20 @@
 
 	    var _this = _possibleConstructorReturn(this, (TodoItem.__proto__ || Object.getPrototypeOf(TodoItem)).call(this, props));
 
+	    _this.handleDoubleClick = function () {
+	      _this.setState({ editing: true });
+	    };
+
+	    _this.handleSave = function (id, text) {
+	      if (text.length === 0) {
+	        _this.props.deleteTodo(id);
+	      } else {
+	        _this.props.editTodo(id, text);
+	      }
+
+	      _this.setState({ editing: false });
+	    };
+
 	    _this.state = {
 	      editing: false
 	    };
@@ -23861,22 +23873,6 @@
 	  }
 
 	  _createClass(TodoItem, [{
-	    key: 'handleDoubleClick',
-	    value: function handleDoubleClick() {
-	      this.setState({ editing: true });
-	    }
-	  }, {
-	    key: 'handleSave',
-	    value: function handleSave(id, text) {
-	      if (text.length === 0) {
-	        this.props.deleteTodo(id);
-	      } else {
-	        this.props.editTodo(id, text);
-	      }
-
-	      this.setState({ editing: false });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -23909,9 +23905,14 @@
 	            { onDoubleClick: this.handleDoubleClick },
 	            todo.text
 	          ),
-	          _react2.default.createElement('button', { className: 'destroy', onClick: function onClick() {
-	              return deleteTodo(todo.id);
-	            } })
+	          ' ',
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'destroy', onClick: function onClick() {
+	                return deleteTodo(todo.id);
+	              } },
+	            'destroy'
+	          )
 	        );
 	      }
 
@@ -23936,7 +23937,7 @@
 	  todo: _react.PropTypes.object.isRequired,
 	  editTodo: _react.PropTypes.func.isRequired,
 	  deleteTodo: _react.PropTypes.func.isRequired,
-	  completedTodo: _react.PropTypes.func.isRequired
+	  completeTodo: _react.PropTypes.func.isRequired
 	};
 
 /***/ },
@@ -23979,15 +23980,18 @@
 	  _inherits(Footer, _Component);
 
 	  function Footer() {
+	    var _ref;
+
+	    var _temp, _this, _ret;
+
 	    _classCallCheck(this, Footer);
 
-	    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
-	  }
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
 
-	  _createClass(Footer, [{
-	    key: 'renderTodoCount',
-	    value: function renderTodoCount() {
-	      var activeCount = this.props.activeCount;
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Footer.__proto__ || Object.getPrototypeOf(Footer)).call.apply(_ref, [this].concat(args))), _this), _this.renderTodoCount = function () {
+	      var activeCount = _this.props.activeCount;
 
 	      var itemWord = activeCount === 1 ? 'item' : 'items';
 
@@ -24003,13 +24007,25 @@
 	        itemWord,
 	        ' left'
 	      );
-	    }
-	  }, {
-	    key: 'renderClearButton',
-	    value: function renderClearButton() {
-	      var _prop = this.prop;
-	      var completedCount = _prop.completedCount;
-	      var onClearCompleted = _prop.onClearCompleted;
+	    }, _this.renderFilterLink = function (filter) {
+	      var title = FILTER_TITLES[filter];
+	      var _this$props = _this.props;
+	      var selectedFilter = _this$props.filter;
+	      var onShow = _this$props.onShow;
+
+	      return _react2.default.createElement(
+	        'a',
+	        { className: (0, _classnames2.default)({ selected: filter === selectedFilter }),
+	          style: { cursor: 'pointer' },
+	          onClick: function onClick() {
+	            return onShow(filter);
+	          } },
+	        title
+	      );
+	    }, _this.renderClearButton = function () {
+	      var _this$props2 = _this.props;
+	      var completedCount = _this$props2.completedCount;
+	      var onClearCompleted = _this$props2.onClearCompleted;
 
 	      if (completedCount > 0) {
 	        return _react2.default.createElement(
@@ -24019,8 +24035,10 @@
 	          'Clear completed'
 	        );
 	      }
-	    }
-	  }, {
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(Footer, [{
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -24048,16 +24066,14 @@
 	  return Footer;
 	}(_react.Component);
 
-	exports.default = Footer;
-
-
 	Footer.propTypes = {
 	  completedCount: _react.PropTypes.number.isRequired,
 	  activeCount: _react.PropTypes.number.isRequired,
-	  filter: _react.PropTypes.number.isRequired,
+	  filter: _react.PropTypes.string.isRequired,
 	  onClearCompleted: _react.PropTypes.func.isRequired,
 	  onShow: _react.PropTypes.func.isRequired
 	};
+	exports.default = Footer;
 
 /***/ },
 /* 300 */
@@ -24073,42 +24089,7 @@
 	var SHOW_ACTIVE = exports.SHOW_ACTIVE = 'show_active';
 
 /***/ },
-/* 301 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.clearCompleted = exports.completeAll = exports.completeTodo = exports.editTodo = exports.deleteTodo = exports.addTodo = undefined;
-
-	var _ActionTypes = __webpack_require__(302);
-
-	var types = _interopRequireWildcard(_ActionTypes);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	var addTodo = exports.addTodo = function addTodo(text) {
-	  return { type: types.ADD_TODO, text: text };
-	};
-	var deleteTodo = exports.deleteTodo = function deleteTodo(text) {
-	  return { type: types.DELETE_TODO, id: id };
-	};
-	var editTodo = exports.editTodo = function editTodo(id, text) {
-	  return { type: types.EDIT_TODO, id: id, text: text };
-	};
-	var completeTodo = exports.completeTodo = function completeTodo(id) {
-	  return { type: types.COMPLETE_TODO, id: id };
-	};
-	var completeAll = exports.completeAll = function completeAll() {
-	  return { type: types.COMPLETE_ALL };
-	};
-	var clearCompleted = exports.clearCompleted = function clearCompleted() {
-	  return { type: types.CLEAR_COMPLETED };
-	};
-
-/***/ },
+/* 301 */,
 /* 302 */
 /***/ function(module, exports) {
 
@@ -24142,11 +24123,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// const rootReducer = combineReducers({
-	//   todos
-	// })
-
-	var rootReducer = _todos2.default;
+	var rootReducer = (0, _redux.combineReducers)({
+	  todos: _todos2.default
+	});
 
 	exports.default = rootReducer;
 
@@ -24233,7 +24212,8 @@
 	          })
 	        };
 
-	        defalut: return {
+	      default:
+	        return {
 	          v: state
 	        };
 	    }
@@ -24241,6 +24221,42 @@
 
 	  if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
 	}
+
+/***/ },
+/* 305 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.clearCompleted = exports.completeAll = exports.completeTodo = exports.editTodo = exports.deleteTodo = exports.addTodo = undefined;
+
+	var _ActionTypes = __webpack_require__(302);
+
+	var types = _interopRequireWildcard(_ActionTypes);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	var addTodo = exports.addTodo = function addTodo(text) {
+	  return { type: types.ADD_TODO, text: text };
+	};
+	var deleteTodo = exports.deleteTodo = function deleteTodo(id) {
+	  return { type: types.DELETE_TODO, id: id };
+	};
+	var editTodo = exports.editTodo = function editTodo(id, text) {
+	  return { type: types.EDIT_TODO, id: id, text: text };
+	};
+	var completeTodo = exports.completeTodo = function completeTodo(id) {
+	  return { type: types.COMPLETE_TODO, id: id };
+	};
+	var completeAll = exports.completeAll = function completeAll() {
+	  return { type: types.COMPLETE_ALL };
+	};
+	var clearCompleted = exports.clearCompleted = function clearCompleted() {
+	  return { type: types.CLEAR_COMPLETED };
+	};
 
 /***/ }
 /******/ ]);

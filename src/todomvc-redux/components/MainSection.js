@@ -16,15 +16,15 @@ export default class MainSection extends Component {
     this.state = {filter : SHOW_ALL}
   }
 
-  handleClearCompleted() {
-    this.props.actions.clearCompeted()
+  handleClearCompleted = () => {
+    this.props.actions.clearCompleted()
   }
 
-  handleShow(filter) {
+  handleShow = (filter) => {
     this.setState({ filter })
   }
 
-  renderToggleAll(completedCount){
+  renderToggleAll = (completedCount) => {
     const { todos, actions } = this.props;
 
     if(todos.length > 0){

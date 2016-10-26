@@ -10,7 +10,15 @@ const FILTER_TITLES = {
 
 export default class Footer extends Component{
 
-  renderTodoCount(){
+  static propTypes = {
+    completedCount: PropTypes.number.isRequired,
+    activeCount: PropTypes.number.isRequired,
+    filter: PropTypes.string.isRequired,
+    onClearCompleted: PropTypes.func.isRequired,
+    onShow: PropTypes.func.isRequired
+  }
+
+  renderTodoCount = () => {
     const { activeCount } = this.props;
     const itemWord = activeCount === 1 ? 'item' : 'items'
 
@@ -21,8 +29,20 @@ export default class Footer extends Component{
     )
   }
 
-  renderClearButton(){
-    const { completedCount, onClearCompleted } = this.prop
+  renderFilterLink = (filter) => {
+    const title = FILTER_TITLES[filter];
+    const { filter : selectedFilter, onShow } = this.props
+    return (
+      <a className={classnames({ selected: filter === selectedFilter })}
+         style = {{ cursor: 'pointer' }}
+         onClick={() => onShow(filter)}>
+         {title}
+      </a>
+    )
+  }
+
+  renderClearButton = () => {
+    const { completedCount, onClearCompleted } = this.props
     if(completedCount > 0){
       return (
         <button className="clear-completed"
@@ -50,13 +70,4 @@ export default class Footer extends Component{
       </footer>
     )
   }
-}
-
-
-Footer.propTypes = {
-  completedCount: PropTypes.number.isRequired,
-  activeCount: PropTypes.number.isRequired,
-  filter: PropTypes.number.isRequired,
-  onClearCompleted: PropTypes.func.isRequired,
-  onShow: PropTypes.func.isRequired
 }

@@ -49,7 +49,7 @@ export default function todos(state = initialState, action){
     case CLEAR_COMPLETED:
       return state.filter(todo => todo.completed === false)
 
-    defalut:
+    default:
       return state
   }
 }

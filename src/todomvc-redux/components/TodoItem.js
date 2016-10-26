@@ -11,11 +11,11 @@ export default class TodoItem extends Component{
     }
   }
 
-  handleDoubleClick() {
+  handleDoubleClick = () => {
     this.setState({ editing: true })
   }
 
-  handleSave(id, text) {
+  handleSave = (id, text) => {
     if(text.length === 0){
       this.props.deleteTodo(id)
     }else{
@@ -26,6 +26,7 @@ export default class TodoItem extends Component{
   }
 
   render(){
+
     const { todo, completeTodo, deleteTodo } = this.props;
 
     let element
@@ -45,7 +46,10 @@ export default class TodoItem extends Component{
           <label onDoubleClick={this.handleDoubleClick}>
             {todo.text}
           </label>
-          <button className="destroy" onClick={() => deleteTodo(todo.id)}/>
+          {' '}
+          <button className="destroy" onClick={() => deleteTodo(todo.id)}>
+            destroy
+          </button>
         </div>
       )
     }
@@ -68,5 +72,5 @@ TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
   editTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
-  completedTodo: PropTypes.func.isRequired
+  completeTodo: PropTypes.func.isRequired
 }

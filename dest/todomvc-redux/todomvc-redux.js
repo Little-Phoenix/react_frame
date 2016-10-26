@@ -57,11 +57,11 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _App = __webpack_require__(280);
+	var _App = __webpack_require__(292);
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _reducers = __webpack_require__(291);
+	var _reducers = __webpack_require__(303);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -23366,7 +23366,19 @@
 /* 277 */,
 /* 278 */,
 /* 279 */,
-/* 280 */
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23383,15 +23395,15 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _Header = __webpack_require__(281);
+	var _Header = __webpack_require__(293);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _MainSection = __webpack_require__(285);
+	var _MainSection = __webpack_require__(297);
 
 	var _MainSection2 = _interopRequireDefault(_MainSection);
 
-	var _index = __webpack_require__(289);
+	var _index = __webpack_require__(301);
 
 	var TodoActions = _interopRequireWildcard(_index);
 
@@ -23430,7 +23442,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
 
 /***/ },
-/* 281 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23445,7 +23457,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _TodoTextInput = __webpack_require__(282);
+	var _TodoTextInput = __webpack_require__(294);
 
 	var _TodoTextInput2 = _interopRequireDefault(_TodoTextInput);
 
@@ -23500,7 +23512,7 @@
 	};
 
 /***/ },
-/* 282 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23515,7 +23527,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(283);
+	var _classnames = __webpack_require__(295);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -23596,7 +23608,7 @@
 	};
 
 /***/ },
-/* 283 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -23642,7 +23654,7 @@
 
 		if (typeof module !== 'undefined' && module.exports) {
 			module.exports = classNames;
-		} else if ("function" === 'function' && _typeof(__webpack_require__(284)) === 'object' && __webpack_require__(284)) {
+		} else if ("function" === 'function' && _typeof(__webpack_require__(296)) === 'object' && __webpack_require__(296)) {
 			// register as 'classnames', consistent with npm package name
 			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 				return classNames;
@@ -23653,7 +23665,7 @@
 	})();
 
 /***/ },
-/* 284 */
+/* 296 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -23661,7 +23673,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 285 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23680,15 +23692,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _TodoItem = __webpack_require__(286);
+	var _TodoItem = __webpack_require__(298);
 
 	var _TodoItem2 = _interopRequireDefault(_TodoItem);
 
-	var _Footer = __webpack_require__(287);
+	var _Footer = __webpack_require__(299);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	var _TodoFilters = __webpack_require__(288);
+	var _TodoFilters = __webpack_require__(300);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23803,7 +23815,7 @@
 	};
 
 /***/ },
-/* 286 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23818,11 +23830,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(283);
+	var _classnames = __webpack_require__(295);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _TodoTextInput = __webpack_require__(282);
+	var _TodoTextInput = __webpack_require__(294);
 
 	var _TodoTextInput2 = _interopRequireDefault(_TodoTextInput);
 
@@ -23928,7 +23940,7 @@
 	};
 
 /***/ },
-/* 287 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23945,11 +23957,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(283);
+	var _classnames = __webpack_require__(295);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _TodoFilters = __webpack_require__(288);
+	var _TodoFilters = __webpack_require__(300);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24048,7 +24060,7 @@
 	};
 
 /***/ },
-/* 288 */
+/* 300 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24061,7 +24073,7 @@
 	var SHOW_ACTIVE = exports.SHOW_ACTIVE = 'show_active';
 
 /***/ },
-/* 289 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24071,7 +24083,7 @@
 	});
 	exports.clearCompleted = exports.completeAll = exports.completeTodo = exports.editTodo = exports.deleteTodo = exports.addTodo = undefined;
 
-	var _ActionTypes = __webpack_require__(290);
+	var _ActionTypes = __webpack_require__(302);
 
 	var types = _interopRequireWildcard(_ActionTypes);
 
@@ -24097,7 +24109,7 @@
 	};
 
 /***/ },
-/* 290 */
+/* 302 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24113,7 +24125,7 @@
 	var CLEAR_COMPLETED = exports.CLEAR_COMPLETED = 'CLEAR_COMPLETED';
 
 /***/ },
-/* 291 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24124,7 +24136,7 @@
 
 	var _redux = __webpack_require__(208);
 
-	var _todos = __webpack_require__(292);
+	var _todos = __webpack_require__(304);
 
 	var _todos2 = _interopRequireDefault(_todos);
 
@@ -24139,7 +24151,7 @@
 	exports.default = rootReducer;
 
 /***/ },
-/* 292 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24154,7 +24166,7 @@
 
 	exports.default = todos;
 
-	var _ActionTypes = __webpack_require__(290);
+	var _ActionTypes = __webpack_require__(302);
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 

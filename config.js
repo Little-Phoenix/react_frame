@@ -15,7 +15,9 @@ module.exports = {
     'shallow-compare': 'shallow-compare',
     'link-mixin': 'link mixin',
     'redux-counter': 'redux-counter',
-    'redux-todos': 'redux-tods'
+    'redux-todos': 'redux-tods',
+    'redux-todomvc': '自己写的待办，基于redux',
+    'select': '省市联动'
     // 'video' : 'video'
   }
 }

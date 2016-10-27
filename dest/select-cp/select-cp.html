@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>省市联动</title>
+  </head>
+  <body>
+    <select class="province" id="province" onChange="provinceOptions.changeProvince()">
+
+    </select>
+    <select class="city" id="city">
+
+    </select>
+    <script type="text/javascript">
+      var provinceOptions = {
+        el: document.getElementById('province'),
+        provinceSelect: document.getElementById('province'),
+        citySelect: document.getElementById('city'),
+        provinces: [
+          {
+            "ProID": 1,
+            "name": "北京市",
+            "ProSort": 1,
+            "ProRemark": "直辖市"
+          }, {
+            "ProID": 2,
+            "name": "天津市",
+            "ProSort": 2,
+            "ProRemark": "直辖市"
+          }, {
+            "ProID": 3,
+            "name": "河北省",
+            "ProSort": 5,
+            "ProRemark": "省份"
+          }
+        ],
+        citys: [
+          {
+            "CityID": 1,
+            "name": "北京市",
+            "ProID": 1,
+            "CitySort": 1
+          }, {
+            "CityID": 2,
+            "name": "天津市",
+            "ProID": 2,
+            "CitySort": 2
+          }, {
+            "CityID": 5,
+            "name": "邯郸市",
+            "ProID": 3,
+            "CitySort": 5
+          }, {
+            "CityID": 6,
+            "name": "石家庄市",
+            "ProID": 3,
+            "CitySort": 6
+          }, {
+            "CityID": 7,
+            "name": "保定市",
+            "ProID": 3,
+            "CitySort": 7
+          }
+        ],
+        init: function(){
+          var provinceOptions = ''
+          this.provinces.forEach(function(item, i){
+            provinceOptions += "<option id='"+item.ProID+"'"+ (item.ProSort == 1 ? 'selected=selected' : '') +" value="+item.ProID+">"+item.name+"</option>"
+          })
+
+          this.provinceSelect.innerHTML = provinceOptions;
+
+          this.selectCitys(this.getSelectedProvince())
+        },
+        selectCitys: function(provinceId){
+          var cityOptions = ''
+
+          this.citys.forEach(function(item, i){
+
+            if(item.ProID == provinceId){
+              cityOptions += "<option id='"+item.CityID+"'>"+item.name+"</option>"
+            }
+          })
+          this.citySelect.innerHTML = cityOptions
+        },
+        getSelectedProvince: function(){
+          return this.provinceSelect.value;
+        },
+        changeProvince: function(){
+          this.selectCitys(this.getSelectedProvince())
+        }
+      }
+
+      provinceOptions.init()
+    </script>
+  </body>
+</html>

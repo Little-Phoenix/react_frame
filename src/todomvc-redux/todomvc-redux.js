@@ -5,8 +5,10 @@ import { Provider } from 'react-redux';
 import App from './containers/App';
 import reducer from './reducers/reducers';
 
+// import { provinces, citys } from './address'
+
 const store = createStore(reducer)
-console.log(store.getState());
+
 render(
   <Provider store={store}>
     <App />

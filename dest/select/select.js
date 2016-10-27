@@ -45,7 +45,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(module) {'use strict';
 
 	var _react = __webpack_require__(177);
 
@@ -53,29 +53,2043 @@
 
 	var _reactDom = __webpack_require__(178);
 
-	var _redux = __webpack_require__(208);
-
-	var _reactRedux = __webpack_require__(223);
-
-	var _App = __webpack_require__(292);
-
-	var _App2 = _interopRequireDefault(_App);
-
-	var _reducers = __webpack_require__(303);
-
-	var _reducers2 = _interopRequireDefault(_reducers);
+	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// import { provinces, citys } from './address'
+	var provinces = [{
+	  "ProID": 1,
+	  "name": "北京市",
+	  "ProSort": 1,
+	  "ProRemark": "直辖市"
+	}, {
+	  "ProID": 2,
+	  "name": "天津市",
+	  "ProSort": 2,
+	  "ProRemark": "直辖市"
+	}, {
+	  "ProID": 3,
+	  "name": "河北省",
+	  "ProSort": 5,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 4,
+	  "name": "山西省",
+	  "ProSort": 6,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 5,
+	  "name": "内蒙古自治区",
+	  "ProSort": 32,
+	  "ProRemark": "自治区"
+	}, {
+	  "ProID": 6,
+	  "name": "辽宁省",
+	  "ProSort": 8,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 7,
+	  "name": "吉林省",
+	  "ProSort": 9,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 8,
+	  "name": "黑龙江省",
+	  "ProSort": 10,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 9,
+	  "name": "上海市",
+	  "ProSort": 3,
+	  "ProRemark": "直辖市"
+	}, {
+	  "ProID": 10,
+	  "name": "江苏省",
+	  "ProSort": 11,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 11,
+	  "name": "浙江省",
+	  "ProSort": 12,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 12,
+	  "name": "安徽省",
+	  "ProSort": 13,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 13,
+	  "name": "福建省",
+	  "ProSort": 14,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 14,
+	  "name": "江西省",
+	  "ProSort": 15,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 15,
+	  "name": "山东省",
+	  "ProSort": 16,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 16,
+	  "name": "河南省",
+	  "ProSort": 17,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 17,
+	  "name": "湖北省",
+	  "ProSort": 18,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 18,
+	  "name": "湖南省",
+	  "ProSort": 19,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 19,
+	  "name": "广东省",
+	  "ProSort": 20,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 20,
+	  "name": "海南省",
+	  "ProSort": 24,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 21,
+	  "name": "广西壮族自治区",
+	  "ProSort": 28,
+	  "ProRemark": "自治区"
+	}, {
+	  "ProID": 22,
+	  "name": "甘肃省",
+	  "ProSort": 21,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 23,
+	  "name": "陕西省",
+	  "ProSort": 27,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 24,
+	  "name": "新疆维吾尔自治区",
+	  "ProSort": 31,
+	  "ProRemark": "自治区"
+	}, {
+	  "ProID": 25,
+	  "name": "青海省",
+	  "ProSort": 26,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 26,
+	  "name": "宁夏回族自治区",
+	  "ProSort": 30,
+	  "ProRemark": "自治区"
+	}, {
+	  "ProID": 27,
+	  "name": "重庆市",
+	  "ProSort": 4,
+	  "ProRemark": "直辖市"
+	}, {
+	  "ProID": 28,
+	  "name": "四川省",
+	  "ProSort": 22,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 29,
+	  "name": "贵州省",
+	  "ProSort": 23,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 30,
+	  "name": "云南省",
+	  "ProSort": 25,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 31,
+	  "name": "西藏自治区",
+	  "ProSort": 29,
+	  "ProRemark": "自治区"
+	}, {
+	  "ProID": 32,
+	  "name": "台湾省",
+	  "ProSort": 7,
+	  "ProRemark": "省份"
+	}, {
+	  "ProID": 33,
+	  "name": "澳门特别行政区",
+	  "ProSort": 33,
+	  "ProRemark": "特别行政区"
+	}, {
+	  "ProID": 34,
+	  "name": "香港特别行政区",
+	  "ProSort": 34,
+	  "ProRemark": "特别行政区"
+	}];
+	var citys = [{
+	  "CityID": 1,
+	  "name": "北京市",
+	  "ProID": 1,
+	  "CitySort": 1
+	}, {
+	  "CityID": 2,
+	  "name": "天津市",
+	  "ProID": 2,
+	  "CitySort": 2
+	}, {
+	  "CityID": 3,
+	  "name": "上海市",
+	  "ProID": 9,
+	  "CitySort": 3
+	}, {
+	  "CityID": 4,
+	  "name": "重庆市",
+	  "ProID": 27,
+	  "CitySort": 4
+	}, {
+	  "CityID": 5,
+	  "name": "邯郸市",
+	  "ProID": 3,
+	  "CitySort": 5
+	}, {
+	  "CityID": 6,
+	  "name": "石家庄市",
+	  "ProID": 3,
+	  "CitySort": 6
+	}, {
+	  "CityID": 7,
+	  "name": "保定市",
+	  "ProID": 3,
+	  "CitySort": 7
+	}, {
+	  "CityID": 8,
+	  "name": "张家口市",
+	  "ProID": 3,
+	  "CitySort": 8
+	}, {
+	  "CityID": 9,
+	  "name": "承德市",
+	  "ProID": 3,
+	  "CitySort": 9
+	}, {
+	  "CityID": 10,
+	  "name": "唐山市",
+	  "ProID": 3,
+	  "CitySort": 10
+	}, {
+	  "CityID": 11,
+	  "name": "廊坊市",
+	  "ProID": 3,
+	  "CitySort": 11
+	}, {
+	  "CityID": 12,
+	  "name": "沧州市",
+	  "ProID": 3,
+	  "CitySort": 12
+	}, {
+	  "CityID": 13,
+	  "name": "衡水市",
+	  "ProID": 3,
+	  "CitySort": 13
+	}, {
+	  "CityID": 14,
+	  "name": "邢台市",
+	  "ProID": 3,
+	  "CitySort": 14
+	}, {
+	  "CityID": 15,
+	  "name": "秦皇岛市",
+	  "ProID": 3,
+	  "CitySort": 15
+	}, {
+	  "CityID": 16,
+	  "name": "朔州市",
+	  "ProID": 4,
+	  "CitySort": 16
+	}, {
+	  "CityID": 17,
+	  "name": "忻州市",
+	  "ProID": 4,
+	  "CitySort": 17
+	}, {
+	  "CityID": 18,
+	  "name": "太原市",
+	  "ProID": 4,
+	  "CitySort": 18
+	}, {
+	  "CityID": 19,
+	  "name": "大同市",
+	  "ProID": 4,
+	  "CitySort": 19
+	}, {
+	  "CityID": 20,
+	  "name": "阳泉市",
+	  "ProID": 4,
+	  "CitySort": 20
+	}, {
+	  "CityID": 21,
+	  "name": "晋中市",
+	  "ProID": 4,
+	  "CitySort": 21
+	}, {
+	  "CityID": 22,
+	  "name": "长治市",
+	  "ProID": 4,
+	  "CitySort": 22
+	}, {
+	  "CityID": 23,
+	  "name": "晋城市",
+	  "ProID": 4,
+	  "CitySort": 23
+	}, {
+	  "CityID": 24,
+	  "name": "临汾市",
+	  "ProID": 4,
+	  "CitySort": 24
+	}, {
+	  "CityID": 25,
+	  "name": "吕梁市",
+	  "ProID": 4,
+	  "CitySort": 25
+	}, {
+	  "CityID": 26,
+	  "name": "运城市",
+	  "ProID": 4,
+	  "CitySort": 26
+	}, {
+	  "CityID": 27,
+	  "name": "沈阳市",
+	  "ProID": 6,
+	  "CitySort": 27
+	}, {
+	  "CityID": 28,
+	  "name": "铁岭市",
+	  "ProID": 6,
+	  "CitySort": 28
+	}, {
+	  "CityID": 29,
+	  "name": "大连市",
+	  "ProID": 6,
+	  "CitySort": 29
+	}, {
+	  "CityID": 30,
+	  "name": "鞍山市",
+	  "ProID": 6,
+	  "CitySort": 30
+	}, {
+	  "CityID": 31,
+	  "name": "抚顺市",
+	  "ProID": 6,
+	  "CitySort": 31
+	}, {
+	  "CityID": 32,
+	  "name": "本溪市",
+	  "ProID": 6,
+	  "CitySort": 32
+	}, {
+	  "CityID": 33,
+	  "name": "丹东市",
+	  "ProID": 6,
+	  "CitySort": 33
+	}, {
+	  "CityID": 34,
+	  "name": "锦州市",
+	  "ProID": 6,
+	  "CitySort": 34
+	}, {
+	  "CityID": 35,
+	  "name": "营口市",
+	  "ProID": 6,
+	  "CitySort": 35
+	}, {
+	  "CityID": 36,
+	  "name": "阜新市",
+	  "ProID": 6,
+	  "CitySort": 36
+	}, {
+	  "CityID": 37,
+	  "name": "辽阳市",
+	  "ProID": 6,
+	  "CitySort": 37
+	}, {
+	  "CityID": 38,
+	  "name": "朝阳市",
+	  "ProID": 6,
+	  "CitySort": 38
+	}, {
+	  "CityID": 39,
+	  "name": "盘锦市",
+	  "ProID": 6,
+	  "CitySort": 39
+	}, {
+	  "CityID": 40,
+	  "name": "葫芦岛市",
+	  "ProID": 6,
+	  "CitySort": 40
+	}, {
+	  "CityID": 41,
+	  "name": "长春市",
+	  "ProID": 7,
+	  "CitySort": 41
+	}, {
+	  "CityID": 42,
+	  "name": "吉林市",
+	  "ProID": 7,
+	  "CitySort": 42
+	}, {
+	  "CityID": 43,
+	  "name": "延边朝鲜族自治州",
+	  "ProID": 7,
+	  "CitySort": 43
+	}, {
+	  "CityID": 44,
+	  "name": "四平市",
+	  "ProID": 7,
+	  "CitySort": 44
+	}, {
+	  "CityID": 45,
+	  "name": "通化市",
+	  "ProID": 7,
+	  "CitySort": 45
+	}, {
+	  "CityID": 46,
+	  "name": "白城市",
+	  "ProID": 7,
+	  "CitySort": 46
+	}, {
+	  "CityID": 47,
+	  "name": "辽源市",
+	  "ProID": 7,
+	  "CitySort": 47
+	}, {
+	  "CityID": 48,
+	  "name": "松原市",
+	  "ProID": 7,
+	  "CitySort": 48
+	}, {
+	  "CityID": 49,
+	  "name": "白山市",
+	  "ProID": 7,
+	  "CitySort": 49
+	}, {
+	  "CityID": 50,
+	  "name": "哈尔滨市",
+	  "ProID": 8,
+	  "CitySort": 50
+	}, {
+	  "CityID": 51,
+	  "name": "齐齐哈尔市",
+	  "ProID": 8,
+	  "CitySort": 51
+	}, {
+	  "CityID": 52,
+	  "name": "鸡西市",
+	  "ProID": 8,
+	  "CitySort": 52
+	}, {
+	  "CityID": 53,
+	  "name": "牡丹江市",
+	  "ProID": 8,
+	  "CitySort": 53
+	}, {
+	  "CityID": 54,
+	  "name": "七台河市",
+	  "ProID": 8,
+	  "CitySort": 54
+	}, {
+	  "CityID": 55,
+	  "name": "佳木斯市",
+	  "ProID": 8,
+	  "CitySort": 55
+	}, {
+	  "CityID": 56,
+	  "name": "鹤岗市",
+	  "ProID": 8,
+	  "CitySort": 56
+	}, {
+	  "CityID": 57,
+	  "name": "双鸭山市",
+	  "ProID": 8,
+	  "CitySort": 57
+	}, {
+	  "CityID": 58,
+	  "name": "绥化市",
+	  "ProID": 8,
+	  "CitySort": 58
+	}, {
+	  "CityID": 59,
+	  "name": "黑河市",
+	  "ProID": 8,
+	  "CitySort": 59
+	}, {
+	  "CityID": 60,
+	  "name": "大兴安岭地区",
+	  "ProID": 8,
+	  "CitySort": 60
+	}, {
+	  "CityID": 61,
+	  "name": "伊春市",
+	  "ProID": 8,
+	  "CitySort": 61
+	}, {
+	  "CityID": 62,
+	  "name": "大庆市",
+	  "ProID": 8,
+	  "CitySort": 62
+	}, {
+	  "CityID": 63,
+	  "name": "南京市",
+	  "ProID": 10,
+	  "CitySort": 63
+	}, {
+	  "CityID": 64,
+	  "name": "无锡市",
+	  "ProID": 10,
+	  "CitySort": 64
+	}, {
+	  "CityID": 65,
+	  "name": "镇江市",
+	  "ProID": 10,
+	  "CitySort": 65
+	}, {
+	  "CityID": 66,
+	  "name": "苏州市",
+	  "ProID": 10,
+	  "CitySort": 66
+	}, {
+	  "CityID": 67,
+	  "name": "南通市",
+	  "ProID": 10,
+	  "CitySort": 67
+	}, {
+	  "CityID": 68,
+	  "name": "扬州市",
+	  "ProID": 10,
+	  "CitySort": 68
+	}, {
+	  "CityID": 69,
+	  "name": "盐城市",
+	  "ProID": 10,
+	  "CitySort": 69
+	}, {
+	  "CityID": 70,
+	  "name": "徐州市",
+	  "ProID": 10,
+	  "CitySort": 70
+	}, {
+	  "CityID": 71,
+	  "name": "淮安市",
+	  "ProID": 10,
+	  "CitySort": 71
+	}, {
+	  "CityID": 72,
+	  "name": "连云港市",
+	  "ProID": 10,
+	  "CitySort": 72
+	}, {
+	  "CityID": 73,
+	  "name": "常州市",
+	  "ProID": 10,
+	  "CitySort": 73
+	}, {
+	  "CityID": 74,
+	  "name": "泰州市",
+	  "ProID": 10,
+	  "CitySort": 74
+	}, {
+	  "CityID": 75,
+	  "name": "宿迁市",
+	  "ProID": 10,
+	  "CitySort": 75
+	}, {
+	  "CityID": 76,
+	  "name": "舟山市",
+	  "ProID": 11,
+	  "CitySort": 76
+	}, {
+	  "CityID": 77,
+	  "name": "衢州市",
+	  "ProID": 11,
+	  "CitySort": 77
+	}, {
+	  "CityID": 78,
+	  "name": "杭州市",
+	  "ProID": 11,
+	  "CitySort": 78
+	}, {
+	  "CityID": 79,
+	  "name": "湖州市",
+	  "ProID": 11,
+	  "CitySort": 79
+	}, {
+	  "CityID": 80,
+	  "name": "嘉兴市",
+	  "ProID": 11,
+	  "CitySort": 80
+	}, {
+	  "CityID": 81,
+	  "name": "宁波市",
+	  "ProID": 11,
+	  "CitySort": 81
+	}, {
+	  "CityID": 82,
+	  "name": "绍兴市",
+	  "ProID": 11,
+	  "CitySort": 82
+	}, {
+	  "CityID": 83,
+	  "name": "温州市",
+	  "ProID": 11,
+	  "CitySort": 83
+	}, {
+	  "CityID": 84,
+	  "name": "丽水市",
+	  "ProID": 11,
+	  "CitySort": 84
+	}, {
+	  "CityID": 85,
+	  "name": "金华市",
+	  "ProID": 11,
+	  "CitySort": 85
+	}, {
+	  "CityID": 86,
+	  "name": "台州市",
+	  "ProID": 11,
+	  "CitySort": 86
+	}, {
+	  "CityID": 87,
+	  "name": "合肥市",
+	  "ProID": 12,
+	  "CitySort": 87
+	}, {
+	  "CityID": 88,
+	  "name": "芜湖市",
+	  "ProID": 12,
+	  "CitySort": 88
+	}, {
+	  "CityID": 89,
+	  "name": "蚌埠市",
+	  "ProID": 12,
+	  "CitySort": 89
+	}, {
+	  "CityID": 90,
+	  "name": "淮南市",
+	  "ProID": 12,
+	  "CitySort": 90
+	}, {
+	  "CityID": 91,
+	  "name": "马鞍山市",
+	  "ProID": 12,
+	  "CitySort": 91
+	}, {
+	  "CityID": 92,
+	  "name": "淮北市",
+	  "ProID": 12,
+	  "CitySort": 92
+	}, {
+	  "CityID": 93,
+	  "name": "铜陵市",
+	  "ProID": 12,
+	  "CitySort": 93
+	}, {
+	  "CityID": 94,
+	  "name": "安庆市",
+	  "ProID": 12,
+	  "CitySort": 94
+	}, {
+	  "CityID": 95,
+	  "name": "黄山市",
+	  "ProID": 12,
+	  "CitySort": 95
+	}, {
+	  "CityID": 96,
+	  "name": "滁州市",
+	  "ProID": 12,
+	  "CitySort": 96
+	}, {
+	  "CityID": 97,
+	  "name": "阜阳市",
+	  "ProID": 12,
+	  "CitySort": 97
+	}, {
+	  "CityID": 98,
+	  "name": "宿州市",
+	  "ProID": 12,
+	  "CitySort": 98
+	}, {
+	  "CityID": 99,
+	  "name": "巢湖市",
+	  "ProID": 12,
+	  "CitySort": 99
+	}, {
+	  "CityID": 100,
+	  "name": "六安市",
+	  "ProID": 12,
+	  "CitySort": 100
+	}, {
+	  "CityID": 101,
+	  "name": "亳州市",
+	  "ProID": 12,
+	  "CitySort": 101
+	}, {
+	  "CityID": 102,
+	  "name": "池州市",
+	  "ProID": 12,
+	  "CitySort": 102
+	}, {
+	  "CityID": 103,
+	  "name": "宣城市",
+	  "ProID": 12,
+	  "CitySort": 103
+	}, {
+	  "CityID": 104,
+	  "name": "福州市",
+	  "ProID": 13,
+	  "CitySort": 104
+	}, {
+	  "CityID": 105,
+	  "name": "厦门市",
+	  "ProID": 13,
+	  "CitySort": 105
+	}, {
+	  "CityID": 106,
+	  "name": "宁德市",
+	  "ProID": 13,
+	  "CitySort": 106
+	}, {
+	  "CityID": 107,
+	  "name": "莆田市",
+	  "ProID": 13,
+	  "CitySort": 107
+	}, {
+	  "CityID": 108,
+	  "name": "泉州市",
+	  "ProID": 13,
+	  "CitySort": 108
+	}, {
+	  "CityID": 109,
+	  "name": "漳州市",
+	  "ProID": 13,
+	  "CitySort": 109
+	}, {
+	  "CityID": 110,
+	  "name": "龙岩市",
+	  "ProID": 13,
+	  "CitySort": 110
+	}, {
+	  "CityID": 111,
+	  "name": "三明市",
+	  "ProID": 13,
+	  "CitySort": 111
+	}, {
+	  "CityID": 112,
+	  "name": "南平市",
+	  "ProID": 13,
+	  "CitySort": 112
+	}, {
+	  "CityID": 113,
+	  "name": "鹰潭市",
+	  "ProID": 14,
+	  "CitySort": 113
+	}, {
+	  "CityID": 114,
+	  "name": "新余市",
+	  "ProID": 14,
+	  "CitySort": 114
+	}, {
+	  "CityID": 115,
+	  "name": "南昌市",
+	  "ProID": 14,
+	  "CitySort": 115
+	}, {
+	  "CityID": 116,
+	  "name": "九江市",
+	  "ProID": 14,
+	  "CitySort": 116
+	}, {
+	  "CityID": 117,
+	  "name": "上饶市",
+	  "ProID": 14,
+	  "CitySort": 117
+	}, {
+	  "CityID": 118,
+	  "name": "抚州市",
+	  "ProID": 14,
+	  "CitySort": 118
+	}, {
+	  "CityID": 119,
+	  "name": "宜春市",
+	  "ProID": 14,
+	  "CitySort": 119
+	}, {
+	  "CityID": 120,
+	  "name": "吉安市",
+	  "ProID": 14,
+	  "CitySort": 120
+	}, {
+	  "CityID": 121,
+	  "name": "赣州市",
+	  "ProID": 14,
+	  "CitySort": 121
+	}, {
+	  "CityID": 122,
+	  "name": "景德镇市",
+	  "ProID": 14,
+	  "CitySort": 122
+	}, {
+	  "CityID": 123,
+	  "name": "萍乡市",
+	  "ProID": 14,
+	  "CitySort": 123
+	}, {
+	  "CityID": 124,
+	  "name": "菏泽市",
+	  "ProID": 15,
+	  "CitySort": 124
+	}, {
+	  "CityID": 125,
+	  "name": "济南市",
+	  "ProID": 15,
+	  "CitySort": 125
+	}, {
+	  "CityID": 126,
+	  "name": "青岛市",
+	  "ProID": 15,
+	  "CitySort": 126
+	}, {
+	  "CityID": 127,
+	  "name": "淄博市",
+	  "ProID": 15,
+	  "CitySort": 127
+	}, {
+	  "CityID": 128,
+	  "name": "德州市",
+	  "ProID": 15,
+	  "CitySort": 128
+	}, {
+	  "CityID": 129,
+	  "name": "烟台市",
+	  "ProID": 15,
+	  "CitySort": 129
+	}, {
+	  "CityID": 130,
+	  "name": "潍坊市",
+	  "ProID": 15,
+	  "CitySort": 130
+	}, {
+	  "CityID": 131,
+	  "name": "济宁市",
+	  "ProID": 15,
+	  "CitySort": 131
+	}, {
+	  "CityID": 132,
+	  "name": "泰安市",
+	  "ProID": 15,
+	  "CitySort": 132
+	}, {
+	  "CityID": 133,
+	  "name": "临沂市",
+	  "ProID": 15,
+	  "CitySort": 133
+	}, {
+	  "CityID": 134,
+	  "name": "滨州市",
+	  "ProID": 15,
+	  "CitySort": 134
+	}, {
+	  "CityID": 135,
+	  "name": "东营市",
+	  "ProID": 15,
+	  "CitySort": 135
+	}, {
+	  "CityID": 136,
+	  "name": "威海市",
+	  "ProID": 15,
+	  "CitySort": 136
+	}, {
+	  "CityID": 137,
+	  "name": "枣庄市",
+	  "ProID": 15,
+	  "CitySort": 137
+	}, {
+	  "CityID": 138,
+	  "name": "日照市",
+	  "ProID": 15,
+	  "CitySort": 138
+	}, {
+	  "CityID": 139,
+	  "name": "莱芜市",
+	  "ProID": 15,
+	  "CitySort": 139
+	}, {
+	  "CityID": 140,
+	  "name": "聊城市",
+	  "ProID": 15,
+	  "CitySort": 140
+	}, {
+	  "CityID": 141,
+	  "name": "商丘市",
+	  "ProID": 16,
+	  "CitySort": 141
+	}, {
+	  "CityID": 142,
+	  "name": "郑州市",
+	  "ProID": 16,
+	  "CitySort": 142
+	}, {
+	  "CityID": 143,
+	  "name": "安阳市",
+	  "ProID": 16,
+	  "CitySort": 143
+	}, {
+	  "CityID": 144,
+	  "name": "新乡市",
+	  "ProID": 16,
+	  "CitySort": 144
+	}, {
+	  "CityID": 145,
+	  "name": "许昌市",
+	  "ProID": 16,
+	  "CitySort": 145
+	}, {
+	  "CityID": 146,
+	  "name": "平顶山市",
+	  "ProID": 16,
+	  "CitySort": 146
+	}, {
+	  "CityID": 147,
+	  "name": "信阳市",
+	  "ProID": 16,
+	  "CitySort": 147
+	}, {
+	  "CityID": 148,
+	  "name": "南阳市",
+	  "ProID": 16,
+	  "CitySort": 148
+	}, {
+	  "CityID": 149,
+	  "name": "开封市",
+	  "ProID": 16,
+	  "CitySort": 149
+	}, {
+	  "CityID": 150,
+	  "name": "洛阳市",
+	  "ProID": 16,
+	  "CitySort": 150
+	}, {
+	  "CityID": 151,
+	  "name": "济源市",
+	  "ProID": 16,
+	  "CitySort": 151
+	}, {
+	  "CityID": 152,
+	  "name": "焦作市",
+	  "ProID": 16,
+	  "CitySort": 152
+	}, {
+	  "CityID": 153,
+	  "name": "鹤壁市",
+	  "ProID": 16,
+	  "CitySort": 153
+	}, {
+	  "CityID": 154,
+	  "name": "濮阳市",
+	  "ProID": 16,
+	  "CitySort": 154
+	}, {
+	  "CityID": 155,
+	  "name": "周口市",
+	  "ProID": 16,
+	  "CitySort": 155
+	}, {
+	  "CityID": 156,
+	  "name": "漯河市",
+	  "ProID": 16,
+	  "CitySort": 156
+	}, {
+	  "CityID": 157,
+	  "name": "驻马店市",
+	  "ProID": 16,
+	  "CitySort": 157
+	}, {
+	  "CityID": 158,
+	  "name": "三门峡市",
+	  "ProID": 16,
+	  "CitySort": 158
+	}, {
+	  "CityID": 159,
+	  "name": "武汉市",
+	  "ProID": 17,
+	  "CitySort": 159
+	}, {
+	  "CityID": 160,
+	  "name": "襄樊市",
+	  "ProID": 17,
+	  "CitySort": 160
+	}, {
+	  "CityID": 161,
+	  "name": "鄂州市",
+	  "ProID": 17,
+	  "CitySort": 161
+	}, {
+	  "CityID": 162,
+	  "name": "孝感市",
+	  "ProID": 17,
+	  "CitySort": 162
+	}, {
+	  "CityID": 163,
+	  "name": "黄冈市",
+	  "ProID": 17,
+	  "CitySort": 163
+	}, {
+	  "CityID": 164,
+	  "name": "黄石市",
+	  "ProID": 17,
+	  "CitySort": 164
+	}, {
+	  "CityID": 165,
+	  "name": "咸宁市",
+	  "ProID": 17,
+	  "CitySort": 165
+	}, {
+	  "CityID": 166,
+	  "name": "荆州市",
+	  "ProID": 17,
+	  "CitySort": 166
+	}, {
+	  "CityID": 167,
+	  "name": "宜昌市",
+	  "ProID": 17,
+	  "CitySort": 167
+	}, {
+	  "CityID": 168,
+	  "name": "恩施土家族苗族自治州",
+	  "ProID": 17,
+	  "CitySort": 168
+	}, {
+	  "CityID": 169,
+	  "name": "神农架林区",
+	  "ProID": 17,
+	  "CitySort": 169
+	}, {
+	  "CityID": 170,
+	  "name": "十堰市",
+	  "ProID": 17,
+	  "CitySort": 170
+	}, {
+	  "CityID": 171,
+	  "name": "随州市",
+	  "ProID": 17,
+	  "CitySort": 171
+	}, {
+	  "CityID": 172,
+	  "name": "荆门市",
+	  "ProID": 17,
+	  "CitySort": 172
+	}, {
+	  "CityID": 173,
+	  "name": "仙桃市",
+	  "ProID": 17,
+	  "CitySort": 173
+	}, {
+	  "CityID": 174,
+	  "name": "天门市",
+	  "ProID": 17,
+	  "CitySort": 174
+	}, {
+	  "CityID": 175,
+	  "name": "潜江市",
+	  "ProID": 17,
+	  "CitySort": 175
+	}, {
+	  "CityID": 176,
+	  "name": "岳阳市",
+	  "ProID": 18,
+	  "CitySort": 176
+	}, {
+	  "CityID": 177,
+	  "name": "长沙市",
+	  "ProID": 18,
+	  "CitySort": 177
+	}, {
+	  "CityID": 178,
+	  "name": "湘潭市",
+	  "ProID": 18,
+	  "CitySort": 178
+	}, {
+	  "CityID": 179,
+	  "name": "株洲市",
+	  "ProID": 18,
+	  "CitySort": 179
+	}, {
+	  "CityID": 180,
+	  "name": "衡阳市",
+	  "ProID": 18,
+	  "CitySort": 180
+	}, {
+	  "CityID": 181,
+	  "name": "郴州市",
+	  "ProID": 18,
+	  "CitySort": 181
+	}, {
+	  "CityID": 182,
+	  "name": "常德市",
+	  "ProID": 18,
+	  "CitySort": 182
+	}, {
+	  "CityID": 183,
+	  "name": "益阳市",
+	  "ProID": 18,
+	  "CitySort": 183
+	}, {
+	  "CityID": 184,
+	  "name": "娄底市",
+	  "ProID": 18,
+	  "CitySort": 184
+	}, {
+	  "CityID": 185,
+	  "name": "邵阳市",
+	  "ProID": 18,
+	  "CitySort": 185
+	}, {
+	  "CityID": 186,
+	  "name": "湘西土家族苗族自治州",
+	  "ProID": 18,
+	  "CitySort": 186
+	}, {
+	  "CityID": 187,
+	  "name": "张家界市",
+	  "ProID": 18,
+	  "CitySort": 187
+	}, {
+	  "CityID": 188,
+	  "name": "怀化市",
+	  "ProID": 18,
+	  "CitySort": 188
+	}, {
+	  "CityID": 189,
+	  "name": "永州市",
+	  "ProID": 18,
+	  "CitySort": 189
+	}, {
+	  "CityID": 190,
+	  "name": "广州市",
+	  "ProID": 19,
+	  "CitySort": 190
+	}, {
+	  "CityID": 191,
+	  "name": "汕尾市",
+	  "ProID": 19,
+	  "CitySort": 191
+	}, {
+	  "CityID": 192,
+	  "name": "阳江市",
+	  "ProID": 19,
+	  "CitySort": 192
+	}, {
+	  "CityID": 193,
+	  "name": "揭阳市",
+	  "ProID": 19,
+	  "CitySort": 193
+	}, {
+	  "CityID": 194,
+	  "name": "茂名市",
+	  "ProID": 19,
+	  "CitySort": 194
+	}, {
+	  "CityID": 195,
+	  "name": "惠州市",
+	  "ProID": 19,
+	  "CitySort": 195
+	}, {
+	  "CityID": 196,
+	  "name": "江门市",
+	  "ProID": 19,
+	  "CitySort": 196
+	}, {
+	  "CityID": 197,
+	  "name": "韶关市",
+	  "ProID": 19,
+	  "CitySort": 197
+	}, {
+	  "CityID": 198,
+	  "name": "梅州市",
+	  "ProID": 19,
+	  "CitySort": 198
+	}, {
+	  "CityID": 199,
+	  "name": "汕头市",
+	  "ProID": 19,
+	  "CitySort": 199
+	}, {
+	  "CityID": 200,
+	  "name": "深圳市",
+	  "ProID": 19,
+	  "CitySort": 200
+	}, {
+	  "CityID": 201,
+	  "name": "珠海市",
+	  "ProID": 19,
+	  "CitySort": 201
+	}, {
+	  "CityID": 202,
+	  "name": "佛山市",
+	  "ProID": 19,
+	  "CitySort": 202
+	}, {
+	  "CityID": 203,
+	  "name": "肇庆市",
+	  "ProID": 19,
+	  "CitySort": 203
+	}, {
+	  "CityID": 204,
+	  "name": "湛江市",
+	  "ProID": 19,
+	  "CitySort": 204
+	}, {
+	  "CityID": 205,
+	  "name": "中山市",
+	  "ProID": 19,
+	  "CitySort": 205
+	}, {
+	  "CityID": 206,
+	  "name": "河源市",
+	  "ProID": 19,
+	  "CitySort": 206
+	}, {
+	  "CityID": 207,
+	  "name": "清远市",
+	  "ProID": 19,
+	  "CitySort": 207
+	}, {
+	  "CityID": 208,
+	  "name": "云浮市",
+	  "ProID": 19,
+	  "CitySort": 208
+	}, {
+	  "CityID": 209,
+	  "name": "潮州市",
+	  "ProID": 19,
+	  "CitySort": 209
+	}, {
+	  "CityID": 210,
+	  "name": "东莞市",
+	  "ProID": 19,
+	  "CitySort": 210
+	}, {
+	  "CityID": 211,
+	  "name": "兰州市",
+	  "ProID": 22,
+	  "CitySort": 211
+	}, {
+	  "CityID": 212,
+	  "name": "金昌市",
+	  "ProID": 22,
+	  "CitySort": 212
+	}, {
+	  "CityID": 213,
+	  "name": "白银市",
+	  "ProID": 22,
+	  "CitySort": 213
+	}, {
+	  "CityID": 214,
+	  "name": "天水市",
+	  "ProID": 22,
+	  "CitySort": 214
+	}, {
+	  "CityID": 215,
+	  "name": "嘉峪关市",
+	  "ProID": 22,
+	  "CitySort": 215
+	}, {
+	  "CityID": 216,
+	  "name": "武威市",
+	  "ProID": 22,
+	  "CitySort": 216
+	}, {
+	  "CityID": 217,
+	  "name": "张掖市",
+	  "ProID": 22,
+	  "CitySort": 217
+	}, {
+	  "CityID": 218,
+	  "name": "平凉市",
+	  "ProID": 22,
+	  "CitySort": 218
+	}, {
+	  "CityID": 219,
+	  "name": "酒泉市",
+	  "ProID": 22,
+	  "CitySort": 219
+	}, {
+	  "CityID": 220,
+	  "name": "庆阳市",
+	  "ProID": 22,
+	  "CitySort": 220
+	}, {
+	  "CityID": 221,
+	  "name": "定西市",
+	  "ProID": 22,
+	  "CitySort": 221
+	}, {
+	  "CityID": 222,
+	  "name": "陇南市",
+	  "ProID": 22,
+	  "CitySort": 222
+	}, {
+	  "CityID": 223,
+	  "name": "临夏回族自治州",
+	  "ProID": 22,
+	  "CitySort": 223
+	}, {
+	  "CityID": 224,
+	  "name": "甘南藏族自治州",
+	  "ProID": 22,
+	  "CitySort": 224
+	}, {
+	  "CityID": 225,
+	  "name": "成都市",
+	  "ProID": 28,
+	  "CitySort": 225
+	}, {
+	  "CityID": 226,
+	  "name": "攀枝花市",
+	  "ProID": 28,
+	  "CitySort": 226
+	}, {
+	  "CityID": 227,
+	  "name": "自贡市",
+	  "ProID": 28,
+	  "CitySort": 227
+	}, {
+	  "CityID": 228,
+	  "name": "绵阳市",
+	  "ProID": 28,
+	  "CitySort": 228
+	}, {
+	  "CityID": 229,
+	  "name": "南充市",
+	  "ProID": 28,
+	  "CitySort": 229
+	}, {
+	  "CityID": 230,
+	  "name": "达州市",
+	  "ProID": 28,
+	  "CitySort": 230
+	}, {
+	  "CityID": 231,
+	  "name": "遂宁市",
+	  "ProID": 28,
+	  "CitySort": 231
+	}, {
+	  "CityID": 232,
+	  "name": "广安市",
+	  "ProID": 28,
+	  "CitySort": 232
+	}, {
+	  "CityID": 233,
+	  "name": "巴中市",
+	  "ProID": 28,
+	  "CitySort": 233
+	}, {
+	  "CityID": 234,
+	  "name": "泸州市",
+	  "ProID": 28,
+	  "CitySort": 234
+	}, {
+	  "CityID": 235,
+	  "name": "宜宾市",
+	  "ProID": 28,
+	  "CitySort": 235
+	}, {
+	  "CityID": 236,
+	  "name": "资阳市",
+	  "ProID": 28,
+	  "CitySort": 236
+	}, {
+	  "CityID": 237,
+	  "name": "内江市",
+	  "ProID": 28,
+	  "CitySort": 237
+	}, {
+	  "CityID": 238,
+	  "name": "乐山市",
+	  "ProID": 28,
+	  "CitySort": 238
+	}, {
+	  "CityID": 239,
+	  "name": "眉山市",
+	  "ProID": 28,
+	  "CitySort": 239
+	}, {
+	  "CityID": 240,
+	  "name": "凉山彝族自治州",
+	  "ProID": 28,
+	  "CitySort": 240
+	}, {
+	  "CityID": 241,
+	  "name": "雅安市",
+	  "ProID": 28,
+	  "CitySort": 241
+	}, {
+	  "CityID": 242,
+	  "name": "甘孜藏族自治州",
+	  "ProID": 28,
+	  "CitySort": 242
+	}, {
+	  "CityID": 243,
+	  "name": "阿坝藏族羌族自治州",
+	  "ProID": 28,
+	  "CitySort": 243
+	}, {
+	  "CityID": 244,
+	  "name": "德阳市",
+	  "ProID": 28,
+	  "CitySort": 244
+	}, {
+	  "CityID": 245,
+	  "name": "广元市",
+	  "ProID": 28,
+	  "CitySort": 245
+	}, {
+	  "CityID": 246,
+	  "name": "贵阳市",
+	  "ProID": 29,
+	  "CitySort": 246
+	}, {
+	  "CityID": 247,
+	  "name": "遵义市",
+	  "ProID": 29,
+	  "CitySort": 247
+	}, {
+	  "CityID": 248,
+	  "name": "安顺市",
+	  "ProID": 29,
+	  "CitySort": 248
+	}, {
+	  "CityID": 249,
+	  "name": "黔南布依族苗族自治州",
+	  "ProID": 29,
+	  "CitySort": 249
+	}, {
+	  "CityID": 250,
+	  "name": "黔东南苗族侗族自治州",
+	  "ProID": 29,
+	  "CitySort": 250
+	}, {
+	  "CityID": 251,
+	  "name": "铜仁地区",
+	  "ProID": 29,
+	  "CitySort": 251
+	}, {
+	  "CityID": 252,
+	  "name": "毕节地区",
+	  "ProID": 29,
+	  "CitySort": 252
+	}, {
+	  "CityID": 253,
+	  "name": "六盘水市",
+	  "ProID": 29,
+	  "CitySort": 253
+	}, {
+	  "CityID": 254,
+	  "name": "黔西南布依族苗族自治州",
+	  "ProID": 29,
+	  "CitySort": 254
+	}, {
+	  "CityID": 255,
+	  "name": "海口市",
+	  "ProID": 20,
+	  "CitySort": 255
+	}, {
+	  "CityID": 256,
+	  "name": "三亚市",
+	  "ProID": 20,
+	  "CitySort": 256
+	}, {
+	  "CityID": 257,
+	  "name": "五指山市",
+	  "ProID": 20,
+	  "CitySort": 257
+	}, {
+	  "CityID": 258,
+	  "name": "琼海市",
+	  "ProID": 20,
+	  "CitySort": 258
+	}, {
+	  "CityID": 259,
+	  "name": "儋州市",
+	  "ProID": 20,
+	  "CitySort": 259
+	}, {
+	  "CityID": 260,
+	  "name": "文昌市",
+	  "ProID": 20,
+	  "CitySort": 260
+	}, {
+	  "CityID": 261,
+	  "name": "万宁市",
+	  "ProID": 20,
+	  "CitySort": 261
+	}, {
+	  "CityID": 262,
+	  "name": "东方市",
+	  "ProID": 20,
+	  "CitySort": 262
+	}, {
+	  "CityID": 263,
+	  "name": "澄迈县",
+	  "ProID": 20,
+	  "CitySort": 263
+	}, {
+	  "CityID": 264,
+	  "name": "定安县",
+	  "ProID": 20,
+	  "CitySort": 264
+	}, {
+	  "CityID": 265,
+	  "name": "屯昌县",
+	  "ProID": 20,
+	  "CitySort": 265
+	}, {
+	  "CityID": 266,
+	  "name": "临高县",
+	  "ProID": 20,
+	  "CitySort": 266
+	}, {
+	  "CityID": 267,
+	  "name": "白沙黎族自治县",
+	  "ProID": 20,
+	  "CitySort": 267
+	}, {
+	  "CityID": 268,
+	  "name": "昌江黎族自治县",
+	  "ProID": 20,
+	  "CitySort": 268
+	}, {
+	  "CityID": 269,
+	  "name": "乐东黎族自治县",
+	  "ProID": 20,
+	  "CitySort": 269
+	}, {
+	  "CityID": 270,
+	  "name": "陵水黎族自治县",
+	  "ProID": 20,
+	  "CitySort": 270
+	}, {
+	  "CityID": 271,
+	  "name": "保亭黎族苗族自治县",
+	  "ProID": 20,
+	  "CitySort": 271
+	}, {
+	  "CityID": 272,
+	  "name": "琼中黎族苗族自治县",
+	  "ProID": 20,
+	  "CitySort": 272
+	}, {
+	  "CityID": 273,
+	  "name": "西双版纳傣族自治州",
+	  "ProID": 30,
+	  "CitySort": 273
+	}, {
+	  "CityID": 274,
+	  "name": "德宏傣族景颇族自治州",
+	  "ProID": 30,
+	  "CitySort": 274
+	}, {
+	  "CityID": 275,
+	  "name": "昭通市",
+	  "ProID": 30,
+	  "CitySort": 275
+	}, {
+	  "CityID": 276,
+	  "name": "昆明市",
+	  "ProID": 30,
+	  "CitySort": 276
+	}, {
+	  "CityID": 277,
+	  "name": "大理白族自治州",
+	  "ProID": 30,
+	  "CitySort": 277
+	}, {
+	  "CityID": 278,
+	  "name": "红河哈尼族彝族自治州",
+	  "ProID": 30,
+	  "CitySort": 278
+	}, {
+	  "CityID": 279,
+	  "name": "曲靖市",
+	  "ProID": 30,
+	  "CitySort": 279
+	}, {
+	  "CityID": 280,
+	  "name": "保山市",
+	  "ProID": 30,
+	  "CitySort": 280
+	}, {
+	  "CityID": 281,
+	  "name": "文山壮族苗族自治州",
+	  "ProID": 30,
+	  "CitySort": 281
+	}, {
+	  "CityID": 282,
+	  "name": "玉溪市",
+	  "ProID": 30,
+	  "CitySort": 282
+	}, {
+	  "CityID": 283,
+	  "name": "楚雄彝族自治州",
+	  "ProID": 30,
+	  "CitySort": 283
+	}, {
+	  "CityID": 284,
+	  "name": "普洱市",
+	  "ProID": 30,
+	  "CitySort": 284
+	}, {
+	  "CityID": 285,
+	  "name": "临沧市",
+	  "ProID": 30,
+	  "CitySort": 285
+	}, {
+	  "CityID": 286,
+	  "name": "怒江傈傈族自治州",
+	  "ProID": 30,
+	  "CitySort": 286
+	}, {
+	  "CityID": 287,
+	  "name": "迪庆藏族自治州",
+	  "ProID": 30,
+	  "CitySort": 287
+	}, {
+	  "CityID": 288,
+	  "name": "丽江市",
+	  "ProID": 30,
+	  "CitySort": 288
+	}, {
+	  "CityID": 289,
+	  "name": "海北藏族自治州",
+	  "ProID": 25,
+	  "CitySort": 289
+	}, {
+	  "CityID": 290,
+	  "name": "西宁市",
+	  "ProID": 25,
+	  "CitySort": 290
+	}, {
+	  "CityID": 291,
+	  "name": "海东地区",
+	  "ProID": 25,
+	  "CitySort": 291
+	}, {
+	  "CityID": 292,
+	  "name": "黄南藏族自治州",
+	  "ProID": 25,
+	  "CitySort": 292
+	}, {
+	  "CityID": 293,
+	  "name": "海南藏族自治州",
+	  "ProID": 25,
+	  "CitySort": 293
+	}, {
+	  "CityID": 294,
+	  "name": "果洛藏族自治州",
+	  "ProID": 25,
+	  "CitySort": 294
+	}, {
+	  "CityID": 295,
+	  "name": "玉树藏族自治州",
+	  "ProID": 25,
+	  "CitySort": 295
+	}, {
+	  "CityID": 296,
+	  "name": "海西蒙古族藏族自治州",
+	  "ProID": 25,
+	  "CitySort": 296
+	}, {
+	  "CityID": 297,
+	  "name": "西安市",
+	  "ProID": 23,
+	  "CitySort": 297
+	}, {
+	  "CityID": 298,
+	  "name": "咸阳市",
+	  "ProID": 23,
+	  "CitySort": 298
+	}, {
+	  "CityID": 299,
+	  "name": "延安市",
+	  "ProID": 23,
+	  "CitySort": 299
+	}, {
+	  "CityID": 300,
+	  "name": "榆林市",
+	  "ProID": 23,
+	  "CitySort": 300
+	}, {
+	  "CityID": 301,
+	  "name": "渭南市",
+	  "ProID": 23,
+	  "CitySort": 301
+	}, {
+	  "CityID": 302,
+	  "name": "商洛市",
+	  "ProID": 23,
+	  "CitySort": 302
+	}, {
+	  "CityID": 303,
+	  "name": "安康市",
+	  "ProID": 23,
+	  "CitySort": 303
+	}, {
+	  "CityID": 304,
+	  "name": "汉中市",
+	  "ProID": 23,
+	  "CitySort": 304
+	}, {
+	  "CityID": 305,
+	  "name": "宝鸡市",
+	  "ProID": 23,
+	  "CitySort": 305
+	}, {
+	  "CityID": 306,
+	  "name": "铜川市",
+	  "ProID": 23,
+	  "CitySort": 306
+	}, {
+	  "CityID": 307,
+	  "name": "防城港市",
+	  "ProID": 21,
+	  "CitySort": 307
+	}, {
+	  "CityID": 308,
+	  "name": "南宁市",
+	  "ProID": 21,
+	  "CitySort": 308
+	}, {
+	  "CityID": 309,
+	  "name": "崇左市",
+	  "ProID": 21,
+	  "CitySort": 309
+	}, {
+	  "CityID": 310,
+	  "name": "来宾市",
+	  "ProID": 21,
+	  "CitySort": 310
+	}, {
+	  "CityID": 311,
+	  "name": "柳州市",
+	  "ProID": 21,
+	  "CitySort": 311
+	}, {
+	  "CityID": 312,
+	  "name": "桂林市",
+	  "ProID": 21,
+	  "CitySort": 312
+	}, {
+	  "CityID": 313,
+	  "name": "梧州市",
+	  "ProID": 21,
+	  "CitySort": 313
+	}, {
+	  "CityID": 314,
+	  "name": "贺州市",
+	  "ProID": 21,
+	  "CitySort": 314
+	}, {
+	  "CityID": 315,
+	  "name": "贵港市",
+	  "ProID": 21,
+	  "CitySort": 315
+	}, {
+	  "CityID": 316,
+	  "name": "玉林市",
+	  "ProID": 21,
+	  "CitySort": 316
+	}, {
+	  "CityID": 317,
+	  "name": "百色市",
+	  "ProID": 21,
+	  "CitySort": 317
+	}, {
+	  "CityID": 318,
+	  "name": "钦州市",
+	  "ProID": 21,
+	  "CitySort": 318
+	}, {
+	  "CityID": 319,
+	  "name": "河池市",
+	  "ProID": 21,
+	  "CitySort": 319
+	}, {
+	  "CityID": 320,
+	  "name": "北海市",
+	  "ProID": 21,
+	  "CitySort": 320
+	}, {
+	  "CityID": 321,
+	  "name": "拉萨市",
+	  "ProID": 31,
+	  "CitySort": 321
+	}, {
+	  "CityID": 322,
+	  "name": "日喀则地区",
+	  "ProID": 31,
+	  "CitySort": 322
+	}, {
+	  "CityID": 323,
+	  "name": "山南地区",
+	  "ProID": 31,
+	  "CitySort": 323
+	}, {
+	  "CityID": 324,
+	  "name": "林芝地区",
+	  "ProID": 31,
+	  "CitySort": 324
+	}, {
+	  "CityID": 325,
+	  "name": "昌都地区",
+	  "ProID": 31,
+	  "CitySort": 325
+	}, {
+	  "CityID": 326,
+	  "name": "那曲地区",
+	  "ProID": 31,
+	  "CitySort": 326
+	}, {
+	  "CityID": 327,
+	  "name": "阿里地区",
+	  "ProID": 31,
+	  "CitySort": 327
+	}, {
+	  "CityID": 328,
+	  "name": "银川市",
+	  "ProID": 26,
+	  "CitySort": 328
+	}, {
+	  "CityID": 329,
+	  "name": "石嘴山市",
+	  "ProID": 26,
+	  "CitySort": 329
+	}, {
+	  "CityID": 330,
+	  "name": "吴忠市",
+	  "ProID": 26,
+	  "CitySort": 330
+	}, {
+	  "CityID": 331,
+	  "name": "固原市",
+	  "ProID": 26,
+	  "CitySort": 331
+	}, {
+	  "CityID": 332,
+	  "name": "中卫市",
+	  "ProID": 26,
+	  "CitySort": 332
+	}, {
+	  "CityID": 333,
+	  "name": "塔城地区",
+	  "ProID": 24,
+	  "CitySort": 333
+	}, {
+	  "CityID": 334,
+	  "name": "哈密地区",
+	  "ProID": 24,
+	  "CitySort": 334
+	}, {
+	  "CityID": 335,
+	  "name": "和田地区",
+	  "ProID": 24,
+	  "CitySort": 335
+	}, {
+	  "CityID": 336,
+	  "name": "阿勒泰地区",
+	  "ProID": 24,
+	  "CitySort": 336
+	}, {
+	  "CityID": 337,
+	  "name": "克孜勒苏柯尔克孜自治州",
+	  "ProID": 24,
+	  "CitySort": 337
+	}, {
+	  "CityID": 338,
+	  "name": "博尔塔拉蒙古自治州",
+	  "ProID": 24,
+	  "CitySort": 338
+	}, {
+	  "CityID": 339,
+	  "name": "克拉玛依市",
+	  "ProID": 24,
+	  "CitySort": 339
+	}, {
+	  "CityID": 340,
+	  "name": "乌鲁木齐市",
+	  "ProID": 24,
+	  "CitySort": 340
+	}, {
+	  "CityID": 341,
+	  "name": "石河子市",
+	  "ProID": 24,
+	  "CitySort": 341
+	}, {
+	  "CityID": 342,
+	  "name": "昌吉回族自治州",
+	  "ProID": 24,
+	  "CitySort": 342
+	}, {
+	  "CityID": 343,
+	  "name": "五家渠市",
+	  "ProID": 24,
+	  "CitySort": 343
+	}, {
+	  "CityID": 344,
+	  "name": "吐鲁番地区",
+	  "ProID": 24,
+	  "CitySort": 344
+	}, {
+	  "CityID": 345,
+	  "name": "巴音郭楞蒙古自治州",
+	  "ProID": 24,
+	  "CitySort": 345
+	}, {
+	  "CityID": 346,
+	  "name": "阿克苏地区",
+	  "ProID": 24,
+	  "CitySort": 346
+	}, {
+	  "CityID": 347,
+	  "name": "阿拉尔市",
+	  "ProID": 24,
+	  "CitySort": 347
+	}, {
+	  "CityID": 348,
+	  "name": "喀什地区",
+	  "ProID": 24,
+	  "CitySort": 348
+	}, {
+	  "CityID": 349,
+	  "name": "图木舒克市",
+	  "ProID": 24,
+	  "CitySort": 349
+	}, {
+	  "CityID": 350,
+	  "name": "伊犁哈萨克自治州",
+	  "ProID": 24,
+	  "CitySort": 350
+	}, {
+	  "CityID": 351,
+	  "name": "呼伦贝尔市",
+	  "ProID": 5,
+	  "CitySort": 351
+	}, {
+	  "CityID": 352,
+	  "name": "呼和浩特市",
+	  "ProID": 5,
+	  "CitySort": 352
+	}, {
+	  "CityID": 353,
+	  "name": "包头市",
+	  "ProID": 5,
+	  "CitySort": 353
+	}, {
+	  "CityID": 354,
+	  "name": "乌海市",
+	  "ProID": 5,
+	  "CitySort": 354
+	}, {
+	  "CityID": 355,
+	  "name": "乌兰察布市",
+	  "ProID": 5,
+	  "CitySort": 355
+	}, {
+	  "CityID": 356,
+	  "name": "通辽市",
+	  "ProID": 5,
+	  "CitySort": 356
+	}, {
+	  "CityID": 357,
+	  "name": "赤峰市",
+	  "ProID": 5,
+	  "CitySort": 357
+	}, {
+	  "CityID": 358,
+	  "name": "鄂尔多斯市",
+	  "ProID": 5,
+	  "CitySort": 358
+	}, {
+	  "CityID": 359,
+	  "name": "巴彦淖尔市",
+	  "ProID": 5,
+	  "CitySort": 359
+	}, {
+	  "CityID": 360,
+	  "name": "锡林郭勒盟",
+	  "ProID": 5,
+	  "CitySort": 360
+	}, {
+	  "CityID": 361,
+	  "name": "兴安盟",
+	  "ProID": 5,
+	  "CitySort": 361
+	}, {
+	  "CityID": 362,
+	  "name": "阿拉善盟",
+	  "ProID": 5,
+	  "CitySort": 362
+	}, {
+	  "CityID": 363,
+	  "name": "台北市",
+	  "ProID": 32,
+	  "CitySort": 363
+	}, {
+	  "CityID": 364,
+	  "name": "高雄市",
+	  "ProID": 32,
+	  "CitySort": 364
+	}, {
+	  "CityID": 365,
+	  "name": "基隆市",
+	  "ProID": 32,
+	  "CitySort": 365
+	}, {
+	  "CityID": 366,
+	  "name": "台中市",
+	  "ProID": 32,
+	  "CitySort": 366
+	}, {
+	  "CityID": 367,
+	  "name": "台南市",
+	  "ProID": 32,
+	  "CitySort": 367
+	}, {
+	  "CityID": 368,
+	  "name": "新竹市",
+	  "ProID": 32,
+	  "CitySort": 368
+	}, {
+	  "CityID": 369,
+	  "name": "嘉义市",
+	  "ProID": 32,
+	  "CitySort": 369
+	}, {
+	  "CityID": 370,
+	  "name": "澳门特别行政区",
+	  "ProID": 33,
+	  "CitySort": 370
+	}, {
+	  "CityID": 371,
+	  "name": "香港特别行政区",
+	  "ProID": 34,
+	  "CitySort": 371
+	}];
 
-	var store = (0, _redux.createStore)(_reducers2.default);
+	module.export = provinces;
+	module.export = citys;
 
-	(0, _reactDom.render)(_react2.default.createElement(
-	  _reactRedux.Provider,
-	  { store: store },
-	  _react2.default.createElement(_App2.default, null)
-	), document.getElementById('root'));
+	_reactDom2.default.render(_react2.default.createElement('div', null), document.getElementById('select'));
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(216)(module)))
 
 /***/ },
 /* 1 */,
@@ -21516,521 +23530,14 @@
 /* 205 */,
 /* 206 */,
 /* 207 */,
-/* 208 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-
-	exports.__esModule = true;
-	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
-
-	var _createStore = __webpack_require__(209);
-
-	var _createStore2 = _interopRequireDefault(_createStore);
-
-	var _combineReducers = __webpack_require__(218);
-
-	var _combineReducers2 = _interopRequireDefault(_combineReducers);
-
-	var _bindActionCreators = __webpack_require__(220);
-
-	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
-
-	var _applyMiddleware = __webpack_require__(221);
-
-	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
-
-	var _compose = __webpack_require__(222);
-
-	var _compose2 = _interopRequireDefault(_compose);
-
-	var _warning = __webpack_require__(219);
-
-	var _warning2 = _interopRequireDefault(_warning);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	/*
-	* This is a dummy function to check if the function name has been altered by minification.
-	* If the function has been minified and NODE_ENV !== 'production', warn the user.
-	*/
-	function isCrushed() {}
-
-	if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
-	  (0, _warning2['default'])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
-	}
-
-	exports.createStore = _createStore2['default'];
-	exports.combineReducers = _combineReducers2['default'];
-	exports.bindActionCreators = _bindActionCreators2['default'];
-	exports.applyMiddleware = _applyMiddleware2['default'];
-	exports.compose = _compose2['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
-
-/***/ },
-/* 209 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	exports.__esModule = true;
-	exports.ActionTypes = undefined;
-	exports['default'] = createStore;
-
-	var _isPlainObject = __webpack_require__(210);
-
-	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-
-	var _symbolObservable = __webpack_require__(214);
-
-	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	/**
-	 * These are private action types reserved by Redux.
-	 * For any unknown actions, you must return the current state.
-	 * If the current state is undefined, you must return the initial state.
-	 * Do not reference these action types directly in your code.
-	 */
-	var ActionTypes = exports.ActionTypes = {
-	  INIT: '@@redux/INIT'
-	};
-
-	/**
-	 * Creates a Redux store that holds the state tree.
-	 * The only way to change the data in the store is to call `dispatch()` on it.
-	 *
-	 * There should only be a single store in your app. To specify how different
-	 * parts of the state tree respond to actions, you may combine several reducers
-	 * into a single reducer function by using `combineReducers`.
-	 *
-	 * @param {Function} reducer A function that returns the next state tree, given
-	 * the current state tree and the action to handle.
-	 *
-	 * @param {any} [preloadedState] The initial state. You may optionally specify it
-	 * to hydrate the state from the server in universal apps, or to restore a
-	 * previously serialized user session.
-	 * If you use `combineReducers` to produce the root reducer function, this must be
-	 * an object with the same shape as `combineReducers` keys.
-	 *
-	 * @param {Function} enhancer The store enhancer. You may optionally specify it
-	 * to enhance the store with third-party capabilities such as middleware,
-	 * time travel, persistence, etc. The only store enhancer that ships with Redux
-	 * is `applyMiddleware()`.
-	 *
-	 * @returns {Store} A Redux store that lets you read the state, dispatch actions
-	 * and subscribe to changes.
-	 */
-	function createStore(reducer, preloadedState, enhancer) {
-	  var _ref2;
-
-	  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
-	    enhancer = preloadedState;
-	    preloadedState = undefined;
-	  }
-
-	  if (typeof enhancer !== 'undefined') {
-	    if (typeof enhancer !== 'function') {
-	      throw new Error('Expected the enhancer to be a function.');
-	    }
-
-	    return enhancer(createStore)(reducer, preloadedState);
-	  }
-
-	  if (typeof reducer !== 'function') {
-	    throw new Error('Expected the reducer to be a function.');
-	  }
-
-	  var currentReducer = reducer;
-	  var currentState = preloadedState;
-	  var currentListeners = [];
-	  var nextListeners = currentListeners;
-	  var isDispatching = false;
-
-	  function ensureCanMutateNextListeners() {
-	    if (nextListeners === currentListeners) {
-	      nextListeners = currentListeners.slice();
-	    }
-	  }
-
-	  /**
-	   * Reads the state tree managed by the store.
-	   *
-	   * @returns {any} The current state tree of your application.
-	   */
-	  function getState() {
-	    return currentState;
-	  }
-
-	  /**
-	   * Adds a change listener. It will be called any time an action is dispatched,
-	   * and some part of the state tree may potentially have changed. You may then
-	   * call `getState()` to read the current state tree inside the callback.
-	   *
-	   * You may call `dispatch()` from a change listener, with the following
-	   * caveats:
-	   *
-	   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
-	   * If you subscribe or unsubscribe while the listeners are being invoked, this
-	   * will not have any effect on the `dispatch()` that is currently in progress.
-	   * However, the next `dispatch()` call, whether nested or not, will use a more
-	   * recent snapshot of the subscription list.
-	   *
-	   * 2. The listener should not expect to see all state changes, as the state
-	   * might have been updated multiple times during a nested `dispatch()` before
-	   * the listener is called. It is, however, guaranteed that all subscribers
-	   * registered before the `dispatch()` started will be called with the latest
-	   * state by the time it exits.
-	   *
-	   * @param {Function} listener A callback to be invoked on every dispatch.
-	   * @returns {Function} A function to remove this change listener.
-	   */
-	  function subscribe(listener) {
-	    if (typeof listener !== 'function') {
-	      throw new Error('Expected listener to be a function.');
-	    }
-
-	    var isSubscribed = true;
-
-	    ensureCanMutateNextListeners();
-	    nextListeners.push(listener);
-
-	    return function unsubscribe() {
-	      if (!isSubscribed) {
-	        return;
-	      }
-
-	      isSubscribed = false;
-
-	      ensureCanMutateNextListeners();
-	      var index = nextListeners.indexOf(listener);
-	      nextListeners.splice(index, 1);
-	    };
-	  }
-
-	  /**
-	   * Dispatches an action. It is the only way to trigger a state change.
-	   *
-	   * The `reducer` function, used to create the store, will be called with the
-	   * current state tree and the given `action`. Its return value will
-	   * be considered the **next** state of the tree, and the change listeners
-	   * will be notified.
-	   *
-	   * The base implementation only supports plain object actions. If you want to
-	   * dispatch a Promise, an Observable, a thunk, or something else, you need to
-	   * wrap your store creating function into the corresponding middleware. For
-	   * example, see the documentation for the `redux-thunk` package. Even the
-	   * middleware will eventually dispatch plain object actions using this method.
-	   *
-	   * @param {Object} action A plain object representing “what changed”. It is
-	   * a good idea to keep actions serializable so you can record and replay user
-	   * sessions, or use the time travelling `redux-devtools`. An action must have
-	   * a `type` property which may not be `undefined`. It is a good idea to use
-	   * string constants for action types.
-	   *
-	   * @returns {Object} For convenience, the same action object you dispatched.
-	   *
-	   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
-	   * return something else (for example, a Promise you can await).
-	   */
-	  function dispatch(action) {
-	    if (!(0, _isPlainObject2['default'])(action)) {
-	      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
-	    }
-
-	    if (typeof action.type === 'undefined') {
-	      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
-	    }
-
-	    if (isDispatching) {
-	      throw new Error('Reducers may not dispatch actions.');
-	    }
-
-	    try {
-	      isDispatching = true;
-	      currentState = currentReducer(currentState, action);
-	    } finally {
-	      isDispatching = false;
-	    }
-
-	    var listeners = currentListeners = nextListeners;
-	    for (var i = 0; i < listeners.length; i++) {
-	      listeners[i]();
-	    }
-
-	    return action;
-	  }
-
-	  /**
-	   * Replaces the reducer currently used by the store to calculate the state.
-	   *
-	   * You might need this if your app implements code splitting and you want to
-	   * load some of the reducers dynamically. You might also need this if you
-	   * implement a hot reloading mechanism for Redux.
-	   *
-	   * @param {Function} nextReducer The reducer for the store to use instead.
-	   * @returns {void}
-	   */
-	  function replaceReducer(nextReducer) {
-	    if (typeof nextReducer !== 'function') {
-	      throw new Error('Expected the nextReducer to be a function.');
-	    }
-
-	    currentReducer = nextReducer;
-	    dispatch({ type: ActionTypes.INIT });
-	  }
-
-	  /**
-	   * Interoperability point for observable/reactive libraries.
-	   * @returns {observable} A minimal observable of state changes.
-	   * For more information, see the observable proposal:
-	   * https://github.com/zenparsing/es-observable
-	   */
-	  function observable() {
-	    var _ref;
-
-	    var outerSubscribe = subscribe;
-	    return _ref = {
-	      /**
-	       * The minimal observable subscription method.
-	       * @param {Object} observer Any object that can be used as an observer.
-	       * The observer object should have a `next` method.
-	       * @returns {subscription} An object with an `unsubscribe` method that can
-	       * be used to unsubscribe the observable from the store, and prevent further
-	       * emission of values from the observable.
-	       */
-	      subscribe: function subscribe(observer) {
-	        if ((typeof observer === 'undefined' ? 'undefined' : _typeof(observer)) !== 'object') {
-	          throw new TypeError('Expected the observer to be an object.');
-	        }
-
-	        function observeState() {
-	          if (observer.next) {
-	            observer.next(getState());
-	          }
-	        }
-
-	        observeState();
-	        var unsubscribe = outerSubscribe(observeState);
-	        return { unsubscribe: unsubscribe };
-	      }
-	    }, _ref[_symbolObservable2['default']] = function () {
-	      return this;
-	    }, _ref;
-	  }
-
-	  // When a store is created, an "INIT" action is dispatched so that every
-	  // reducer returns their initial state. This effectively populates
-	  // the initial state tree.
-	  dispatch({ type: ActionTypes.INIT });
-
-	  return _ref2 = {
-	    dispatch: dispatch,
-	    subscribe: subscribe,
-	    getState: getState,
-	    replaceReducer: replaceReducer
-	  }, _ref2[_symbolObservable2['default']] = observable, _ref2;
-	}
-
-/***/ },
-/* 210 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var getPrototype = __webpack_require__(211),
-	    isObjectLike = __webpack_require__(213);
-
-	/** `Object#toString` result references. */
-	var objectTag = '[object Object]';
-
-	/** Used for built-in method references. */
-	var funcProto = Function.prototype,
-	    objectProto = Object.prototype;
-
-	/** Used to resolve the decompiled source of functions. */
-	var funcToString = funcProto.toString;
-
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-
-	/** Used to infer the `Object` constructor. */
-	var objectCtorString = funcToString.call(Object);
-
-	/**
-	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var objectToString = objectProto.toString;
-
-	/**
-	 * Checks if `value` is a plain object, that is, an object created by the
-	 * `Object` constructor or one with a `[[Prototype]]` of `null`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 0.8.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
-	 * @example
-	 *
-	 * function Foo() {
-	 *   this.a = 1;
-	 * }
-	 *
-	 * _.isPlainObject(new Foo);
-	 * // => false
-	 *
-	 * _.isPlainObject([1, 2, 3]);
-	 * // => false
-	 *
-	 * _.isPlainObject({ 'x': 0, 'y': 0 });
-	 * // => true
-	 *
-	 * _.isPlainObject(Object.create(null));
-	 * // => true
-	 */
-	function isPlainObject(value) {
-	  if (!isObjectLike(value) || objectToString.call(value) != objectTag) {
-	    return false;
-	  }
-	  var proto = getPrototype(value);
-	  if (proto === null) {
-	    return true;
-	  }
-	  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-	  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
-	}
-
-	module.exports = isPlainObject;
-
-/***/ },
-/* 211 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var overArg = __webpack_require__(212);
-
-	/** Built-in value references. */
-	var getPrototype = overArg(Object.getPrototypeOf, Object);
-
-	module.exports = getPrototype;
-
-/***/ },
-/* 212 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	/**
-	 * Creates a unary function that invokes `func` with its argument transformed.
-	 *
-	 * @private
-	 * @param {Function} func The function to wrap.
-	 * @param {Function} transform The argument transform.
-	 * @returns {Function} Returns the new function.
-	 */
-	function overArg(func, transform) {
-	  return function (arg) {
-	    return func(transform(arg));
-	  };
-	}
-
-	module.exports = overArg;
-
-/***/ },
-/* 213 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	/**
-	 * Checks if `value` is object-like. A value is object-like if it's not `null`
-	 * and has a `typeof` result of "object".
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 4.0.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 * @example
-	 *
-	 * _.isObjectLike({});
-	 * // => true
-	 *
-	 * _.isObjectLike([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObjectLike(_.noop);
-	 * // => false
-	 *
-	 * _.isObjectLike(null);
-	 * // => false
-	 */
-	function isObjectLike(value) {
-	  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
-	}
-
-	module.exports = isObjectLike;
-
-/***/ },
-/* 214 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(215);
-
-/***/ },
-/* 215 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _ponyfill = __webpack_require__(217);
-
-	var _ponyfill2 = _interopRequireDefault(_ponyfill);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	var root; /* global window */
-
-	if (typeof self !== 'undefined') {
-	  root = self;
-	} else if (typeof window !== 'undefined') {
-	  root = window;
-	} else if (typeof global !== 'undefined') {
-	  root = global;
-	} else if (true) {
-	  root = module;
-	} else {
-	  root = Function('return this')();
-	}
-
-	var result = (0, _ponyfill2['default'])(root);
-	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(216)(module)))
-
-/***/ },
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
 /* 216 */
 /***/ function(module, exports) {
 
@@ -22046,2218 +23553,6 @@
 		}
 		return module;
 	};
-
-/***/ },
-/* 217 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports['default'] = symbolObservablePonyfill;
-	function symbolObservablePonyfill(root) {
-		var result;
-		var _Symbol = root.Symbol;
-
-		if (typeof _Symbol === 'function') {
-			if (_Symbol.observable) {
-				result = _Symbol.observable;
-			} else {
-				result = _Symbol('observable');
-				_Symbol.observable = result;
-			}
-		} else {
-			result = '@@observable';
-		}
-
-		return result;
-	};
-
-/***/ },
-/* 218 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-
-	exports.__esModule = true;
-	exports['default'] = combineReducers;
-
-	var _createStore = __webpack_require__(209);
-
-	var _isPlainObject = __webpack_require__(210);
-
-	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-
-	var _warning = __webpack_require__(219);
-
-	var _warning2 = _interopRequireDefault(_warning);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	function getUndefinedStateErrorMessage(key, action) {
-	  var actionType = action && action.type;
-	  var actionName = actionType && '"' + actionType.toString() + '"' || 'an action';
-
-	  return 'Given action ' + actionName + ', reducer "' + key + '" returned undefined. ' + 'To ignore an action, you must explicitly return the previous state.';
-	}
-
-	function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
-	  var reducerKeys = Object.keys(reducers);
-	  var argumentName = action && action.type === _createStore.ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
-
-	  if (reducerKeys.length === 0) {
-	    return 'Store does not have a valid reducer. Make sure the argument passed ' + 'to combineReducers is an object whose values are reducers.';
-	  }
-
-	  if (!(0, _isPlainObject2['default'])(inputState)) {
-	    return 'The ' + argumentName + ' has unexpected type of "' + {}.toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] + '". Expected argument to be an object with the following ' + ('keys: "' + reducerKeys.join('", "') + '"');
-	  }
-
-	  var unexpectedKeys = Object.keys(inputState).filter(function (key) {
-	    return !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key];
-	  });
-
-	  unexpectedKeys.forEach(function (key) {
-	    unexpectedKeyCache[key] = true;
-	  });
-
-	  if (unexpectedKeys.length > 0) {
-	    return 'Unexpected ' + (unexpectedKeys.length > 1 ? 'keys' : 'key') + ' ' + ('"' + unexpectedKeys.join('", "') + '" found in ' + argumentName + '. ') + 'Expected to find one of the known reducer keys instead: ' + ('"' + reducerKeys.join('", "') + '". Unexpected keys will be ignored.');
-	  }
-	}
-
-	function assertReducerSanity(reducers) {
-	  Object.keys(reducers).forEach(function (key) {
-	    var reducer = reducers[key];
-	    var initialState = reducer(undefined, { type: _createStore.ActionTypes.INIT });
-
-	    if (typeof initialState === 'undefined') {
-	      throw new Error('Reducer "' + key + '" returned undefined during initialization. ' + 'If the state passed to the reducer is undefined, you must ' + 'explicitly return the initial state. The initial state may ' + 'not be undefined.');
-	    }
-
-	    var type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.');
-	    if (typeof reducer(undefined, { type: type }) === 'undefined') {
-	      throw new Error('Reducer "' + key + '" returned undefined when probed with a random type. ' + ('Don\'t try to handle ' + _createStore.ActionTypes.INIT + ' or other actions in "redux/*" ') + 'namespace. They are considered private. Instead, you must return the ' + 'current state for any unknown actions, unless it is undefined, ' + 'in which case you must return the initial state, regardless of the ' + 'action type. The initial state may not be undefined.');
-	    }
-	  });
-	}
-
-	/**
-	 * Turns an object whose values are different reducer functions, into a single
-	 * reducer function. It will call every child reducer, and gather their results
-	 * into a single state object, whose keys correspond to the keys of the passed
-	 * reducer functions.
-	 *
-	 * @param {Object} reducers An object whose values correspond to different
-	 * reducer functions that need to be combined into one. One handy way to obtain
-	 * it is to use ES6 `import * as reducers` syntax. The reducers may never return
-	 * undefined for any action. Instead, they should return their initial state
-	 * if the state passed to them was undefined, and the current state for any
-	 * unrecognized action.
-	 *
-	 * @returns {Function} A reducer function that invokes every reducer inside the
-	 * passed object, and builds a state object with the same shape.
-	 */
-	function combineReducers(reducers) {
-	  var reducerKeys = Object.keys(reducers);
-	  var finalReducers = {};
-	  for (var i = 0; i < reducerKeys.length; i++) {
-	    var key = reducerKeys[i];
-
-	    if (process.env.NODE_ENV !== 'production') {
-	      if (typeof reducers[key] === 'undefined') {
-	        (0, _warning2['default'])('No reducer provided for key "' + key + '"');
-	      }
-	    }
-
-	    if (typeof reducers[key] === 'function') {
-	      finalReducers[key] = reducers[key];
-	    }
-	  }
-	  var finalReducerKeys = Object.keys(finalReducers);
-
-	  if (process.env.NODE_ENV !== 'production') {
-	    var unexpectedKeyCache = {};
-	  }
-
-	  var sanityError;
-	  try {
-	    assertReducerSanity(finalReducers);
-	  } catch (e) {
-	    sanityError = e;
-	  }
-
-	  return function combination() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	    var action = arguments[1];
-
-	    if (sanityError) {
-	      throw sanityError;
-	    }
-
-	    if (process.env.NODE_ENV !== 'production') {
-	      var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
-	      if (warningMessage) {
-	        (0, _warning2['default'])(warningMessage);
-	      }
-	    }
-
-	    var hasChanged = false;
-	    var nextState = {};
-	    for (var i = 0; i < finalReducerKeys.length; i++) {
-	      var key = finalReducerKeys[i];
-	      var reducer = finalReducers[key];
-	      var previousStateForKey = state[key];
-	      var nextStateForKey = reducer(previousStateForKey, action);
-	      if (typeof nextStateForKey === 'undefined') {
-	        var errorMessage = getUndefinedStateErrorMessage(key, action);
-	        throw new Error(errorMessage);
-	      }
-	      nextState[key] = nextStateForKey;
-	      hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
-	    }
-	    return hasChanged ? nextState : state;
-	  };
-	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
-
-/***/ },
-/* 219 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	exports['default'] = warning;
-	/**
-	 * Prints a warning in the console if it exists.
-	 *
-	 * @param {String} message The warning message.
-	 * @returns {void}
-	 */
-	function warning(message) {
-	  /* eslint-disable no-console */
-	  if (typeof console !== 'undefined' && typeof console.error === 'function') {
-	    console.error(message);
-	  }
-	  /* eslint-enable no-console */
-	  try {
-	    // This error was thrown as a convenience so that if you enable
-	    // "break on all exceptions" in your console,
-	    // it would pause the execution at this line.
-	    throw new Error(message);
-	    /* eslint-disable no-empty */
-	  } catch (e) {}
-	  /* eslint-enable no-empty */
-	}
-
-/***/ },
-/* 220 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	exports.__esModule = true;
-	exports['default'] = bindActionCreators;
-	function bindActionCreator(actionCreator, dispatch) {
-	  return function () {
-	    return dispatch(actionCreator.apply(undefined, arguments));
-	  };
-	}
-
-	/**
-	 * Turns an object whose values are action creators, into an object with the
-	 * same keys, but with every function wrapped into a `dispatch` call so they
-	 * may be invoked directly. This is just a convenience method, as you can call
-	 * `store.dispatch(MyActionCreators.doSomething())` yourself just fine.
-	 *
-	 * For convenience, you can also pass a single function as the first argument,
-	 * and get a function in return.
-	 *
-	 * @param {Function|Object} actionCreators An object whose values are action
-	 * creator functions. One handy way to obtain it is to use ES6 `import * as`
-	 * syntax. You may also pass a single function.
-	 *
-	 * @param {Function} dispatch The `dispatch` function available on your Redux
-	 * store.
-	 *
-	 * @returns {Function|Object} The object mimicking the original object, but with
-	 * every action creator wrapped into the `dispatch` call. If you passed a
-	 * function as `actionCreators`, the return value will also be a single
-	 * function.
-	 */
-	function bindActionCreators(actionCreators, dispatch) {
-	  if (typeof actionCreators === 'function') {
-	    return bindActionCreator(actionCreators, dispatch);
-	  }
-
-	  if ((typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) !== 'object' || actionCreators === null) {
-	    throw new Error('bindActionCreators expected an object or a function, instead received ' + (actionCreators === null ? 'null' : typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) + '. ' + 'Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
-	  }
-
-	  var keys = Object.keys(actionCreators);
-	  var boundActionCreators = {};
-	  for (var i = 0; i < keys.length; i++) {
-	    var key = keys[i];
-	    var actionCreator = actionCreators[key];
-	    if (typeof actionCreator === 'function') {
-	      boundActionCreators[key] = bindActionCreator(actionCreator, dispatch);
-	    }
-	  }
-	  return boundActionCreators;
-	}
-
-/***/ },
-/* 221 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _extends = Object.assign || function (target) {
-	  for (var i = 1; i < arguments.length; i++) {
-	    var source = arguments[i];for (var key in source) {
-	      if (Object.prototype.hasOwnProperty.call(source, key)) {
-	        target[key] = source[key];
-	      }
-	    }
-	  }return target;
-	};
-
-	exports['default'] = applyMiddleware;
-
-	var _compose = __webpack_require__(222);
-
-	var _compose2 = _interopRequireDefault(_compose);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	/**
-	 * Creates a store enhancer that applies middleware to the dispatch method
-	 * of the Redux store. This is handy for a variety of tasks, such as expressing
-	 * asynchronous actions in a concise manner, or logging every action payload.
-	 *
-	 * See `redux-thunk` package as an example of the Redux middleware.
-	 *
-	 * Because middleware is potentially asynchronous, this should be the first
-	 * store enhancer in the composition chain.
-	 *
-	 * Note that each middleware will be given the `dispatch` and `getState` functions
-	 * as named arguments.
-	 *
-	 * @param {...Function} middlewares The middleware chain to be applied.
-	 * @returns {Function} A store enhancer applying the middleware.
-	 */
-	function applyMiddleware() {
-	  for (var _len = arguments.length, middlewares = Array(_len), _key = 0; _key < _len; _key++) {
-	    middlewares[_key] = arguments[_key];
-	  }
-
-	  return function (createStore) {
-	    return function (reducer, preloadedState, enhancer) {
-	      var store = createStore(reducer, preloadedState, enhancer);
-	      var _dispatch = store.dispatch;
-	      var chain = [];
-
-	      var middlewareAPI = {
-	        getState: store.getState,
-	        dispatch: function dispatch(action) {
-	          return _dispatch(action);
-	        }
-	      };
-	      chain = middlewares.map(function (middleware) {
-	        return middleware(middlewareAPI);
-	      });
-	      _dispatch = _compose2['default'].apply(undefined, chain)(store.dispatch);
-
-	      return _extends({}, store, {
-	        dispatch: _dispatch
-	      });
-	    };
-	  };
-	}
-
-/***/ },
-/* 222 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	exports.__esModule = true;
-	exports["default"] = compose;
-	/**
-	 * Composes single-argument functions from right to left. The rightmost
-	 * function can take multiple arguments as it provides the signature for
-	 * the resulting composite function.
-	 *
-	 * @param {...Function} funcs The functions to compose.
-	 * @returns {Function} A function obtained by composing the argument functions
-	 * from right to left. For example, compose(f, g, h) is identical to doing
-	 * (...args) => f(g(h(...args))).
-	 */
-
-	function compose() {
-	  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
-	    funcs[_key] = arguments[_key];
-	  }
-
-	  if (funcs.length === 0) {
-	    return function (arg) {
-	      return arg;
-	    };
-	  }
-
-	  if (funcs.length === 1) {
-	    return funcs[0];
-	  }
-
-	  var last = funcs[funcs.length - 1];
-	  var rest = funcs.slice(0, -1);
-	  return function () {
-	    return rest.reduceRight(function (composed, f) {
-	      return f(composed);
-	    }, last.apply(undefined, arguments));
-	  };
-	}
-
-/***/ },
-/* 223 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	exports.connect = exports.Provider = undefined;
-
-	var _Provider = __webpack_require__(224);
-
-	var _Provider2 = _interopRequireDefault(_Provider);
-
-	var _connect = __webpack_require__(227);
-
-	var _connect2 = _interopRequireDefault(_connect);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { "default": obj };
-	}
-
-	exports.Provider = _Provider2["default"];
-	exports.connect = _connect2["default"];
-
-/***/ },
-/* 224 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	exports.__esModule = true;
-	exports["default"] = undefined;
-
-	var _react = __webpack_require__(177);
-
-	var _storeShape = __webpack_require__(225);
-
-	var _storeShape2 = _interopRequireDefault(_storeShape);
-
-	var _warning = __webpack_require__(226);
-
-	var _warning2 = _interopRequireDefault(_warning);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { "default": obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-	  if (!(instance instanceof Constructor)) {
-	    throw new TypeError("Cannot call a class as a function");
-	  }
-	}
-
-	function _possibleConstructorReturn(self, call) {
-	  if (!self) {
-	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	  }return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-	  if (typeof superClass !== "function" && superClass !== null) {
-	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
-	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var didWarnAboutReceivingStore = false;
-	function warnAboutReceivingStore() {
-	  if (didWarnAboutReceivingStore) {
-	    return;
-	  }
-	  didWarnAboutReceivingStore = true;
-
-	  (0, _warning2["default"])('<Provider> does not support changing `store` on the fly. ' + 'It is most likely that you see this error because you updated to ' + 'Redux 2.x and React Redux 2.x which no longer hot reload reducers ' + 'automatically. See https://github.com/reactjs/react-redux/releases/' + 'tag/v2.0.0 for the migration instructions.');
-	}
-
-	var Provider = function (_Component) {
-	  _inherits(Provider, _Component);
-
-	  Provider.prototype.getChildContext = function getChildContext() {
-	    return { store: this.store };
-	  };
-
-	  function Provider(props, context) {
-	    _classCallCheck(this, Provider);
-
-	    var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
-
-	    _this.store = props.store;
-	    return _this;
-	  }
-
-	  Provider.prototype.render = function render() {
-	    var children = this.props.children;
-
-	    return _react.Children.only(children);
-	  };
-
-	  return Provider;
-	}(_react.Component);
-
-	exports["default"] = Provider;
-
-	if (process.env.NODE_ENV !== 'production') {
-	  Provider.prototype.componentWillReceiveProps = function (nextProps) {
-	    var store = this.store;
-	    var nextStore = nextProps.store;
-
-	    if (store !== nextStore) {
-	      warnAboutReceivingStore();
-	    }
-	  };
-	}
-
-	Provider.propTypes = {
-	  store: _storeShape2["default"].isRequired,
-	  children: _react.PropTypes.element.isRequired
-	};
-	Provider.childContextTypes = {
-	  store: _storeShape2["default"].isRequired
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
-
-/***/ },
-/* 225 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _react = __webpack_require__(177);
-
-	exports["default"] = _react.PropTypes.shape({
-	  subscribe: _react.PropTypes.func.isRequired,
-	  dispatch: _react.PropTypes.func.isRequired,
-	  getState: _react.PropTypes.func.isRequired
-	});
-
-/***/ },
-/* 226 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	exports["default"] = warning;
-	/**
-	 * Prints a warning in the console if it exists.
-	 *
-	 * @param {String} message The warning message.
-	 * @returns {void}
-	 */
-	function warning(message) {
-	  /* eslint-disable no-console */
-	  if (typeof console !== 'undefined' && typeof console.error === 'function') {
-	    console.error(message);
-	  }
-	  /* eslint-enable no-console */
-	  try {
-	    // This error was thrown as a convenience so that you can use this stack
-	    // to find the callsite that caused this warning to fire.
-	    throw new Error(message);
-	    /* eslint-disable no-empty */
-	  } catch (e) {}
-	  /* eslint-enable no-empty */
-	}
-
-/***/ },
-/* 227 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	var _extends = Object.assign || function (target) {
-	  for (var i = 1; i < arguments.length; i++) {
-	    var source = arguments[i];for (var key in source) {
-	      if (Object.prototype.hasOwnProperty.call(source, key)) {
-	        target[key] = source[key];
-	      }
-	    }
-	  }return target;
-	};
-
-	exports.__esModule = true;
-	exports["default"] = connect;
-
-	var _react = __webpack_require__(177);
-
-	var _storeShape = __webpack_require__(225);
-
-	var _storeShape2 = _interopRequireDefault(_storeShape);
-
-	var _shallowEqual = __webpack_require__(228);
-
-	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
-
-	var _wrapActionCreators = __webpack_require__(229);
-
-	var _wrapActionCreators2 = _interopRequireDefault(_wrapActionCreators);
-
-	var _warning = __webpack_require__(226);
-
-	var _warning2 = _interopRequireDefault(_warning);
-
-	var _isPlainObject = __webpack_require__(230);
-
-	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-
-	var _hoistNonReactStatics = __webpack_require__(234);
-
-	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
-
-	var _invariant = __webpack_require__(235);
-
-	var _invariant2 = _interopRequireDefault(_invariant);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { "default": obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-	  if (!(instance instanceof Constructor)) {
-	    throw new TypeError("Cannot call a class as a function");
-	  }
-	}
-
-	function _possibleConstructorReturn(self, call) {
-	  if (!self) {
-	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	  }return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-	  if (typeof superClass !== "function" && superClass !== null) {
-	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
-	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var defaultMapStateToProps = function defaultMapStateToProps(state) {
-	  return {};
-	}; // eslint-disable-line no-unused-vars
-	var defaultMapDispatchToProps = function defaultMapDispatchToProps(dispatch) {
-	  return { dispatch: dispatch };
-	};
-	var defaultMergeProps = function defaultMergeProps(stateProps, dispatchProps, parentProps) {
-	  return _extends({}, parentProps, stateProps, dispatchProps);
-	};
-
-	function getDisplayName(WrappedComponent) {
-	  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
-	}
-
-	var errorObject = { value: null };
-	function tryCatch(fn, ctx) {
-	  try {
-	    return fn.apply(ctx);
-	  } catch (e) {
-	    errorObject.value = e;
-	    return errorObject;
-	  }
-	}
-
-	// Helps track hot reloading.
-	var nextVersion = 0;
-
-	function connect(mapStateToProps, mapDispatchToProps, mergeProps) {
-	  var options = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
-
-	  var shouldSubscribe = Boolean(mapStateToProps);
-	  var mapState = mapStateToProps || defaultMapStateToProps;
-
-	  var mapDispatch = undefined;
-	  if (typeof mapDispatchToProps === 'function') {
-	    mapDispatch = mapDispatchToProps;
-	  } else if (!mapDispatchToProps) {
-	    mapDispatch = defaultMapDispatchToProps;
-	  } else {
-	    mapDispatch = (0, _wrapActionCreators2["default"])(mapDispatchToProps);
-	  }
-
-	  var finalMergeProps = mergeProps || defaultMergeProps;
-	  var _options$pure = options.pure;
-	  var pure = _options$pure === undefined ? true : _options$pure;
-	  var _options$withRef = options.withRef;
-	  var withRef = _options$withRef === undefined ? false : _options$withRef;
-
-	  var checkMergedEquals = pure && finalMergeProps !== defaultMergeProps;
-
-	  // Helps track hot reloading.
-	  var version = nextVersion++;
-
-	  return function wrapWithConnect(WrappedComponent) {
-	    var connectDisplayName = 'Connect(' + getDisplayName(WrappedComponent) + ')';
-
-	    function checkStateShape(props, methodName) {
-	      if (!(0, _isPlainObject2["default"])(props)) {
-	        (0, _warning2["default"])(methodName + '() in ' + connectDisplayName + ' must return a plain object. ' + ('Instead received ' + props + '.'));
-	      }
-	    }
-
-	    function computeMergedProps(stateProps, dispatchProps, parentProps) {
-	      var mergedProps = finalMergeProps(stateProps, dispatchProps, parentProps);
-	      if (process.env.NODE_ENV !== 'production') {
-	        checkStateShape(mergedProps, 'mergeProps');
-	      }
-	      return mergedProps;
-	    }
-
-	    var Connect = function (_Component) {
-	      _inherits(Connect, _Component);
-
-	      Connect.prototype.shouldComponentUpdate = function shouldComponentUpdate() {
-	        return !pure || this.haveOwnPropsChanged || this.hasStoreStateChanged;
-	      };
-
-	      function Connect(props, context) {
-	        _classCallCheck(this, Connect);
-
-	        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
-
-	        _this.version = version;
-	        _this.store = props.store || context.store;
-
-	        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + connectDisplayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + connectDisplayName + '".'));
-
-	        var storeState = _this.store.getState();
-	        _this.state = { storeState: storeState };
-	        _this.clearCache();
-	        return _this;
-	      }
-
-	      Connect.prototype.computeStateProps = function computeStateProps(store, props) {
-	        if (!this.finalMapStateToProps) {
-	          return this.configureFinalMapState(store, props);
-	        }
-
-	        var state = store.getState();
-	        var stateProps = this.doStatePropsDependOnOwnProps ? this.finalMapStateToProps(state, props) : this.finalMapStateToProps(state);
-
-	        if (process.env.NODE_ENV !== 'production') {
-	          checkStateShape(stateProps, 'mapStateToProps');
-	        }
-	        return stateProps;
-	      };
-
-	      Connect.prototype.configureFinalMapState = function configureFinalMapState(store, props) {
-	        var mappedState = mapState(store.getState(), props);
-	        var isFactory = typeof mappedState === 'function';
-
-	        this.finalMapStateToProps = isFactory ? mappedState : mapState;
-	        this.doStatePropsDependOnOwnProps = this.finalMapStateToProps.length !== 1;
-
-	        if (isFactory) {
-	          return this.computeStateProps(store, props);
-	        }
-
-	        if (process.env.NODE_ENV !== 'production') {
-	          checkStateShape(mappedState, 'mapStateToProps');
-	        }
-	        return mappedState;
-	      };
-
-	      Connect.prototype.computeDispatchProps = function computeDispatchProps(store, props) {
-	        if (!this.finalMapDispatchToProps) {
-	          return this.configureFinalMapDispatch(store, props);
-	        }
-
-	        var dispatch = store.dispatch;
-
-	        var dispatchProps = this.doDispatchPropsDependOnOwnProps ? this.finalMapDispatchToProps(dispatch, props) : this.finalMapDispatchToProps(dispatch);
-
-	        if (process.env.NODE_ENV !== 'production') {
-	          checkStateShape(dispatchProps, 'mapDispatchToProps');
-	        }
-	        return dispatchProps;
-	      };
-
-	      Connect.prototype.configureFinalMapDispatch = function configureFinalMapDispatch(store, props) {
-	        var mappedDispatch = mapDispatch(store.dispatch, props);
-	        var isFactory = typeof mappedDispatch === 'function';
-
-	        this.finalMapDispatchToProps = isFactory ? mappedDispatch : mapDispatch;
-	        this.doDispatchPropsDependOnOwnProps = this.finalMapDispatchToProps.length !== 1;
-
-	        if (isFactory) {
-	          return this.computeDispatchProps(store, props);
-	        }
-
-	        if (process.env.NODE_ENV !== 'production') {
-	          checkStateShape(mappedDispatch, 'mapDispatchToProps');
-	        }
-	        return mappedDispatch;
-	      };
-
-	      Connect.prototype.updateStatePropsIfNeeded = function updateStatePropsIfNeeded() {
-	        var nextStateProps = this.computeStateProps(this.store, this.props);
-	        if (this.stateProps && (0, _shallowEqual2["default"])(nextStateProps, this.stateProps)) {
-	          return false;
-	        }
-
-	        this.stateProps = nextStateProps;
-	        return true;
-	      };
-
-	      Connect.prototype.updateDispatchPropsIfNeeded = function updateDispatchPropsIfNeeded() {
-	        var nextDispatchProps = this.computeDispatchProps(this.store, this.props);
-	        if (this.dispatchProps && (0, _shallowEqual2["default"])(nextDispatchProps, this.dispatchProps)) {
-	          return false;
-	        }
-
-	        this.dispatchProps = nextDispatchProps;
-	        return true;
-	      };
-
-	      Connect.prototype.updateMergedPropsIfNeeded = function updateMergedPropsIfNeeded() {
-	        var nextMergedProps = computeMergedProps(this.stateProps, this.dispatchProps, this.props);
-	        if (this.mergedProps && checkMergedEquals && (0, _shallowEqual2["default"])(nextMergedProps, this.mergedProps)) {
-	          return false;
-	        }
-
-	        this.mergedProps = nextMergedProps;
-	        return true;
-	      };
-
-	      Connect.prototype.isSubscribed = function isSubscribed() {
-	        return typeof this.unsubscribe === 'function';
-	      };
-
-	      Connect.prototype.trySubscribe = function trySubscribe() {
-	        if (shouldSubscribe && !this.unsubscribe) {
-	          this.unsubscribe = this.store.subscribe(this.handleChange.bind(this));
-	          this.handleChange();
-	        }
-	      };
-
-	      Connect.prototype.tryUnsubscribe = function tryUnsubscribe() {
-	        if (this.unsubscribe) {
-	          this.unsubscribe();
-	          this.unsubscribe = null;
-	        }
-	      };
-
-	      Connect.prototype.componentDidMount = function componentDidMount() {
-	        this.trySubscribe();
-	      };
-
-	      Connect.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        if (!pure || !(0, _shallowEqual2["default"])(nextProps, this.props)) {
-	          this.haveOwnPropsChanged = true;
-	        }
-	      };
-
-	      Connect.prototype.componentWillUnmount = function componentWillUnmount() {
-	        this.tryUnsubscribe();
-	        this.clearCache();
-	      };
-
-	      Connect.prototype.clearCache = function clearCache() {
-	        this.dispatchProps = null;
-	        this.stateProps = null;
-	        this.mergedProps = null;
-	        this.haveOwnPropsChanged = true;
-	        this.hasStoreStateChanged = true;
-	        this.haveStatePropsBeenPrecalculated = false;
-	        this.statePropsPrecalculationError = null;
-	        this.renderedElement = null;
-	        this.finalMapDispatchToProps = null;
-	        this.finalMapStateToProps = null;
-	      };
-
-	      Connect.prototype.handleChange = function handleChange() {
-	        if (!this.unsubscribe) {
-	          return;
-	        }
-
-	        var storeState = this.store.getState();
-	        var prevStoreState = this.state.storeState;
-	        if (pure && prevStoreState === storeState) {
-	          return;
-	        }
-
-	        if (pure && !this.doStatePropsDependOnOwnProps) {
-	          var haveStatePropsChanged = tryCatch(this.updateStatePropsIfNeeded, this);
-	          if (!haveStatePropsChanged) {
-	            return;
-	          }
-	          if (haveStatePropsChanged === errorObject) {
-	            this.statePropsPrecalculationError = errorObject.value;
-	          }
-	          this.haveStatePropsBeenPrecalculated = true;
-	        }
-
-	        this.hasStoreStateChanged = true;
-	        this.setState({ storeState: storeState });
-	      };
-
-	      Connect.prototype.getWrappedInstance = function getWrappedInstance() {
-	        (0, _invariant2["default"])(withRef, 'To access the wrapped instance, you need to specify ' + '{ withRef: true } as the fourth argument of the connect() call.');
-
-	        return this.refs.wrappedInstance;
-	      };
-
-	      Connect.prototype.render = function render() {
-	        var haveOwnPropsChanged = this.haveOwnPropsChanged;
-	        var hasStoreStateChanged = this.hasStoreStateChanged;
-	        var haveStatePropsBeenPrecalculated = this.haveStatePropsBeenPrecalculated;
-	        var statePropsPrecalculationError = this.statePropsPrecalculationError;
-	        var renderedElement = this.renderedElement;
-
-	        this.haveOwnPropsChanged = false;
-	        this.hasStoreStateChanged = false;
-	        this.haveStatePropsBeenPrecalculated = false;
-	        this.statePropsPrecalculationError = null;
-
-	        if (statePropsPrecalculationError) {
-	          throw statePropsPrecalculationError;
-	        }
-
-	        var shouldUpdateStateProps = true;
-	        var shouldUpdateDispatchProps = true;
-	        if (pure && renderedElement) {
-	          shouldUpdateStateProps = hasStoreStateChanged || haveOwnPropsChanged && this.doStatePropsDependOnOwnProps;
-	          shouldUpdateDispatchProps = haveOwnPropsChanged && this.doDispatchPropsDependOnOwnProps;
-	        }
-
-	        var haveStatePropsChanged = false;
-	        var haveDispatchPropsChanged = false;
-	        if (haveStatePropsBeenPrecalculated) {
-	          haveStatePropsChanged = true;
-	        } else if (shouldUpdateStateProps) {
-	          haveStatePropsChanged = this.updateStatePropsIfNeeded();
-	        }
-	        if (shouldUpdateDispatchProps) {
-	          haveDispatchPropsChanged = this.updateDispatchPropsIfNeeded();
-	        }
-
-	        var haveMergedPropsChanged = true;
-	        if (haveStatePropsChanged || haveDispatchPropsChanged || haveOwnPropsChanged) {
-	          haveMergedPropsChanged = this.updateMergedPropsIfNeeded();
-	        } else {
-	          haveMergedPropsChanged = false;
-	        }
-
-	        if (!haveMergedPropsChanged && renderedElement) {
-	          return renderedElement;
-	        }
-
-	        if (withRef) {
-	          this.renderedElement = (0, _react.createElement)(WrappedComponent, _extends({}, this.mergedProps, {
-	            ref: 'wrappedInstance'
-	          }));
-	        } else {
-	          this.renderedElement = (0, _react.createElement)(WrappedComponent, this.mergedProps);
-	        }
-
-	        return this.renderedElement;
-	      };
-
-	      return Connect;
-	    }(_react.Component);
-
-	    Connect.displayName = connectDisplayName;
-	    Connect.WrappedComponent = WrappedComponent;
-	    Connect.contextTypes = {
-	      store: _storeShape2["default"]
-	    };
-	    Connect.propTypes = {
-	      store: _storeShape2["default"]
-	    };
-
-	    if (process.env.NODE_ENV !== 'production') {
-	      Connect.prototype.componentWillUpdate = function componentWillUpdate() {
-	        if (this.version === version) {
-	          return;
-	        }
-
-	        // We are hot reloading!
-	        this.version = version;
-	        this.trySubscribe();
-	        this.clearCache();
-	      };
-	    }
-
-	    return (0, _hoistNonReactStatics2["default"])(Connect, WrappedComponent);
-	  };
-	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
-
-/***/ },
-/* 228 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	exports.__esModule = true;
-	exports["default"] = shallowEqual;
-	function shallowEqual(objA, objB) {
-	  if (objA === objB) {
-	    return true;
-	  }
-
-	  var keysA = Object.keys(objA);
-	  var keysB = Object.keys(objB);
-
-	  if (keysA.length !== keysB.length) {
-	    return false;
-	  }
-
-	  // Test for A's keys different from B.
-	  var hasOwn = Object.prototype.hasOwnProperty;
-	  for (var i = 0; i < keysA.length; i++) {
-	    if (!hasOwn.call(objB, keysA[i]) || objA[keysA[i]] !== objB[keysA[i]]) {
-	      return false;
-	    }
-	  }
-
-	  return true;
-	}
-
-/***/ },
-/* 229 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	exports["default"] = wrapActionCreators;
-
-	var _redux = __webpack_require__(208);
-
-	function wrapActionCreators(actionCreators) {
-	  return function (dispatch) {
-	    return (0, _redux.bindActionCreators)(actionCreators, dispatch);
-	  };
-	}
-
-/***/ },
-/* 230 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var getPrototype = __webpack_require__(231),
-	    isObjectLike = __webpack_require__(233);
-
-	/** `Object#toString` result references. */
-	var objectTag = '[object Object]';
-
-	/** Used for built-in method references. */
-	var funcProto = Function.prototype,
-	    objectProto = Object.prototype;
-
-	/** Used to resolve the decompiled source of functions. */
-	var funcToString = funcProto.toString;
-
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-
-	/** Used to infer the `Object` constructor. */
-	var objectCtorString = funcToString.call(Object);
-
-	/**
-	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var objectToString = objectProto.toString;
-
-	/**
-	 * Checks if `value` is a plain object, that is, an object created by the
-	 * `Object` constructor or one with a `[[Prototype]]` of `null`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 0.8.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
-	 * @example
-	 *
-	 * function Foo() {
-	 *   this.a = 1;
-	 * }
-	 *
-	 * _.isPlainObject(new Foo);
-	 * // => false
-	 *
-	 * _.isPlainObject([1, 2, 3]);
-	 * // => false
-	 *
-	 * _.isPlainObject({ 'x': 0, 'y': 0 });
-	 * // => true
-	 *
-	 * _.isPlainObject(Object.create(null));
-	 * // => true
-	 */
-	function isPlainObject(value) {
-	  if (!isObjectLike(value) || objectToString.call(value) != objectTag) {
-	    return false;
-	  }
-	  var proto = getPrototype(value);
-	  if (proto === null) {
-	    return true;
-	  }
-	  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-	  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
-	}
-
-	module.exports = isPlainObject;
-
-/***/ },
-/* 231 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var overArg = __webpack_require__(232);
-
-	/** Built-in value references. */
-	var getPrototype = overArg(Object.getPrototypeOf, Object);
-
-	module.exports = getPrototype;
-
-/***/ },
-/* 232 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	/**
-	 * Creates a unary function that invokes `func` with its argument transformed.
-	 *
-	 * @private
-	 * @param {Function} func The function to wrap.
-	 * @param {Function} transform The argument transform.
-	 * @returns {Function} Returns the new function.
-	 */
-	function overArg(func, transform) {
-	  return function (arg) {
-	    return func(transform(arg));
-	  };
-	}
-
-	module.exports = overArg;
-
-/***/ },
-/* 233 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	/**
-	 * Checks if `value` is object-like. A value is object-like if it's not `null`
-	 * and has a `typeof` result of "object".
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 4.0.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 * @example
-	 *
-	 * _.isObjectLike({});
-	 * // => true
-	 *
-	 * _.isObjectLike([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObjectLike(_.noop);
-	 * // => false
-	 *
-	 * _.isObjectLike(null);
-	 * // => false
-	 */
-	function isObjectLike(value) {
-	  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
-	}
-
-	module.exports = isObjectLike;
-
-/***/ },
-/* 234 */
-/***/ function(module, exports) {
-
-	/**
-	 * Copyright 2015, Yahoo! Inc.
-	 * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
-	 */
-	'use strict';
-
-	var REACT_STATICS = {
-	    childContextTypes: true,
-	    contextTypes: true,
-	    defaultProps: true,
-	    displayName: true,
-	    getDefaultProps: true,
-	    mixins: true,
-	    propTypes: true,
-	    type: true
-	};
-
-	var KNOWN_STATICS = {
-	    name: true,
-	    length: true,
-	    prototype: true,
-	    caller: true,
-	    arguments: true,
-	    arity: true
-	};
-
-	var isGetOwnPropertySymbolsAvailable = typeof Object.getOwnPropertySymbols === 'function';
-
-	module.exports = function hoistNonReactStatics(targetComponent, sourceComponent, customStatics) {
-	    if (typeof sourceComponent !== 'string') {
-	        // don't hoist over string (html) components
-	        var keys = Object.getOwnPropertyNames(sourceComponent);
-
-	        /* istanbul ignore else */
-	        if (isGetOwnPropertySymbolsAvailable) {
-	            keys = keys.concat(Object.getOwnPropertySymbols(sourceComponent));
-	        }
-
-	        for (var i = 0; i < keys.length; ++i) {
-	            if (!REACT_STATICS[keys[i]] && !KNOWN_STATICS[keys[i]] && (!customStatics || !customStatics[keys[i]])) {
-	                try {
-	                    targetComponent[keys[i]] = sourceComponent[keys[i]];
-	                } catch (error) {}
-	            }
-	        }
-	    }
-
-	    return targetComponent;
-	};
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-
-	'use strict';
-
-	/**
-	 * Use invariant() to assert state which your program assumes to be true.
-	 *
-	 * Provide sprintf-style format (only %s is supported) and arguments
-	 * to provide information about what broke and what you were
-	 * expecting.
-	 *
-	 * The invariant message will be stripped in production, but the invariant
-	 * will remain to ensure logic does not differ in production.
-	 */
-
-	var invariant = function invariant(condition, format, a, b, c, d, e, f) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    if (format === undefined) {
-	      throw new Error('invariant requires an error message argument');
-	    }
-	  }
-
-	  if (!condition) {
-	    var error;
-	    if (format === undefined) {
-	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-	    } else {
-	      var args = [a, b, c, d, e, f];
-	      var argIndex = 0;
-	      error = new Error(format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      }));
-	      error.name = 'Invariant Violation';
-	    }
-
-	    error.framesToPop = 1; // we don't care about invariant's own frame
-	    throw error;
-	  }
-	};
-
-	module.exports = invariant;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
-
-/***/ },
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
-/* 289 */,
-/* 290 */,
-/* 291 */,
-/* 292 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _redux = __webpack_require__(208);
-
-	var _reactRedux = __webpack_require__(223);
-
-	var _Header = __webpack_require__(293);
-
-	var _Header2 = _interopRequireDefault(_Header);
-
-	var _MainSection = __webpack_require__(297);
-
-	var _MainSection2 = _interopRequireDefault(_MainSection);
-
-	var _action = __webpack_require__(301);
-
-	var TodoActions = _interopRequireWildcard(_action);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var App = function App(_ref) {
-	  var todos = _ref.todos;
-	  var actions = _ref.actions;
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(_Header2.default, { addTodo: actions.addTodo }),
-	    _react2.default.createElement(_MainSection2.default, { todos: todos, actions: actions })
-	  );
-	};
-
-	App.propTypes = {
-	  todos: _react.PropTypes.array.isRequired,
-	  actions: _react.PropTypes.object.isRequired
-	};
-
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    todos: state.todos
-	  };
-	};
-
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    actions: (0, _redux.bindActionCreators)(TodoActions, dispatch)
-	  };
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
-
-/***/ },
-/* 293 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _TodoTextInput = __webpack_require__(294);
-
-	var _TodoTextInput2 = _interopRequireDefault(_TodoTextInput);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Header = function (_Component) {
-	  _inherits(Header, _Component);
-
-	  function Header() {
-	    var _ref;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, Header);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Header.__proto__ || Object.getPrototypeOf(Header)).call.apply(_ref, [this].concat(args))), _this), _this.handleSave = function (text) {
-	      if (text.length !== 0) {
-	        _this.props.addTodo(text);
-	      }
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(Header, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'header',
-	        { className: 'header' },
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'todos'
-	        ),
-	        _react2.default.createElement(_TodoTextInput2.default, { newTodo: true, onSave: this.handleSave, placeholder: 'What needs to be done?' })
-	      );
-	    }
-	  }]);
-
-	  return Header;
-	}(_react.Component);
-
-	Header.propTypes = {
-	  addTodo: _react.PropTypes.func.isRequired
-	};
-	exports.default = Header;
-
-/***/ },
-/* 294 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(295);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var TodoTextInput = function (_Component) {
-	  _inherits(TodoTextInput, _Component);
-
-	  function TodoTextInput(props) {
-	    _classCallCheck(this, TodoTextInput);
-
-	    var _this = _possibleConstructorReturn(this, (TodoTextInput.__proto__ || Object.getPrototypeOf(TodoTextInput)).call(this, props));
-
-	    _this.handleSubmit = function (e) {
-	      var text = e.target.value.trim();
-	      if (e.which === 13) {
-	        _this.props.onSave(text);
-	        if (_this.props.newTodo) {
-	          _this.setState({ text: '' });
-	        }
-	      }
-	    };
-
-	    _this.handleChange = function (e) {
-	      _this.setState({ text: e.target.value });
-	    };
-
-	    _this.handleBlur = function (e) {
-	      if (!_this.props.newTodo) {
-	        _this.props.onSave(e.target.value);
-	      }
-	    };
-
-	    _this.state = {
-	      text: props.text || ''
-	    };
-	    return _this;
-	  }
-
-	  _createClass(TodoTextInput, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement('input', { className: (0, _classnames2.default)({
-	          edit: this.props.editing,
-	          'new-todo': this.props.newTodo
-	        }),
-	        type: 'text',
-	        placeholder: this.props.placeholder,
-	        autoFocus: 'true',
-	        value: this.state.text,
-	        onBlur: this.handleBlur,
-	        onChange: this.handleChange,
-	        onKeyDown: this.handleSubmit });
-	    }
-	  }]);
-
-	  return TodoTextInput;
-	}(_react.Component);
-
-	exports.default = TodoTextInput;
-
-
-	TodoTextInput.propTypes = {
-	  onSave: _react.PropTypes.func.isRequired,
-	  text: _react.PropTypes.string,
-	  placeholder: _react.PropTypes.string,
-	  editing: _react.PropTypes.bool,
-	  newTodo: _react.PropTypes.bool
-	};
-
-/***/ },
-/* 295 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	/*!
-	  Copyright (c) 2016 Jed Watson.
-	  Licensed under the MIT License (MIT), see
-	  http://jedwatson.github.io/classnames
-	*/
-	/* global define */
-
-	(function () {
-		'use strict';
-
-		var hasOwn = {}.hasOwnProperty;
-
-		function classNames() {
-			var classes = [];
-
-			for (var i = 0; i < arguments.length; i++) {
-				var arg = arguments[i];
-				if (!arg) continue;
-
-				var argType = typeof arg === 'undefined' ? 'undefined' : _typeof(arg);
-
-				if (argType === 'string' || argType === 'number') {
-					classes.push(arg);
-				} else if (Array.isArray(arg)) {
-					classes.push(classNames.apply(null, arg));
-				} else if (argType === 'object') {
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(key);
-						}
-					}
-				}
-			}
-
-			return classes.join(' ');
-		}
-
-		if (typeof module !== 'undefined' && module.exports) {
-			module.exports = classNames;
-		} else if ("function" === 'function' && _typeof(__webpack_require__(296)) === 'object' && __webpack_require__(296)) {
-			// register as 'classnames', consistent with npm package name
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-				return classNames;
-			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		} else {
-			window.classNames = classNames;
-		}
-	})();
-
-/***/ },
-/* 296 */
-/***/ function(module, exports) {
-
-	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
-
-	/* WEBPACK VAR INJECTION */}.call(exports, {}))
-
-/***/ },
-/* 297 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _TODO_FILTERS;
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _TodoItem = __webpack_require__(298);
-
-	var _TodoItem2 = _interopRequireDefault(_TodoItem);
-
-	var _Footer = __webpack_require__(299);
-
-	var _Footer2 = _interopRequireDefault(_Footer);
-
-	var _TodoFilters = __webpack_require__(300);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-	var TODO_FILTERS = (_TODO_FILTERS = {}, _defineProperty(_TODO_FILTERS, _TodoFilters.SHOW_ALL, function () {
-	  return true;
-	}), _defineProperty(_TODO_FILTERS, _TodoFilters.SHOW_ACTIVE, function (todo) {
-	  return !todo.completed;
-	}), _defineProperty(_TODO_FILTERS, _TodoFilters.SHOW_COMPLETED, function (todo) {
-	  return todo.completed;
-	}), _TODO_FILTERS);
-
-	var MainSection = function (_Component) {
-	  _inherits(MainSection, _Component);
-
-	  function MainSection(props) {
-	    _classCallCheck(this, MainSection);
-
-	    var _this = _possibleConstructorReturn(this, (MainSection.__proto__ || Object.getPrototypeOf(MainSection)).call(this, props));
-
-	    _this.handleClearCompleted = function () {
-	      _this.props.actions.clearCompleted();
-	    };
-
-	    _this.handleShow = function (filter) {
-	      _this.setState({ filter: filter });
-	    };
-
-	    _this.renderToggleAll = function (completedCount) {
-	      var _this$props = _this.props;
-	      var todos = _this$props.todos;
-	      var actions = _this$props.actions;
-
-
-	      if (todos.length > 0) {
-	        return _react2.default.createElement('input', { className: 'toggle-all',
-	          type: 'checkbox',
-	          checked: completedCount === todos.length,
-	          onChange: actions.completeAll });
-	      }
-	    };
-
-	    _this.state = { filter: _TodoFilters.SHOW_ALL };
-	    return _this;
-	  }
-
-	  _createClass(MainSection, [{
-	    key: 'renderFooter',
-	    value: function renderFooter(completedCount) {
-	      var todos = this.props.todos;
-	      var filter = this.state.filter;
-
-	      var activeCount = todos.length - completedCount;
-
-	      if (todos.length) {
-	        return _react2.default.createElement(_Footer2.default, { completedCount: completedCount,
-	          activeCount: activeCount,
-	          filter: filter,
-	          onClearCompleted: this.handleClearCompleted.bind(this),
-	          onShow: this.handleShow.bind(this) });
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props;
-	      var todos = _props.todos;
-	      var actions = _props.actions;
-	      var filter = this.state.filter;
-
-
-	      var filteredTodos = todos.filter(TODO_FILTERS[filter]);
-	      var completedCount = todos.reduce(function (count, todo) {
-	        return todo.completed ? count + 1 : count;
-	      }, 0);
-
-	      return _react2.default.createElement(
-	        'section',
-	        { className: 'main' },
-	        this.renderToggleAll(completedCount),
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'todo-list' },
-	          filteredTodos.map(function (todo) {
-	            return _react2.default.createElement(_TodoItem2.default, _extends({ key: todo.id, todo: todo }, actions));
-	          })
-	        ),
-	        this.renderFooter(completedCount)
-	      );
-	    }
-	  }]);
-
-	  return MainSection;
-	}(_react.Component);
-
-	exports.default = MainSection;
-
-
-	MainSection.propTypes = {
-	  todos: _react.PropTypes.array.isRequired,
-	  actions: _react.PropTypes.object.isRequired
-	};
-
-/***/ },
-/* 298 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(295);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _TodoTextInput = __webpack_require__(294);
-
-	var _TodoTextInput2 = _interopRequireDefault(_TodoTextInput);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var TodoItem = function (_Component) {
-	  _inherits(TodoItem, _Component);
-
-	  function TodoItem(props) {
-	    _classCallCheck(this, TodoItem);
-
-	    var _this = _possibleConstructorReturn(this, (TodoItem.__proto__ || Object.getPrototypeOf(TodoItem)).call(this, props));
-
-	    _this.handleDoubleClick = function () {
-	      _this.setState({ editing: true });
-	    };
-
-	    _this.handleSave = function (id, text) {
-	      if (text.length === 0) {
-	        _this.props.deleteTodo(id);
-	      } else {
-	        _this.props.editTodo(id, text);
-	      }
-
-	      _this.setState({ editing: false });
-	    };
-
-	    _this.state = {
-	      editing: false
-	    };
-	    return _this;
-	  }
-
-	  _createClass(TodoItem, [{
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-
-	      var _props = this.props;
-	      var todo = _props.todo;
-	      var completeTodo = _props.completeTodo;
-	      var deleteTodo = _props.deleteTodo;
-
-
-	      var element = void 0;
-	      if (this.state.editing) {
-	        element = _react2.default.createElement(_TodoTextInput2.default, { text: todo.text,
-	          editing: this.state.editing,
-	          onSave: function onSave(text) {
-	            return _this2.handleSave(todo.id, text);
-	          } });
-	      } else {
-	        element = _react2.default.createElement(
-	          'div',
-	          { className: 'view' },
-	          _react2.default.createElement('input', { className: 'toggle',
-	            type: 'checkbox',
-	            checked: todo.completed,
-	            onChange: function onChange() {
-	              return completeTodo(todo.id);
-	            } }),
-	          _react2.default.createElement(
-	            'label',
-	            { onDoubleClick: this.handleDoubleClick },
-	            todo.text
-	          ),
-	          ' ',
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'destroy', onClick: function onClick() {
-	                return deleteTodo(todo.id);
-	              } },
-	            'destroy'
-	          )
-	        );
-	      }
-
-	      return _react2.default.createElement(
-	        'li',
-	        { className: (0, _classnames2.default)({
-	            completed: todo.completed,
-	            editing: this.state.editing
-	          }) },
-	        element
-	      );
-	    }
-	  }]);
-
-	  return TodoItem;
-	}(_react.Component);
-
-	exports.default = TodoItem;
-
-
-	TodoItem.propTypes = {
-	  todo: _react.PropTypes.object.isRequired,
-	  editTodo: _react.PropTypes.func.isRequired,
-	  deleteTodo: _react.PropTypes.func.isRequired,
-	  completeTodo: _react.PropTypes.func.isRequired
-	};
-
-/***/ },
-/* 299 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _FILTER_TITLES;
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(295);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _TodoFilters = __webpack_require__(300);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-	var FILTER_TITLES = (_FILTER_TITLES = {}, _defineProperty(_FILTER_TITLES, _TodoFilters.SHOW_ALL, 'All'), _defineProperty(_FILTER_TITLES, _TodoFilters.SHOW_ACTIVE, 'Active'), _defineProperty(_FILTER_TITLES, _TodoFilters.SHOW_COMPLETED, 'Completed'), _FILTER_TITLES);
-
-	var Footer = function (_Component) {
-	  _inherits(Footer, _Component);
-
-	  function Footer() {
-	    var _ref;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, Footer);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Footer.__proto__ || Object.getPrototypeOf(Footer)).call.apply(_ref, [this].concat(args))), _this), _this.renderTodoCount = function () {
-	      var activeCount = _this.props.activeCount;
-
-	      var itemWord = activeCount === 1 ? 'item' : 'items';
-
-	      return _react2.default.createElement(
-	        'span',
-	        { className: 'todo-count' },
-	        _react2.default.createElement(
-	          'strong',
-	          null,
-	          activeCount || 'No'
-	        ),
-	        ' ',
-	        itemWord,
-	        ' left'
-	      );
-	    }, _this.renderFilterLink = function (filter) {
-	      var title = FILTER_TITLES[filter];
-	      var _this$props = _this.props;
-	      var selectedFilter = _this$props.filter;
-	      var onShow = _this$props.onShow;
-
-	      return _react2.default.createElement(
-	        'a',
-	        { className: (0, _classnames2.default)({ selected: filter === selectedFilter }),
-	          style: { cursor: 'pointer' },
-	          onClick: function onClick() {
-	            return onShow(filter);
-	          } },
-	        title
-	      );
-	    }, _this.renderClearButton = function () {
-	      var _this$props2 = _this.props;
-	      var completedCount = _this$props2.completedCount;
-	      var onClearCompleted = _this$props2.onClearCompleted;
-
-	      if (completedCount > 0) {
-	        return _react2.default.createElement(
-	          'button',
-	          { className: 'clear-completed',
-	            onClick: onClearCompleted },
-	          'Clear completed'
-	        );
-	      }
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(Footer, [{
-	    key: 'render',
-	    value: function render() {
-	      var _this2 = this;
-
-	      return _react2.default.createElement(
-	        'footer',
-	        { className: 'footer' },
-	        this.renderTodoCount(),
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'filters' },
-	          [_TodoFilters.SHOW_ALL, _TodoFilters.SHOW_ACTIVE, _TodoFilters.SHOW_COMPLETED].map(function (filter) {
-	            return _react2.default.createElement(
-	              'li',
-	              { key: filter },
-	              _this2.renderFilterLink(filter)
-	            );
-	          })
-	        ),
-	        this.renderClearButton()
-	      );
-	    }
-	  }]);
-
-	  return Footer;
-	}(_react.Component);
-
-	Footer.propTypes = {
-	  completedCount: _react.PropTypes.number.isRequired,
-	  activeCount: _react.PropTypes.number.isRequired,
-	  filter: _react.PropTypes.string.isRequired,
-	  onClearCompleted: _react.PropTypes.func.isRequired,
-	  onShow: _react.PropTypes.func.isRequired
-	};
-	exports.default = Footer;
-
-/***/ },
-/* 300 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var SHOW_ALL = exports.SHOW_ALL = 'show_all';
-	var SHOW_COMPLETED = exports.SHOW_COMPLETED = 'show_completed';
-	var SHOW_ACTIVE = exports.SHOW_ACTIVE = 'show_active';
-
-/***/ },
-/* 301 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.clearCompleted = exports.completeAll = exports.completeTodo = exports.editTodo = exports.deleteTodo = exports.addTodo = undefined;
-
-	var _ActionTypes = __webpack_require__(302);
-
-	var types = _interopRequireWildcard(_ActionTypes);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	var addTodo = exports.addTodo = function addTodo(text) {
-	  return { type: types.ADD_TODO, text: text };
-	};
-	var deleteTodo = exports.deleteTodo = function deleteTodo(id) {
-	  return { type: types.DELETE_TODO, id: id };
-	};
-	var editTodo = exports.editTodo = function editTodo(id, text) {
-	  return { type: types.EDIT_TODO, id: id, text: text };
-	};
-	var completeTodo = exports.completeTodo = function completeTodo(id) {
-	  return { type: types.COMPLETE_TODO, id: id };
-	};
-	var completeAll = exports.completeAll = function completeAll() {
-	  return { type: types.COMPLETE_ALL };
-	};
-	var clearCompleted = exports.clearCompleted = function clearCompleted() {
-	  return { type: types.CLEAR_COMPLETED };
-	};
-
-/***/ },
-/* 302 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var ADD_TODO = exports.ADD_TODO = 'ADD_TODO';
-	var DELETE_TODO = exports.DELETE_TODO = 'DELETE_TODO';
-	var EDIT_TODO = exports.EDIT_TODO = 'EDIT_TODO';
-	var COMPLETE_TODO = exports.COMPLETE_TODO = 'COMPLETE_TODO';
-	var COMPLETE_ALL = exports.COMPLETE_ALL = 'COMPLETE_ALL';
-	var CLEAR_COMPLETED = exports.CLEAR_COMPLETED = 'CLEAR_COMPLETED';
-
-/***/ },
-/* 303 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _redux = __webpack_require__(208);
-
-	var _todos = __webpack_require__(304);
-
-	var _todos2 = _interopRequireDefault(_todos);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var rootReducer = (0, _redux.combineReducers)({
-	  todos: _todos2.default
-	});
-
-	exports.default = rootReducer;
-
-/***/ },
-/* 304 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	exports.default = todos;
-
-	var _ActionTypes = __webpack_require__(302);
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-	var initialState = [{
-	  text: 'Use Redux',
-	  completed: false,
-	  id: 0
-	}];
-
-	function todos() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-	  var action = arguments[1];
-
-	  var _ret = function () {
-	    switch (action.type) {
-	      case _ActionTypes.ADD_TODO:
-	        return {
-	          v: [{
-	            id: state.reduce(function (maxId, todo) {
-	              return Math.max(todo.id, maxId);
-	            }, -1) + 1,
-	            completed: false,
-	            text: action.text
-	          }].concat(_toConsumableArray(state))
-	        };
-
-	      case _ActionTypes.DELETE_TODO:
-	        return {
-	          v: state.filter(function (todo) {
-	            return todo.id !== action.id;
-	          })
-	        };
-	      case _ActionTypes.EDIT_TODO:
-	        return {
-	          v: state.map(function (todo) {
-	            return todo.id === action.id ? _extends({}, todo, { text: action.text }) : todo;
-	          })
-	        };
-
-	      case _ActionTypes.COMPLETE_TODO:
-	        return {
-	          v: state.map(function (todo) {
-	            return todo.id === action.id ? _extends({}, todo, { completed: !todo.completed }) : todo;
-	          })
-	        };
-
-	      case _ActionTypes.COMPLETE_ALL:
-	        var areAllMarked = state.every(function (todo) {
-	          return todo.completed;
-	        });
-
-	        return {
-	          v: state.map(function (todo) {
-	            return _extends({}, todo, {
-	              completed: !areAllMarked
-	            });
-	          })
-	        };
-
-	      case _ActionTypes.CLEAR_COMPLETED:
-	        return {
-	          v: state.filter(function (todo) {
-	            return todo.completed === false;
-	          })
-	        };
-
-	      default:
-	        return {
-	          v: state
-	        };
-	    }
-	  }();
-
-	  if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
-	}
 
 /***/ }
 /******/ ]);

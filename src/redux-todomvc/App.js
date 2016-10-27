@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as TodoActions from './actions/action';
 import { bindActionCreators } from 'redux';
+import Header from './components/Header'
 
 
 
-const App = ({todos, dispatch}) => (
+const App = ({todos, actions}) => (
   <div>
-    <div>{todos}</div>
-    <div>{dispatch}</div>
+    <Header addTodo={actions.addTodo}/>
   </div>
 )
 

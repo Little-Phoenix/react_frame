@@ -19,8 +19,9 @@
   ```
     connect()()将数据、UI关联起来
     combineReducers() 将所有的reducer合并
+    reducers: 实际所有的action处理
     actions： 存储所有的动作包括type等   
-    components: 所有的UI 
+    components: 所有的UI
   ```               
 
 

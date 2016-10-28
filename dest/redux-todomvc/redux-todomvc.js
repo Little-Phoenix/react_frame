@@ -57,13 +57,13 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _App = __webpack_require__(305);
+	var _App = __webpack_require__(239);
 
 	var _App2 = _interopRequireDefault(_App);
 
 	var _redux = __webpack_require__(208);
 
-	var _reducer = __webpack_require__(308);
+	var _reducer = __webpack_require__(243);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
@@ -23328,12 +23328,291 @@
 /* 236 */,
 /* 237 */,
 /* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(177);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(223);
+
+	var _action = __webpack_require__(240);
+
+	var TodoActions = _interopRequireWildcard(_action);
+
+	var _redux = __webpack_require__(208);
+
+	var _Header = __webpack_require__(242);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	var _TodoItem = __webpack_require__(311);
+
+	var _TodoItem2 = _interopRequireDefault(_TodoItem);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var App = function App(_ref) {
+	  var todos = _ref.todos;
+	  var actions = _ref.actions;
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(_Header2.default, { addTodo: actions.addTodo }),
+	    _react2.default.createElement(_TodoItem2.default, { todos: todos, actions: actions })
+	  );
+	};
+
+	App.propTypes = {
+	  todos: _react.PropTypes.array.isRequired,
+	  actions: _react.PropTypes.object.isRequired
+	};
+
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    todos: state.todos
+	  };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    actions: (0, _redux.bindActionCreators)(TodoActions, dispatch)
+	  };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.clearCompleted = exports.completedAll = exports.completedTodo = exports.editTodo = exports.deleteTodo = exports.addTodo = undefined;
+
+	var _Todo = __webpack_require__(241);
+
+	var addTodo = exports.addTodo = function addTodo(text) {
+	  return { type: _Todo.ADD_TODO, text: text };
+	};
+	var deleteTodo = exports.deleteTodo = function deleteTodo(id) {
+	  return { type: _Todo.DELETE_TODO, id: id };
+	};
+	var editTodo = exports.editTodo = function editTodo(id, text) {
+	  return { type: _Todo.EDIT_TODO, id: id, text: text };
+	};
+	var completedTodo = exports.completedTodo = function completedTodo(id) {
+	  return { type: _Todo.COMPLETED_TODO, id: id };
+	};
+	var completedAll = exports.completedAll = function completedAll() {
+	  return { type: _Todo.COMPLETED_ALL };
+	};
+	var clearCompleted = exports.clearCompleted = function clearCompleted() {
+	  return { type: _Todo.CLEAR_COMPLETED };
+	};
+
+/***/ },
+/* 241 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var ADD_TODO = exports.ADD_TODO = 'ADD_TODO';
+	var DELETE_TODO = exports.DELETE_TODO = 'DELETE_TODO';
+	var CLEAR_COMPLETED = exports.CLEAR_COMPLETED = 'CLEAR_COMPLETED';
+	var EDIT_TODO = exports.EDIT_TODO = 'EDIT_TODO';
+	var COMPLETED_TODO = exports.COMPLETED_TODO = 'COMPLETED_TODO';
+	var COMPLETED_ALL = exports.COMPLETED_ALL = 'COMPLETED_ALL';
+	var SHOW_ALL = exports.SHOW_ALL = 'SHOW_ALL';
+	var SHOW_COMPLETED = exports.SHOW_COMPLETED = 'SHOW_COMPLETED';
+	var SHOW_ACTIVE = exports.SHOW_ACTIVE = 'SHOW_ACTIVE';
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(177);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Header = function (_Component) {
+	  _inherits(Header, _Component);
+
+	  function Header() {
+	    var _ref;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, Header);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Header.__proto__ || Object.getPrototypeOf(Header)).call.apply(_ref, [this].concat(args))), _this), _this.onSaveTodo = function (e) {
+	      var inputValue = _this.refs.input.value;
+	      if (e.which === 13) {
+	        _this.props.addTodo(inputValue);
+	        _this.refs.input.value = '';
+	      }
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(Header, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'TODOS'
+	        ),
+	        _react2.default.createElement('input', { type: 'text',
+	          placeholder: '\u8BF7\u8F93\u5165\u5F85\u529E\u4FE1\u606F',
+	          ref: 'input',
+	          onKeyDown: this.onSaveTodo })
+	      );
+	    }
+	  }]);
+
+	  return Header;
+	}(_react.Component);
+
+	exports.default = Header;
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _redux = __webpack_require__(208);
+
+	var _todo = __webpack_require__(244);
+
+	var _todo2 = _interopRequireDefault(_todo);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var rootReducer = (0, _redux.combineReducers)({ todos: _todo2.default });
+
+	exports.default = rootReducer;
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	exports.default = todos;
+
+	var _react = __webpack_require__(177);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Todo = __webpack_require__(241);
+
+	var Type = _interopRequireWildcard(_Todo);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	var initState = [{
+	  id: 0,
+	  text: 'firstTodo',
+	  completed: false
+	}];
+
+	function todos() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case Type.ADD_TODO:
+	      return [{
+	        id: state.reduce(function (maxId, todo) {
+	          return Math.max(todo.id, maxId);
+	        }, -1) + 1,
+	        completed: false,
+	        text: action.text
+	      }].concat(_toConsumableArray(state));
+	    case Type.DELETE_TODO:
+	      return state.filter(function (todo) {
+	        return todo.id !== action.id;
+	      });
+	    case Type.EDIT_TODO:
+	      return state.map(function (todo) {
+	        return todo.id === action.id ? _extends({}, todo, { text: action.text }) : todo;
+	      });
+	    case Type.COMPLETED_TODO:
+	      return state.map(function (todo) {
+	        return todo.id === action.id ? _extends({}, todo, { completed: !todo.completed }) : todo;
+	      });
+	    case Type.COMPLETED_ALL:
+
+	      var areAllMarked = state.every(function (todo) {
+	        return todo.completed;
+	      });
+	      return state.map(function (todo) {
+	        return _extends({}, todo, { completed: !areAllMarked });
+	      });
+
+	    case Type.CLEAR_COMPLETED:
+	      return state.filter(function (todo) {
+	        return todo.completed === false;
+	      });
+	    default:
+	      return state;
+	  }
+	}
+
+/***/ },
 /* 245 */,
 /* 246 */,
 /* 247 */,
@@ -23394,139 +23673,13 @@
 /* 302 */,
 /* 303 */,
 /* 304 */,
-/* 305 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(223);
-
-	var _action = __webpack_require__(306);
-
-	var TodoActions = _interopRequireWildcard(_action);
-
-	var _redux = __webpack_require__(208);
-
-	var _Header = __webpack_require__(310);
-
-	var _Header2 = _interopRequireDefault(_Header);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var App = function App(_ref) {
-	  var todos = _ref.todos;
-	  var actions = _ref.actions;
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(_Header2.default, { addTodo: actions.addTodo })
-	  );
-	};
-
-	App.propTypes = {
-	  todos: _react.PropTypes.array.isRequired,
-	  actions: _react.PropTypes.object.isRequired
-	};
-
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    todos: state.todos
-	  };
-	};
-
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    actions: (0, _redux.bindActionCreators)(TodoActions, dispatch)
-	  };
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
-
-/***/ },
-/* 306 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.clearCompleted = exports.completedAll = exports.completedTodo = exports.editTodo = exports.deleteTodo = exports.addTodo = undefined;
-
-	var _Todo = __webpack_require__(307);
-
-	var addTodo = exports.addTodo = function addTodo(text) {
-	  return { type: _Todo.ADD_TODO, text: text };
-	};
-	var deleteTodo = exports.deleteTodo = function deleteTodo(id) {
-	  return { type: _Todo.DELETE_TODO, id: id };
-	};
-	var editTodo = exports.editTodo = function editTodo(id, text) {
-	  return { type: _Todo.EDIT_TODO, id: id, text: text };
-	};
-	var completedTodo = exports.completedTodo = function completedTodo(id) {
-	  return { type: _Todo.COMPLETED_TODO, id: id };
-	};
-	var completedAll = exports.completedAll = function completedAll() {
-	  return { type: _Todo.COMPLETED_ALL };
-	};
-	var clearCompleted = exports.clearCompleted = function clearCompleted() {
-	  return { type: _Todo.CLEAR_COMPLETED };
-	};
-
-/***/ },
-/* 307 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var ADD_TODO = exports.ADD_TODO = 'ADD_TODO';
-	var DELETE_TODO = exports.DELETE_TODO = 'DELETE_TODO';
-	var CLEAR_COMPLETED = exports.CLEAR_COMPLETED = 'CLEAR_COMPLETED';
-	var EDIT_TODO = exports.EDIT_TODO = 'EDIT_TODO';
-	var COMPLETED_TODO = exports.COMPLETED_TODO = 'COMPLETED_TODO';
-	var COMPLETED_ALL = exports.COMPLETED_ALL = 'COMPLETED_ALL';
-	var SHOW_ALL = exports.SHOW_ALL = 'SHOW_ALL';
-	var SHOW_COMPLETED = exports.SHOW_COMPLETED = 'SHOW_COMPLETED';
-	var SHOW_ACTIVE = exports.SHOW_ACTIVE = 'SHOW_ACTIVE';
-
-/***/ },
-/* 308 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _redux = __webpack_require__(208);
-
-	var _todo = __webpack_require__(309);
-
-	var _todo2 = _interopRequireDefault(_todo);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var rootReducer = (0, _redux.combineReducers)({ todos: _todo2.default });
-
-	exports.default = rootReducer;
-
-/***/ },
-/* 309 */
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23537,103 +23690,86 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	exports.default = todos;
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(177);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Todo = __webpack_require__(307);
-
-	var Type = _interopRequireWildcard(_Todo);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var initState = [{
-	  id: 0,
-	  text: 'firstTodo',
-	  completed: false
-	}];
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function todos() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initState;
-	  var action = arguments[1];
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	  switch (action.type) {
-	    case Type.ADD_TODO:
-	      return [{
-	        id: state.reduce(function (maxId, todo) {
-	          return Math.max(todo.id, maxId);
-	        }, -1) + 1,
-	        completed: false,
-	        text: action.text
-	      }].concat(_toConsumableArray(state));
-	    case Type.DELETE_TODO:
-	      return state.filter(function (todo) {
-	        return todo.id !== action.id;
-	      });
-	    case Type.EDIT_TODO:
-	      return state.map(function (todo) {
-	        return todo.id === action.id ? _extends({}, todo, { text: action.text }) : todo;
-	      });
-	    case Type.COMPLETED_TODO:
-	      return state.map(function (todo) {
-	        return todo.id === action.id ? _extends({}, todo, { completed: true }) : todo;
-	      });
-	    case Type.COMPLETED_ALL:
+	var TodoItem = function (_Component) {
+	  _inherits(TodoItem, _Component);
 
-	      var areAllMarked = state.every(function (todo) {
-	        return todo.completed;
-	      });
-	      return state.map(function (todo) {
-	        return _extends({}, todo, { completed: !areAllMarked });
-	      });
+	  function TodoItem() {
+	    var _ref;
 
-	    case Type.CLEAR_COMPLETED:
-	      return state.filter(function (todo) {
-	        return todo.completed === false;
-	      });
-	    default:
-	      return state;
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, TodoItem);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TodoItem.__proto__ || Object.getPrototypeOf(TodoItem)).call.apply(_ref, [this].concat(args))), _this), _this.completedTodo = function () {
+	      _this.props.completedTodo(_this.props.todo.id);
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
-	}
 
-/***/ },
-/* 310 */
-/***/ function(module, exports, __webpack_require__) {
+	  _createClass(TodoItem, [{
+	    key: 'render',
+	    value: function render() {
+	      var todo = this.props.todo;
+	      return _react2.default.createElement(
+	        'li',
+	        { onClick: this.completedTodo, className: todo.completed ? 'completed' : '' },
+	        todo.text
+	      );
+	    }
+	  }]);
 
-	"use strict";
+	  return TodoItem;
+	}(_react.Component);
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	var Todo = function (_Component2) {
+	  _inherits(Todo, _Component2);
 
-	var _react = __webpack_require__(177);
+	  function Todo() {
+	    _classCallCheck(this, Todo);
 
-	var _react2 = _interopRequireDefault(_react);
+	    return _possibleConstructorReturn(this, (Todo.__proto__ || Object.getPrototypeOf(Todo)).apply(this, arguments));
+	  }
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	  _createClass(Todo, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
 
-	var Header = function Header(addTodo) {
-	  return _react2.default.createElement(
-	    "div",
-	    null,
-	    _react2.default.createElement(
-	      "h1",
-	      null,
-	      "TODOS"
-	    ),
-	    _react2.default.createElement("input", { type: "text",
-	      placeholder: "\u8BF7\u8F93\u5165\u5F85\u529E\u4FE1\u606F",
-	      onKeyDown: addTodo })
-	  );
-	};
+	      var items = [];
 
-	exports.default = Header;
+	      this.props.todos.forEach(function (item, i) {
+
+	        items.push(_react2.default.createElement(TodoItem, _extends({ todo: item }, _this3.props.actions, { key: i })));
+	      });
+	      return _react2.default.createElement(
+	        'ul',
+	        null,
+	        items
+	      );
+	    }
+	  }]);
+
+	  return Todo;
+	}(_react.Component);
+
+	exports.default = Todo;
 
 /***/ }
 /******/ ]);

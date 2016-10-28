@@ -55,7 +55,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _todoComponent = __webpack_require__(288);
+	var _todoComponent = __webpack_require__(294);
 
 	var _todoComponent2 = _interopRequireDefault(_todoComponent);
 
@@ -22728,7 +22728,13 @@
 /* 285 */,
 /* 286 */,
 /* 287 */,
-/* 288 */
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22743,11 +22749,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _todoStore = __webpack_require__(289);
+	var _todoStore = __webpack_require__(295);
 
 	var _todoStore2 = _interopRequireDefault(_todoStore);
 
-	var _todoAction = __webpack_require__(290);
+	var _todoAction = __webpack_require__(296);
 
 	var _todoAction2 = _interopRequireDefault(_todoAction);
 
@@ -22868,7 +22874,7 @@
 	exports.default = todo;
 
 /***/ },
-/* 289 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22916,12 +22922,12 @@
 	module.exports = todoStore;
 
 /***/ },
-/* 290 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _todoDispatcher = __webpack_require__(291);
+	var _todoDispatcher = __webpack_require__(297);
 
 	var _todoDispatcher2 = _interopRequireDefault(_todoDispatcher);
 
@@ -22946,7 +22952,7 @@
 	module.exports = TodoActions;
 
 /***/ },
-/* 291 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22955,7 +22961,7 @@
 
 	var _fluxReactDispatcher2 = _interopRequireDefault(_fluxReactDispatcher);
 
-	var _todoStore = __webpack_require__(289);
+	var _todoStore = __webpack_require__(295);
 
 	var _todoStore2 = _interopRequireDefault(_todoStore);
 

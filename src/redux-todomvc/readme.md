@@ -16,10 +16,12 @@
 
 # redux几个重要的点：
 
-  connect()()将数据、UI关联起来
-  combineReducers() 将所有的reducer合并
-  actions： 存储所有的动作包括type等   
-  components: 所有的UI                
+  ```
+    connect()()将数据、UI关联起来
+    combineReducers() 将所有的reducer合并
+    actions： 存储所有的动作包括type等   
+    components: 所有的UI 
+  ```               
 
 
 # redux 是 facebook 提出的 flux 架构

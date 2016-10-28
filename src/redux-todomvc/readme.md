@@ -5,12 +5,14 @@
 
 # 明确要完成的功能:
 
-  增：addTodo
-  删：deleteTodo, clearCompleted
-  改：editTodo
-  标记为完成：completedAll, completedTodo
+  ```
+    增：addTodo
+    删：deleteTodo, clearCompleted
+    改：editTodo
+    标记为完成：completedAll, completedTodo
 
-  过滤：showAll, showCompleted, showActive
+    过滤：showAll, showCompleted, showActive
+  ```
 
 # redux几个重要的点：
 

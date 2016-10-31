@@ -1,4 +1,4 @@
-import { combinReducers } from 'redux'
+import { combineReducers } from 'redux'
 import { RECEIVE_PRODUCTS, ADD_TO_CART } from '../constants/ActionTypes'
 
 const products = (state, action) => {
@@ -44,7 +44,7 @@ const visibleIds = (state = [], action) => {
   }
 }
 
-export default combinReducers({
+export default combineReducers({
   byId,
   visibleIds
 })

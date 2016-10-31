@@ -57,11 +57,11 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _App = __webpack_require__(245);
+	var _App = __webpack_require__(267);
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _reducer = __webpack_require__(254);
+	var _reducer = __webpack_require__(276);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
@@ -23332,7 +23332,29 @@
 /* 242 */,
 /* 243 */,
 /* 244 */,
-/* 245 */
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23345,15 +23367,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Footer = __webpack_require__(246);
+	var _Footer = __webpack_require__(268);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	var _AddTodo = __webpack_require__(250);
+	var _AddTodo = __webpack_require__(272);
 
 	var _AddTodo2 = _interopRequireDefault(_AddTodo);
 
-	var _VisibleTodoList = __webpack_require__(251);
+	var _VisibleTodoList = __webpack_require__(273);
 
 	var _VisibleTodoList2 = _interopRequireDefault(_VisibleTodoList);
 
@@ -23372,7 +23394,7 @@
 	exports.default = App;
 
 /***/ },
-/* 246 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23385,7 +23407,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _FilterLink = __webpack_require__(247);
+	var _FilterLink = __webpack_require__(269);
 
 	var _FilterLink2 = _interopRequireDefault(_FilterLink);
 
@@ -23420,7 +23442,7 @@
 	exports.default = Footer;
 
 /***/ },
-/* 247 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23431,9 +23453,9 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _action = __webpack_require__(248);
+	var _action = __webpack_require__(270);
 
-	var _Link = __webpack_require__(249);
+	var _Link = __webpack_require__(271);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -23458,7 +23480,7 @@
 	exports.default = FilterLink;
 
 /***/ },
-/* 248 */
+/* 270 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23490,7 +23512,7 @@
 	};
 
 /***/ },
-/* 249 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23539,7 +23561,7 @@
 	exports.default = Link;
 
 /***/ },
-/* 250 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23554,7 +23576,7 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _action = __webpack_require__(248);
+	var _action = __webpack_require__(270);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23596,7 +23618,7 @@
 	exports.default = AddTodo;
 
 /***/ },
-/* 251 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23607,9 +23629,9 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _action = __webpack_require__(248);
+	var _action = __webpack_require__(270);
 
-	var _TodoList = __webpack_require__(252);
+	var _TodoList = __webpack_require__(274);
 
 	var _TodoList2 = _interopRequireDefault(_TodoList);
 
@@ -23647,7 +23669,7 @@
 	exports.default = visibleTodoList;
 
 /***/ },
-/* 252 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23662,7 +23684,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Todo = __webpack_require__(253);
+	var _Todo = __webpack_require__(275);
 
 	var _Todo2 = _interopRequireDefault(_Todo);
 
@@ -23698,7 +23720,7 @@
 	exports.default = TodoList;
 
 /***/ },
-/* 253 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23737,7 +23759,7 @@
 	exports.default = Todo;
 
 /***/ },
-/* 254 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23748,11 +23770,11 @@
 
 	var _redux = __webpack_require__(208);
 
-	var _todos = __webpack_require__(255);
+	var _todos = __webpack_require__(277);
 
 	var _todos2 = _interopRequireDefault(_todos);
 
-	var _visibilityFilter = __webpack_require__(256);
+	var _visibilityFilter = __webpack_require__(278);
 
 	var _visibilityFilter2 = _interopRequireDefault(_visibilityFilter);
 
@@ -23766,7 +23788,7 @@
 	exports.default = todoApp;
 
 /***/ },
-/* 255 */
+/* 277 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23820,7 +23842,7 @@
 	exports.default = todos;
 
 /***/ },
-/* 256 */
+/* 278 */
 /***/ function(module, exports) {
 
 	'use strict';

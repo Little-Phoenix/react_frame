@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addToCart } from '../actions'
-import { getVisibleProducts } from '../reducer/products'
+import { addToCart } from '../actions/action'
+import { getVisibleProducts } from '../reducers/products'
 import ProductItem from '../components/ProductItem'
 import ProductsList from '../components/ProductsList'
 
@@ -26,7 +26,7 @@ ProductsContainer.propTypes = {
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     inventory: PropTypes.number.isRequired
-  })),isRequired,
+  })).isRequired,
   addToCart: PropTypes.func.isRequired
 }
 

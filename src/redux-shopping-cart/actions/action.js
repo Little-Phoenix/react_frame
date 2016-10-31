@@ -2,7 +2,7 @@ import shop from '../api/shop'
 import * as types from '../constants/ActionTypes'
 
 const receiveProducts = products => ({
-  type: type.RECEIVE_PRODUCTS,
+  type: types.RECEIVE_PRODUCTS,
   products: products
 })
 

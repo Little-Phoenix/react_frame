@@ -35,7 +35,7 @@ const quantityById = (state = initialState.quantityById, action) => {
   }
 }
 
-export const getQuantity = (state, productId) = >
+export const getQuantity = (state, productId) =>
   state.quantityById[productId] || 0
 
 export const getAddedIds = state => state.addedIds
@@ -44,7 +44,7 @@ const cart = (state = initialState, action) => {
   switch (action.type) {
     case CHECKOUT_REQUEST:
       return initialState
-    case CHECKOUT_SUCCESS
+    case CHECKOUT_FAILURE:
       return action.cart
     default:
       return {

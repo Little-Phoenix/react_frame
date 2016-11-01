@@ -1,23 +1,25 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { render } from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import createLogger from 'redux-logger'
+import reducer from './reducers'
+import App from './containers/App'
 
-const Piker = ({value, onChange, options}) => (
-  <span>
-    <h1>{value}</h1>
-    <select onChange={ e => onChange(e.target.value) } value={value}>
-      {options.map(
-        option =>
-        <option value={option} key={option}>{option}</option>
-      )}
-    </select>
-  </span>
-)
-
-Picker.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.string.isRequired
-  ).isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+const middleware = [ thunk ]
+if(process.env.NODE_ENV !== 'production'){
+  middleware.push(createLogger())
 }
 
-export default Picker
+const store = createStore(
+  reducer,
+  applyMiddleware(...middleware)
+)
+
+render(
+  <Provider store={store}>
+    <App/>
+  </Provider>,
+  document.getElementById('root')
+)

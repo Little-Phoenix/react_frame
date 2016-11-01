@@ -7,6 +7,7 @@ const receiveProducts = products => ({
 })
 
 export const getAllProducts = () => dispatch => {
+
   shop.getProducts(products => {
     dispatch(receiveProducts(products))
   })
@@ -29,7 +30,7 @@ export const checkout = products => (dispatch, getState) => {
   dispatch({
     type: type.CHECKOUT_REQUEST
   })
-
+  
   shop.byProducts(products, () => {
     dispatch({
       type: type.CHECKOUT_SUCCESS,

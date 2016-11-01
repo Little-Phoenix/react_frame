@@ -24380,7 +24380,7 @@
 	};
 
 	var getAddedIds = exports.getAddedIds = function getAddedIds(state) {
-	  return state.addedIds;
+	  return state.addIds;
 	};
 
 	var cart = function cart() {
@@ -24527,6 +24527,7 @@
 
 	var getAllProducts = exports.getAllProducts = function getAllProducts() {
 	  return function (dispatch) {
+
 	    _shop2.default.getProducts(function (products) {
 	      dispatch(receiveProducts(products));
 	    });

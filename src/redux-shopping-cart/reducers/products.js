@@ -25,7 +25,7 @@ const byId = (state = {}, action) => {
       }
     default:
       const { productId } = action
-      if(productId){
+      if (productId) {
         return {
           ...state,
           [productId]: products(state[productId], action)

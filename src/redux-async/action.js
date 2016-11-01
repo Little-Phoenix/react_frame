@@ -29,11 +29,11 @@ const fetchPosts = reddit => dispatch => {
   dispatch(requestPosts(reddit))
   return fetch(`https://www.reddit.com/r/${reddit}.json`)
     .then(response => response.json())
-    .thne(json => dispatch(receivePosts(reddit, json)))
+    .then(json => dispatch(receivePosts(reddit, json)))
 }
 
 const shouldFetchPosts = (state, reddit) => {
-  const posts = state.postsByReddit(reddit)
+  const posts = state.postsByReddit[reddit]
   if(!posts) {
     return true
   }

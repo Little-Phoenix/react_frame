@@ -57,23 +57,21 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _reduxLogger = __webpack_require__(238);
-
-	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
-
 	var _reduxThunk = __webpack_require__(237);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _reducer = __webpack_require__(246);
+	var _reduxLogger = __webpack_require__(238);
+
+	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
+
+	var _reducer = __webpack_require__(333);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
-	var _action = __webpack_require__(250);
+	var _app = __webpack_require__(334);
 
-	var _App = __webpack_require__(253);
-
-	var _App2 = _interopRequireDefault(_App);
+	var _app2 = _interopRequireDefault(_app);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -84,12 +82,10 @@
 
 	var store = (0, _redux.createStore)(_reducer2.default, _redux.applyMiddleware.apply(undefined, middleware));
 
-	store.dispatch((0, _action.getAllProducts)());
-
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRedux.Provider,
 	  { store: store },
-	  _react2.default.createElement(_App2.default, null)
+	  _react2.default.createElement(_app2.default, null)
 	), document.getElementById('root'));
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
@@ -24267,7 +24263,94 @@
 /***/ },
 /* 244 */,
 /* 245 */,
-/* 246 */
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24275,228 +24358,80 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.getCartProducts = exports.getTotal = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _redux = __webpack_require__(208);
 
-	var _cart = __webpack_require__(247);
-
-	var fromCart = _interopRequireWildcard(_cart);
-
-	var _products = __webpack_require__(249);
-
-	var fromProducts = _interopRequireWildcard(_products);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	exports.default = (0, _redux.combineReducers)({
-	  cart: fromCart.default,
-	  products: fromProducts.default
-	});
-
-
-	var getAddedIds = function getAddedIds(state) {
-	  return fromCart.getAddedIds(state.cart);
-	};
-	var getQuantity = function getQuantity(state, id) {
-	  return fromCart.getQuantity(state.cart, id);
-	};
-	var getProduct = function getProduct(state, id) {
-	  return fromCart.getProduct(state.products, id);
-	};
-
-	var getTotal = exports.getTotal = function getTotal(state) {
-	  return getAddedIds(state).reduce(function (total, id) {
-	    return total + getProduct(state, id).price * getQuantity(state, id);
-	  }, 0).toFixed(2);
-	};
-
-	var getCartProducts = exports.getCartProducts = function getCartProducts(state) {
-	  return getAddedIds(state).map(function (id) {
-	    return _extends({}, getProduct(state, id), {
-	      quantity: getQuantity(state, id)
-	    });
-	  });
-	};
-
-/***/ },
-/* 247 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.getAddedIds = exports.getQuantity = undefined;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _ActionTypes = __webpack_require__(248);
+	var _action = __webpack_require__(335);
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-	var initialState = {
-	  addedIds: [],
-	  quantityById: {}
-	};
-
-	var addedIds = function addedIds() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState.addedIds;
+	var selectedReddit = function selectedReddit() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'reactjs';
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case _ActionTypes.ADD_TO_CART:
-	      if (state.indexOf(action.productId) !== -1) {
-	        return state;
-	      }
-
-	      return [].concat(_toConsumableArray(state), [action.productId]);
+	    case _action.SELECT_REDDIT:
+	      return action.reddit;
 	    default:
 	      return state;
 	  }
 	};
 
-	var quantityById = function quantityById() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState.quantityById;
+	var posts = function posts() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+	    isFetching: false,
+	    didInvalidate: false,
+	    items: []
+	  };
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case _ActionTypes.ADD_TO_CART:
-	      var productId = action.productId;
-
-	      return _extends({}, state, _defineProperty({}, productId, (state[productId] || 0) + 1));
-	    default:
-	      return state;
-	  }
-	};
-
-	var getQuantity = exports.getQuantity = function getQuantity(state, productId) {
-	  return state.quantityById[productId] || 0;
-	};
-
-	var getAddedIds = exports.getAddedIds = function getAddedIds(state) {
-	  return state.addIds;
-	};
-
-	var cart = function cart() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _ActionTypes.CHECKOUT_REQUEST:
-	      return initialState;
-	    case _ActionTypes.CHECKOUT_FAILURE:
-	      return action.cart;
-	    default:
-	      return {
-	        addIds: addedIds(state.addedIds, action),
-	        quantityById: quantityById(state.quantityById, action)
-	      };
-	  }
-	};
-
-	exports.default = cart;
-
-/***/ },
-/* 248 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var ADD_TO_CART = exports.ADD_TO_CART = 'ADD_TO_CART';
-	var CHECKOUT_REQUEST = exports.CHECKOUT_REQUEST = 'CHECKOUT_REQUEST';
-	var CHECKOUT_SUCCESS = exports.CHECKOUT_SUCCESS = 'CHECKOUT_SUCCESS';
-	var CHECKOUT_FAILURE = exports.CHECKOUT_FAILURE = 'CHECKOUT_FAILURE';
-	var RECEIVE_PRODUCTS = exports.RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
-
-/***/ },
-/* 249 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.getVisibleProducts = exports.getProduct = undefined;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _redux = __webpack_require__(208);
-
-	var _ActionTypes = __webpack_require__(248);
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-	var products = function products(state, action) {
-	  switch (action.type) {
-	    case _ActionTypes.ADD_TO_CART:
+	    case _action.INVALIDATE_REDDIT:
 	      return _extends({}, state, {
-	        inventory: state.inventory - 1
+	        didInvalidate: true
+	      });
+	    case _action.REQUEST_POSTS:
+	      return _extends({}, state, {
+	        isFetching: true,
+	        didInvalidate: false
+	      });
+	    case _action.RECEIVE_POSTS:
+	      return _extends({}, state, {
+	        isFetching: false,
+	        didInvalidate: false,
+	        items: action.posts,
+	        lastUpdated: action.receivedAt
 	      });
 	    default:
 	      return state;
 	  }
 	};
 
-	var byId = function byId() {
+	var postsByReddit = function postsByReddit() {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case _ActionTypes.RECEIVE_PRODUCTS:
-	      return _extends({}, state, action.products.reduce(function (obj, product) {
-	        obj[product.id] = product;
-	        return obj;
-	      }, {}));
-	    default:
-	      var productId = action.productId;
-
-	      if (productId) {
-	        return _extends({}, state, _defineProperty({}, productId, products(state[productId], action)));
-	      }
-	      return state;
-	  }
-	};
-
-	var visibleIds = function visibleIds() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _ActionTypes.RECEIVE_PRODUCTS:
-	      return action.products.map(function (product) {
-	        return product.id;
-	      });
+	    case _action.INVALIDATE_REDDIT:
+	    case _action.RECEIVE_POSTS:
+	    case _action.REQUEST_POSTS:
+	      return _extends({}, state, _defineProperty({}, action.reddit, posts(state[action.reddit], action)));
 	    default:
 	      return state;
 	  }
 	};
 
-	exports.default = (0, _redux.combineReducers)({
-	  byId: byId,
-	  visibleIds: visibleIds
+	var rootReducer = (0, _redux.combineReducers)({
+	  postsByReddit: postsByReddit,
+	  selectedReddit: selectedReddit
 	});
-	var getProduct = exports.getProduct = function getProduct(state, id) {
-	  return state.byId[id];
-	};
 
-	var getVisibleProducts = exports.getVisibleProducts = function getVisibleProducts(state) {
-	  return state.visibleIds.map(function (id) {
-	    return getProduct(state, id);
-	  });
-	};
+	exports.default = rootReducer;
 
 /***/ },
-/* 250 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24504,128 +24439,246 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.checkout = exports.addToCart = exports.getAllProducts = undefined;
 
-	var _shop = __webpack_require__(251);
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _shop2 = _interopRequireDefault(_shop);
+	var _react = __webpack_require__(177);
 
-	var _ActionTypes = __webpack_require__(248);
+	var _react2 = _interopRequireDefault(_react);
 
-	var types = _interopRequireWildcard(_ActionTypes);
+	var _reactRedux = __webpack_require__(223);
 
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	var _action = __webpack_require__(335);
+
+	var _Picker = __webpack_require__(336);
+
+	var _Picker2 = _interopRequireDefault(_Picker);
+
+	var _Posts = __webpack_require__(337);
+
+	var _Posts2 = _interopRequireDefault(_Posts);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var receiveProducts = function receiveProducts(products) {
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var App = function (_Component) {
+	  _inherits(App, _Component);
+
+	  function App() {
+	    var _ref;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, App);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.handleChange = function (nextReddit) {
+	      _this.props.dispatch((0, _action.selectReddit)(nextReddit));
+	    }, _this.handleRefreshClick = function (e) {
+	      e.preventDefault();
+
+	      var _this$props = _this.props;
+	      var dispatch = _this$props.dispatch;
+	      var selectedReddit = _this$props.selectedReddit;
+
+	      dispatch((0, _action.invalidateReddit)(selectedReddit));
+	      dispatch((0, _action.fetchPostsIfNeeded)(selectedReddit));
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(App, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _props = this.props;
+	      var dispatch = _props.dispatch;
+	      var selectedReddit = _props.selectedReddit;
+
+	      dispatch((0, _action.fetchPostsIfNeeded)(selectedReddit));
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if (nextProps.selectedReddit !== this.props.selectedReddit) {
+	        var dispatch = nextProps.dispatch;
+	        var selectedReddit = nextProps.selectedReddit;
+
+	        dispatch((0, _action.fetchPostsIfNeeded)(selectedReddit));
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props2 = this.props;
+	      var selectedReddit = _props2.selectedReddit;
+	      var posts = _props2.posts;
+	      var isFetching = _props2.isFetching;
+	      var lastUpdated = _props2.lastUpdated;
+
+	      var isEmpty = posts.length === 0;
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_Picker2.default, { value: selectedReddit,
+	          onChange: this.handleChange,
+	          options: ['reactjs', 'frontend'] }),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          lastUpdated && _react2.default.createElement(
+	            'span',
+	            null,
+	            'Last updated at ',
+	            new Date(lastUpdated).toLocaleTimeString(),
+	            '.',
+	            ' '
+	          ),
+	          !isFetching && _react2.default.createElement(
+	            'a',
+	            { href: '#',
+	              onClick: this.handleRefreshClick },
+	            'Refresh'
+	          )
+	        ),
+	        isEmpty ? isFetching ? _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Loading...'
+	        ) : _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Empty.'
+	        ) : _react2.default.createElement(
+	          'div',
+	          { style: { opacity: isFetching ? 0.5 : 1 } },
+	          _react2.default.createElement(_Posts2.default, { posts: posts })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react.Component);
+
+	App.propTypes = {
+	  selectedReddit: _react.PropTypes.string.isRequired,
+	  posts: _react.PropTypes.array.isRequired,
+	  isFetching: _react.PropTypes.bool.isRequired,
+	  lastUpdated: _react.PropTypes.number,
+	  dispatch: _react.PropTypes.func.isRequired
+	};
+
+
+	var mapStateToProps = function mapStateToProps(state) {
+	  var selectedReddit = state.selectedReddit;
+	  var postsByReddit = state.postsByReddit;
+
+	  var _ref2 = postsByReddit[selectedReddit] || {
+	    isFetching: true,
+	    items: []
+	  };
+
+	  var isFetching = _ref2.isFetching;
+	  var lastUpdated = _ref2.lastUpdated;
+	  var posts = _ref2.items;
+
+
 	  return {
-	    type: types.RECEIVE_PRODUCTS,
-	    products: products
+	    selectedReddit: selectedReddit,
+	    posts: posts,
+	    isFetching: isFetching,
+	    lastUpdated: lastUpdated
 	  };
 	};
 
-	var getAllProducts = exports.getAllProducts = function getAllProducts() {
-	  return function (dispatch) {
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(App);
 
-	    _shop2.default.getProducts(function (products) {
-	      dispatch(receiveProducts(products));
+/***/ },
+/* 335 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var REQUEST_POSTS = exports.REQUEST_POSTS = 'REQUEST_POSTS';
+	var RECEIVE_POSTS = exports.RECEIVE_POSTS = 'RECEIVE_POSTS';
+	var SELECT_REDDIT = exports.SELECT_REDDIT = 'SELECT_REDDIT';
+	var INVALIDATE_REDDIT = exports.INVALIDATE_REDDIT = 'INVALIDATE_REDDIT';
+
+	var selectReddit = exports.selectReddit = function selectReddit(reddit) {
+	  return {
+	    type: SELECT_REDDIT,
+	    reddit: reddit
+	  };
+	};
+
+	var invalidateReddit = exports.invalidateReddit = function invalidateReddit(reddit) {
+	  return {
+	    type: INVALIDATE_REDDIT,
+	    reddit: reddit
+	  };
+	};
+
+	var requestPosts = exports.requestPosts = function requestPosts(reddit) {
+	  return {
+	    type: REQUEST_POSTS,
+	    reddit: reddit
+	  };
+	};
+
+	var receivePosts = exports.receivePosts = function receivePosts(reddit, json) {
+	  return {
+	    type: RECEIVE_POSTS,
+	    reddit: reddit,
+	    posts: json.data.children.map(function (child) {
+	      return child.data;
+	    }),
+	    receivedAt: Date.now()
+	  };
+	};
+
+	var fetchPosts = function fetchPosts(reddit) {
+	  return function (dispatch) {
+	    dispatch(requestPosts(reddit));
+	    return fetch('https://www.reddit.com/r/' + reddit + '.json').then(function (response) {
+	      return response.json();
+	    }).then(function (json) {
+	      return dispatch(receivePosts(reddit, json));
 	    });
 	  };
 	};
 
-	var addToCartUnsafe = function addToCartUnsafe(productId) {
-	  return {
-	    type: types.ADD_TO_CART,
-	    productId: productId
-	  };
+	var shouldFetchPosts = function shouldFetchPosts(state, reddit) {
+	  var posts = state.postsByReddit[reddit];
+	  if (!posts) {
+	    return true;
+	  }
+	  if (posts.isFetching) {
+	    return false;
+	  }
+
+	  return posts.didInvalidate;
 	};
 
-	var addToCart = exports.addToCart = function addToCart(productId) {
+	var fetchPostsIfNeeded = exports.fetchPostsIfNeeded = function fetchPostsIfNeeded(reddit) {
 	  return function (dispatch, getState) {
-	    if (getState().products.byId[productId].inventory > 0) {
-	      dispatch(addToCartUnsafe(productId));
+	    if (shouldFetchPosts(getState(), reddit)) {
+	      return dispatch(fetchPosts(reddit));
 	    }
 	  };
 	};
 
-	var checkout = exports.checkout = function checkout(products) {
-	  return function (dispatch, getState) {
-	    var _getState = getState();
-
-	    var cart = _getState.cart;
-
-
-	    dispatch({
-	      type: type.CHECKOUT_REQUEST
-	    });
-
-	    _shop2.default.byProducts(products, function () {
-	      dispatch({
-	        type: type.CHECKOUT_SUCCESS,
-	        cart: cart
-	      });
-	    });
-	  };
-	};
-
 /***/ },
-/* 251 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _products2 = __webpack_require__(252);
-
-	var _products3 = _interopRequireDefault(_products2);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var TIMEOUT = 100;
-
-	exports.default = {
-	  getProducts: function getProducts(cb, timeout) {
-	    return setTimeout(function () {
-	      return cb(_products3.default);
-	    }, timeout || TIMEOUT);
-	  },
-	  buyProducts: function buyProducts(payload, cb, timeout) {
-	    return setTimeout(function () {
-	      return cb();
-	    }, timeout || TIMEOUT);
-	  }
-	};
-
-/***/ },
-/* 252 */
-/***/ function(module, exports) {
-
-	[
-	  {
-	    "id": 1,
-	    "title": "iPad 4 Mini",
-	    "price": 500.01,
-	    "inventory": 2
-	  },{
-	    "id": 2,
-	    "title": "H&M T-Shirt White",
-	    "price": 10.99,
-	    "inventory": 10
-	  },{
-	    "id": 3,
-	    "title": "Charli XCX - Sucker CD",
-	    "price": 19.99,
-	    "inventory": 5
-	  }
-	]
-
-
-/***/ },
-/* 253 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24638,36 +24691,46 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProductsContainer = __webpack_require__(254);
-
-	var _ProductsContainer2 = _interopRequireDefault(_ProductsContainer);
-
-	var _CartContainer = __webpack_require__(258);
-
-	var _CartContainer2 = _interopRequireDefault(_CartContainer);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var App = function App() {
+	var Picker = function Picker(_ref) {
+	  var value = _ref.value;
+	  var _onChange = _ref.onChange;
+	  var options = _ref.options;
 	  return _react2.default.createElement(
-	    'div',
+	    'span',
 	    null,
 	    _react2.default.createElement(
-	      'h2',
+	      'h1',
 	      null,
-	      'Shopping Cart Example'
+	      value
 	    ),
-	    _react2.default.createElement('hr', null),
-	    _react2.default.createElement(_ProductsContainer2.default, null),
-	    _react2.default.createElement('hr', null),
-	    _react2.default.createElement(_CartContainer2.default, null)
+	    _react2.default.createElement(
+	      'select',
+	      { onChange: function onChange(e) {
+	          return _onChange(e.target.value);
+	        }, value: value },
+	      options.map(function (option) {
+	        return _react2.default.createElement(
+	          'option',
+	          { value: option, key: option },
+	          option
+	        );
+	      })
+	    )
 	  );
 	};
 
-	exports.default = App;
+	Picker.propTypes = {
+	  options: _react.PropTypes.arrayOf(_react.PropTypes.string.isRequired).isRequired,
+	  value: _react.PropTypes.string.isRequired,
+	  onChange: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = Picker;
 
 /***/ },
-/* 254 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24680,319 +24743,28 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(223);
-
-	var _action = __webpack_require__(250);
-
-	var _products = __webpack_require__(249);
-
-	var _ProductItem = __webpack_require__(255);
-
-	var _ProductItem2 = _interopRequireDefault(_ProductItem);
-
-	var _ProductsList = __webpack_require__(257);
-
-	var _ProductsList2 = _interopRequireDefault(_ProductsList);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var ProductsContainer = function ProductsContainer(_ref) {
-	  var products = _ref.products;
-	  var addToCart = _ref.addToCart;
+	var Posts = function Posts(_ref) {
+	  var posts = _ref.posts;
 	  return _react2.default.createElement(
-	    _ProductsList2.default,
-	    { title: 'Products' },
-	    products.map(function (product) {
-	      return _react2.default.createElement(_ProductItem2.default, {
-	        key: product.id,
-	        product: product,
-	        onAddToCartClicked: function onAddToCartClicked() {
-	          return addToCart(product.id);
-	        }
-	      });
+	    'ul',
+	    null,
+	    posts.map(function (post, i) {
+	      return _react2.default.createElement(
+	        'li',
+	        { key: i },
+	        post.title
+	      );
 	    })
 	  );
 	};
 
-	ProductsContainer.propTypes = {
-	  products: _react.PropTypes.arrayOf(_react.PropTypes.shape({
-	    id: _react.PropTypes.number.isRequired,
-	    title: _react.PropTypes.string.isRequired,
-	    price: _react.PropTypes.number.isRequired,
-	    inventory: _react.PropTypes.number.isRequired
-	  })).isRequired,
-	  addToCart: _react.PropTypes.func.isRequired
+	Posts.propTypes = {
+	  posts: _react.PropTypes.array.isRequired
 	};
 
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    products: (0, _products.getVisibleProducts)(state.products)
-	  };
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { addToCart: _action.addToCart })(ProductsContainer);
-
-/***/ },
-/* 255 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Product = __webpack_require__(256);
-
-	var _Product2 = _interopRequireDefault(_Product);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var ProductItem = function ProductItem(_ref) {
-	  var product = _ref.product;
-	  var onAddToCartClicked = _ref.onAddToCartClicked;
-	  return _react2.default.createElement(
-	    'div',
-	    { style: { marginBottom: 20 } },
-	    _react2.default.createElement(_Product2.default, {
-	      title: product.title,
-	      price: product.price }),
-	    _react2.default.createElement(
-	      'button',
-	      {
-	        onClick: onAddToCartClicked,
-	        disabled: product.inventory > 0 ? '' : 'disabled' },
-	      product.inventory > 0 ? 'Add to cart' : 'Sold Out'
-	    )
-	  );
-	};
-
-	ProductItem.propTypes = {
-	  product: _react.PropTypes.shape({
-	    title: _react.PropTypes.string.isRequired,
-	    price: _react.PropTypes.number.isRequired,
-	    inventory: _react.PropTypes.number.isRequired
-	  }).isRequired,
-	  onAddToCartClicked: _react.PropTypes.func.isRequired
-	};
-
-	exports.default = ProductItem;
-
-/***/ },
-/* 256 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Product = function Product(_ref) {
-	  var price = _ref.price;
-	  var quantity = _ref.quantity;
-	  var title = _ref.title;
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    title,
-	    ' - $',
-	    price,
-	    quantity ? ' x ' + quantity : null
-	  );
-	};
-
-	Product.propTypes = {
-	  price: _react.PropTypes.number,
-	  quantity: _react.PropTypes.number,
-	  title: _react.PropTypes.string
-	};
-
-	exports.default = Product;
-
-/***/ },
-/* 257 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var ProductsList = function ProductsList(_ref) {
-	  var title = _ref.title;
-	  var children = _ref.children;
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h3',
-	      null,
-	      title
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      children
-	    )
-	  );
-	};
-
-	ProductsList.propTypes = {
-	  children: _react.PropTypes.node,
-	  title: _react.PropTypes.string.isRequired
-	};
-
-	exports.default = ProductsList;
-
-/***/ },
-/* 258 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(223);
-
-	var _action = __webpack_require__(250);
-
-	var _reducer = __webpack_require__(246);
-
-	var _Cart = __webpack_require__(259);
-
-	var _Cart2 = _interopRequireDefault(_Cart);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var CartContainer = function CartContainer(_ref) {
-	  var products = _ref.products;
-	  var total = _ref.total;
-	  var checkout = _ref.checkout;
-	  return _react2.default.createElement(_Cart2.default, {
-	    products: products,
-	    total: total,
-	    onCheckoutClicked: function onCheckoutClicked() {
-	      return checkout(products);
-	    } });
-	};
-
-	CartContainer.propTypes = {
-	  products: _react.PropTypes.arrayOf(_react.PropTypes.shape({
-	    id: _react.PropTypes.number.isRequired,
-	    title: _react.PropTypes.string.isRequired,
-	    price: _react.PropTypes.number.isRequired,
-	    quantity: _react.PropTypes.number.isRequired
-	  })).isRequired,
-	  total: _react.PropTypes.string,
-	  checkout: _react.PropTypes.func.isRequired
-	};
-
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    products: (0, _reducer.getCartProducts)(state),
-	    total: (0, _reducer.getTotal)(state)
-	  };
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { checkout: _action.checkout })(CartContainer);
-
-/***/ },
-/* 259 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(177);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Product = __webpack_require__(256);
-
-	var _Product2 = _interopRequireDefault(_Product);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Cart = function Cart(_ref) {
-	  var products = _ref.products;
-	  var total = _ref.total;
-	  var onCheckoutClicked = _ref.onCheckoutClicked;
-
-	  var hasProducts = products.length > 0;
-	  var nodes = hasProducts ? products.map(function (product) {
-	    return _react2.default.createElement(_Product2.default, {
-	      title: product.title,
-	      price: product.price,
-	      quantity: product.quantity,
-	      key: product.id });
-	  }) : _react2.default.createElement(
-	    'em',
-	    null,
-	    'Please add some products to cart.'
-	  );
-
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h3',
-	      null,
-	      'Your Cart'
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      null,
-	      nodes
-	    ),
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      'Total: $',
-	      total
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { onClick: onCheckoutClicked,
-	        disabled: hasProducts ? '' : 'disabled' },
-	      'Checkout'
-	    )
-	  );
-	};
-
-	Cart.propTypes = {
-	  products: _react.PropTypes.array,
-	  total: _react.PropTypes.string,
-	  onCheckoutClicked: _react.PropTypes.func
-	};
-
-	exports.default = Cart;
+	exports.default = Posts;
 
 /***/ }
 /******/ ]);

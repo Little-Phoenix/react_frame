@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from './action'
-import Picker from '../components/Picker'
-import Posts from '../components/Posts'
+import Picker from './components/Picker'
+import Posts from './components/Posts'
 
 class App extends Component{
   static propTypes = {
@@ -26,7 +26,7 @@ class App extends Component{
   }
 
   handleChange = nextReddit => {
-    this.props.dispatch(selectedReddit(nextReddit))
+    this.props.dispatch(selectReddit(nextReddit))
   }
 
   handleRefreshClick = e => {

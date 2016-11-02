@@ -65,11 +65,11 @@
 
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-	var _reducer = __webpack_require__(333);
+	var _reducer = __webpack_require__(244);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
-	var _app = __webpack_require__(334);
+	var _app = __webpack_require__(246);
 
 	var _app2 = _interopRequireDefault(_app);
 
@@ -24261,96 +24261,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
-/* 289 */,
-/* 290 */,
-/* 291 */,
-/* 292 */,
-/* 293 */,
-/* 294 */,
-/* 295 */,
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */,
-/* 301 */,
-/* 302 */,
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */,
-/* 309 */,
-/* 310 */,
-/* 311 */,
-/* 312 */,
-/* 313 */,
-/* 314 */,
-/* 315 */,
-/* 316 */,
-/* 317 */,
-/* 318 */,
-/* 319 */,
-/* 320 */,
-/* 321 */,
-/* 322 */,
-/* 323 */,
-/* 324 */,
-/* 325 */,
-/* 326 */,
-/* 327 */,
-/* 328 */,
-/* 329 */,
-/* 330 */,
-/* 331 */,
-/* 332 */,
-/* 333 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24363,12 +24274,12 @@
 
 	var _redux = __webpack_require__(208);
 
-	var _action = __webpack_require__(335);
+	var _action = __webpack_require__(245);
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	var selectedReddit = function selectedReddit() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'reactjs';
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'frontend';
 	  var action = arguments[1];
 
 	  switch (action.type) {
@@ -24413,6 +24324,7 @@
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	  var action = arguments[1];
 
+
 	  switch (action.type) {
 	    case _action.INVALIDATE_REDDIT:
 	    case _action.RECEIVE_POSTS:
@@ -24431,7 +24343,84 @@
 	exports.default = rootReducer;
 
 /***/ },
-/* 334 */
+/* 245 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var REQUEST_POSTS = exports.REQUEST_POSTS = 'REQUEST_POSTS';
+	var RECEIVE_POSTS = exports.RECEIVE_POSTS = 'RECEIVE_POSTS';
+	var SELECT_REDDIT = exports.SELECT_REDDIT = 'SELECT_REDDIT';
+	var INVALIDATE_REDDIT = exports.INVALIDATE_REDDIT = 'INVALIDATE_REDDIT';
+
+	var selectReddit = exports.selectReddit = function selectReddit(reddit) {
+	  return {
+	    type: SELECT_REDDIT,
+	    reddit: reddit
+	  };
+	};
+
+	var invalidateReddit = exports.invalidateReddit = function invalidateReddit(reddit) {
+	  return {
+	    type: INVALIDATE_REDDIT,
+	    reddit: reddit
+	  };
+	};
+
+	var requestPosts = exports.requestPosts = function requestPosts(reddit) {
+	  return {
+	    type: REQUEST_POSTS,
+	    reddit: reddit
+	  };
+	};
+
+	var receivePosts = exports.receivePosts = function receivePosts(reddit, json) {
+	  return {
+	    type: RECEIVE_POSTS,
+	    reddit: reddit,
+	    posts: json.data.children.map(function (child) {
+	      return child.data;
+	    }),
+	    receivedAt: Date.now()
+	  };
+	};
+
+	var fetchPosts = function fetchPosts(reddit) {
+	  return function (dispatch) {
+	    dispatch(requestPosts(reddit));
+	    return fetch('https://www.reddit.com/r/' + reddit + '.json').then(function (response) {
+	      return response.json();
+	    }).then(function (json) {
+	      return dispatch(receivePosts(reddit, json));
+	    });
+	  };
+	};
+
+	var shouldFetchPosts = function shouldFetchPosts(state, reddit) {
+	  var posts = state.postsByReddit[reddit];
+	  if (!posts) {
+	    return true;
+	  }
+	  if (posts.isFetching) {
+	    return false;
+	  }
+
+	  return posts.didInvalidate;
+	};
+
+	var fetchPostsIfNeeded = exports.fetchPostsIfNeeded = function fetchPostsIfNeeded(reddit) {
+	  return function (dispatch, getState) {
+	    if (shouldFetchPosts(getState(), reddit)) {
+	      return dispatch(fetchPosts(reddit));
+	    }
+	  };
+	};
+
+/***/ },
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24448,13 +24437,13 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _action = __webpack_require__(335);
+	var _action = __webpack_require__(245);
 
-	var _Picker = __webpack_require__(336);
+	var _Picker = __webpack_require__(247);
 
 	var _Picker2 = _interopRequireDefault(_Picker);
 
-	var _Posts = __webpack_require__(337);
+	var _Posts = __webpack_require__(248);
 
 	var _Posts2 = _interopRequireDefault(_Posts);
 
@@ -24532,6 +24521,8 @@
 	        _react2.default.createElement(
 	          'p',
 	          null,
+
+	          //lastUpdated如果有值，则返回&&后面的值，否则返回lastUpdated
 	          lastUpdated && _react2.default.createElement(
 	            'span',
 	            null,
@@ -24601,84 +24592,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(App);
 
 /***/ },
-/* 335 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var REQUEST_POSTS = exports.REQUEST_POSTS = 'REQUEST_POSTS';
-	var RECEIVE_POSTS = exports.RECEIVE_POSTS = 'RECEIVE_POSTS';
-	var SELECT_REDDIT = exports.SELECT_REDDIT = 'SELECT_REDDIT';
-	var INVALIDATE_REDDIT = exports.INVALIDATE_REDDIT = 'INVALIDATE_REDDIT';
-
-	var selectReddit = exports.selectReddit = function selectReddit(reddit) {
-	  return {
-	    type: SELECT_REDDIT,
-	    reddit: reddit
-	  };
-	};
-
-	var invalidateReddit = exports.invalidateReddit = function invalidateReddit(reddit) {
-	  return {
-	    type: INVALIDATE_REDDIT,
-	    reddit: reddit
-	  };
-	};
-
-	var requestPosts = exports.requestPosts = function requestPosts(reddit) {
-	  return {
-	    type: REQUEST_POSTS,
-	    reddit: reddit
-	  };
-	};
-
-	var receivePosts = exports.receivePosts = function receivePosts(reddit, json) {
-	  return {
-	    type: RECEIVE_POSTS,
-	    reddit: reddit,
-	    posts: json.data.children.map(function (child) {
-	      return child.data;
-	    }),
-	    receivedAt: Date.now()
-	  };
-	};
-
-	var fetchPosts = function fetchPosts(reddit) {
-	  return function (dispatch) {
-	    dispatch(requestPosts(reddit));
-	    return fetch('https://www.reddit.com/r/' + reddit + '.json').then(function (response) {
-	      return response.json();
-	    }).then(function (json) {
-	      return dispatch(receivePosts(reddit, json));
-	    });
-	  };
-	};
-
-	var shouldFetchPosts = function shouldFetchPosts(state, reddit) {
-	  var posts = state.postsByReddit[reddit];
-	  if (!posts) {
-	    return true;
-	  }
-	  if (posts.isFetching) {
-	    return false;
-	  }
-
-	  return posts.didInvalidate;
-	};
-
-	var fetchPostsIfNeeded = exports.fetchPostsIfNeeded = function fetchPostsIfNeeded(reddit) {
-	  return function (dispatch, getState) {
-	    if (shouldFetchPosts(getState(), reddit)) {
-	      return dispatch(fetchPosts(reddit));
-	    }
-	  };
-	};
-
-/***/ },
-/* 336 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24730,7 +24644,7 @@
 	exports.default = Picker;
 
 /***/ },
-/* 337 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

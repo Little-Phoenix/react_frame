@@ -4,7 +4,7 @@ import {
   REQUEST_POSTS, RECEIVE_POSTS
 } from './action'
 
-const selectedReddit = (state = 'reactjs', action) => {
+const selectedReddit = (state = 'frontend', action) => {
   switch (action.type) {
     case SELECT_REDDIT:
       return action.reddit
@@ -44,6 +44,7 @@ const posts = (state = {
 }
 
 const postsByReddit = (state = { }, action) => {
+
   switch (action.type) {
     case INVALIDATE_REDDIT:
     case RECEIVE_POSTS:

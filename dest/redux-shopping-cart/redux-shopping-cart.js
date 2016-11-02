@@ -65,13 +65,13 @@
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _reducer = __webpack_require__(246);
+	var _reducer = __webpack_require__(251);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
-	var _action = __webpack_require__(250);
+	var _action = __webpack_require__(255);
 
-	var _App = __webpack_require__(253);
+	var _App = __webpack_require__(258);
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -24267,7 +24267,12 @@
 /***/ },
 /* 244 */,
 /* 245 */,
-/* 246 */
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24281,11 +24286,11 @@
 
 	var _redux = __webpack_require__(208);
 
-	var _cart = __webpack_require__(247);
+	var _cart = __webpack_require__(252);
 
 	var fromCart = _interopRequireWildcard(_cart);
 
-	var _products = __webpack_require__(249);
+	var _products = __webpack_require__(254);
 
 	var fromProducts = _interopRequireWildcard(_products);
 
@@ -24322,7 +24327,7 @@
 	};
 
 /***/ },
-/* 247 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24334,7 +24339,7 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _ActionTypes = __webpack_require__(248);
+	var _ActionTypes = __webpack_require__(253);
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -24403,7 +24408,7 @@
 	exports.default = cart;
 
 /***/ },
-/* 248 */
+/* 253 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24418,7 +24423,7 @@
 	var RECEIVE_PRODUCTS = exports.RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
 
 /***/ },
-/* 249 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24432,7 +24437,7 @@
 
 	var _redux = __webpack_require__(208);
 
-	var _ActionTypes = __webpack_require__(248);
+	var _ActionTypes = __webpack_require__(253);
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -24496,7 +24501,7 @@
 	};
 
 /***/ },
-/* 250 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24506,11 +24511,11 @@
 	});
 	exports.checkout = exports.addToCart = exports.getAllProducts = undefined;
 
-	var _shop = __webpack_require__(251);
+	var _shop = __webpack_require__(256);
 
 	var _shop2 = _interopRequireDefault(_shop);
 
-	var _ActionTypes = __webpack_require__(248);
+	var _ActionTypes = __webpack_require__(253);
 
 	var types = _interopRequireWildcard(_ActionTypes);
 
@@ -24570,7 +24575,7 @@
 	};
 
 /***/ },
-/* 251 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24579,7 +24584,7 @@
 	  value: true
 	});
 
-	var _products2 = __webpack_require__(252);
+	var _products2 = __webpack_require__(257);
 
 	var _products3 = _interopRequireDefault(_products2);
 
@@ -24601,7 +24606,7 @@
 	};
 
 /***/ },
-/* 252 */
+/* 257 */
 /***/ function(module, exports) {
 
 	[
@@ -24625,7 +24630,7 @@
 
 
 /***/ },
-/* 253 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24638,11 +24643,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProductsContainer = __webpack_require__(254);
+	var _ProductsContainer = __webpack_require__(259);
 
 	var _ProductsContainer2 = _interopRequireDefault(_ProductsContainer);
 
-	var _CartContainer = __webpack_require__(258);
+	var _CartContainer = __webpack_require__(263);
 
 	var _CartContainer2 = _interopRequireDefault(_CartContainer);
 
@@ -24667,7 +24672,7 @@
 	exports.default = App;
 
 /***/ },
-/* 254 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24682,15 +24687,15 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _action = __webpack_require__(250);
+	var _action = __webpack_require__(255);
 
-	var _products = __webpack_require__(249);
+	var _products = __webpack_require__(254);
 
-	var _ProductItem = __webpack_require__(255);
+	var _ProductItem = __webpack_require__(260);
 
 	var _ProductItem2 = _interopRequireDefault(_ProductItem);
 
-	var _ProductsList = __webpack_require__(257);
+	var _ProductsList = __webpack_require__(262);
 
 	var _ProductsList2 = _interopRequireDefault(_ProductsList);
 
@@ -24733,7 +24738,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { addToCart: _action.addToCart })(ProductsContainer);
 
 /***/ },
-/* 255 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24746,7 +24751,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Product = __webpack_require__(256);
+	var _Product = __webpack_require__(261);
 
 	var _Product2 = _interopRequireDefault(_Product);
 
@@ -24783,7 +24788,7 @@
 	exports.default = ProductItem;
 
 /***/ },
-/* 256 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24821,7 +24826,7 @@
 	exports.default = Product;
 
 /***/ },
-/* 257 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24863,7 +24868,7 @@
 	exports.default = ProductsList;
 
 /***/ },
-/* 258 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24878,11 +24883,11 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _action = __webpack_require__(250);
+	var _action = __webpack_require__(255);
 
-	var _reducer = __webpack_require__(246);
+	var _reducer = __webpack_require__(251);
 
-	var _Cart = __webpack_require__(259);
+	var _Cart = __webpack_require__(264);
 
 	var _Cart2 = _interopRequireDefault(_Cart);
 
@@ -24921,7 +24926,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { checkout: _action.checkout })(CartContainer);
 
 /***/ },
-/* 259 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24934,7 +24939,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Product = __webpack_require__(256);
+	var _Product = __webpack_require__(261);
 
 	var _Product2 = _interopRequireDefault(_Product);
 

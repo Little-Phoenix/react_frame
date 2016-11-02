@@ -47,6 +47,7 @@ class App extends Component{
                 options={['reactjs', 'frontend']}/>
         <p>
           {
+            //lastUpdated如果有值，则返回&&后面的值，否则返回lastUpdated
             lastUpdated &&
             <span>
               Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
@@ -73,7 +74,9 @@ class App extends Component{
 }
 
 const mapStateToProps = state => {
+
   const { selectedReddit, postsByReddit } = state
+
   const {
     isFetching,
     lastUpdated,

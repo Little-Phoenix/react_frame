@@ -24470,6 +24470,8 @@
 	    }
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.handleChange = function (nextReddit) {
+	      //picker  change
+	      console.log('picker change ' + nextReddit);
 	      _this.props.dispatch((0, _action.selectReddit)(nextReddit));
 	    }, _this.handleRefreshClick = function (e) {
 	      e.preventDefault();
@@ -24490,11 +24492,13 @@
 	      var dispatch = _props.dispatch;
 	      var selectedReddit = _props.selectedReddit;
 
+	      console.log('componentDidMount ' + selectedReddit);
 	      dispatch((0, _action.fetchPostsIfNeeded)(selectedReddit));
 	    }
 	  }, {
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(nextProps) {
+	      console.log('componentWillReceiveProps change ' + nextProps.selectedReddit);
 	      if (nextProps.selectedReddit !== this.props.selectedReddit) {
 	        var dispatch = nextProps.dispatch;
 	        var selectedReddit = nextProps.selectedReddit;
@@ -24568,6 +24572,7 @@
 
 
 	var mapStateToProps = function mapStateToProps(state) {
+	  console.log('mapStateToProps ' + state);
 	  var selectedReddit = state.selectedReddit;
 	  var postsByReddit = state.postsByReddit;
 

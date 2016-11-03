@@ -15,10 +15,12 @@ class App extends Component{
 
   componentDidMount(){
     const { dispatch, selectedReddit } = this.props
+    console.log('componentDidMount ' + selectedReddit);
     dispatch(fetchPostsIfNeeded(selectedReddit))
   }
 
   componentWillReceiveProps(nextProps){
+    console.log('componentWillReceiveProps change ' + nextProps.selectedReddit );
     if(nextProps.selectedReddit !== this.props.selectedReddit){
       const { dispatch, selectedReddit } = nextProps
       dispatch(fetchPostsIfNeeded(selectedReddit))
@@ -26,6 +28,8 @@ class App extends Component{
   }
 
   handleChange = nextReddit => {
+    //picker  change
+    console.log('picker change ' + nextReddit)
     this.props.dispatch(selectReddit(nextReddit))
   }
 
@@ -74,9 +78,8 @@ class App extends Component{
 }
 
 const mapStateToProps = state => {
-
+  console.log('mapStateToProps ' + state);
   const { selectedReddit, postsByReddit } = state
-
   const {
     isFetching,
     lastUpdated,

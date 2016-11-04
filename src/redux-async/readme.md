@@ -27,7 +27,7 @@
           case REQUEST_POSTS:
             return {
               ...state,
-              //doSomething，具体请参照[test.js](./test.js)
+              //doSomething，具体请参照[test.js](https://github.com/Little-Phoenix/react_frame/blob/master/src/redux-async/test.js)
             }
           default:
             return state

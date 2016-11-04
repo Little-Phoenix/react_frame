@@ -73,6 +73,10 @@
 
 	var _app2 = _interopRequireDefault(_app);
 
+	var _test = __webpack_require__(338);
+
+	var _test2 = _interopRequireDefault(_test);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var middleware = [_reduxThunk2.default];
@@ -24684,6 +24688,485 @@
 	};
 
 	exports.default = Posts;
+
+/***/ },
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global, module, process) {'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	var selectedReddit = function selectedReddit() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'frontend';
+	  var action = arguments[1];
+
+
+	  switch (action.type) {
+	    case 'SELECT_REDDIT':
+	      return action.reddit;
+	    default:
+	      return state;
+	  }
+	};
+
+	var posts = function posts() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+	    isFetching: false,
+	    didInvalidate: false,
+	    items: []
+	  };
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case 'INVALIDATE_REDDIT':
+	      return _extends({}, state, {
+	        didInvalidate: true
+	      });
+	    case 'REQUEST_POSTS':
+	      return _extends({}, state, {
+	        isFetching: true,
+	        didInvalidate: false
+	      });
+	    case 'RECEIVE_POSTS':
+	      return _extends({}, state, {
+	        isFetching: false,
+	        didInvalidate: false,
+	        items: action.posts,
+	        lastUpdated: action.receivedAt
+	      });
+	    default:
+	      return state;
+	  }
+	};
+	//reducer2
+	var postsByReddit = function postsByReddit() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case 'INVALIDATE_REDDIT':
+	    case 'RECEIVE_POSTS':
+	    case 'REQUEST_POSTS':
+	      return _extends({}, state, _defineProperty({}, action.reddit, posts(state[action.reddit], action)));
+	    default:
+	      return state;
+	  }
+	};
+
+	function symbolObservablePonyfill(root) {
+	  var result;
+	  var _Symbol = root.Symbol;
+
+	  if (typeof _Symbol === 'function') {
+	    if (_Symbol.observable) {
+	      result = _Symbol.observable;
+	    } else {
+	      result = _Symbol('observable');
+	      _Symbol.observable = result;
+	    }
+	  } else {
+	    result = '@@observable';
+	  }
+
+	  return result;
+	}
+
+	var root;
+
+	if (typeof self !== 'undefined') {
+	  root = self;
+	} else if (typeof window !== 'undefined') {
+	  root = window;
+	} else if (typeof global !== 'undefined') {
+	  root = global;
+	} else if (true) {
+	  root = module;
+	} else {
+	  root = Function('return this')();
+	}
+
+	var $$observable = symbolObservablePonyfill(root);
+
+	var ActionTypes = {
+	  INIT: '@@redux/INIT'
+	};
+
+	function createStore(reducer, preloadedState, enhancer) {
+	  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
+	    enhancer = preloadedState;
+	    preloadedState = undefined;
+	  }
+
+	  if (typeof enhancer !== 'undefined') {
+	    if (typeof enhancer !== 'function') {
+	      throw new Error('Expected the enhancer to be a function.');
+	    }
+
+	    //存在中间件的时候
+	    return enhancer(createStore)(reducer, preloadedState);
+	  }
+
+	  if (typeof reducer !== 'function') {
+	    throw new Error('Expected the reducer to be a function.');
+	  }
+
+	  var currentReducer = reducer;
+	  var currentState = preloadedState;
+	  var currentListeners = [];
+	  var nextListeners = currentListeners;
+	  var isDispatching = false;
+
+	  function ensureCanMutateNextListeners() {
+	    if (nextListeners === currentListeners) {
+	      nextListeners = currentListeners.slice();
+	    }
+	  }
+
+	  function getState() {
+	    return currentState;
+	  }
+
+	  function subscribe(listener) {
+	    if (typeof listener !== 'function') {
+	      throw new Error('Expected listener to be a function.');
+	    }
+
+	    var isSubscribed = true;
+
+	    ensureCanMutateNextListeners();
+	    nextListeners.push(listener);
+
+	    return function unsubscribe() {
+	      if (!isSubscribed) {
+	        return;
+	      }
+
+	      isSubscribed = false;
+
+	      ensureCanMutateNextListeners();
+	      var index = nextListeners.indexOf(listener);
+	      nextListeners.splice(index, 1);
+	    };
+	  }
+
+	  function dispatch(action) {
+
+	    if (typeof action.type === 'undefined') {
+	      throw new Error('\n          Actions may not have an undefined "type" property.\n          Have you misspelled a constant\n        ');
+	    }
+
+	    if (isDispatching) {
+	      throw new Error('Reducers may not dispatch actions.');
+	    }
+
+	    try {
+	      isDispatching = true;
+	      console.log('   >>>>>>>>>>>>\u6267\u884Ccombination start<<<<<<<<<<');
+	      currentState = currentReducer(currentState, action);
+	      console.log('   >>>>>>>>>>>>\u6267\u884Ccombination end, \u5F53\u524Dstate: \'' + JSON.stringify(currentState) + '\'  <<<<<<<<<<<<');
+	    } finally {
+	      isDispatching = false;
+	    }
+
+	    var listeners = currentListeners = nextListeners;
+	    for (var i = 0; i < listeners.length; i++) {
+	      var listener = listeners[i];
+	      listener();
+	    }
+
+	    return action;
+	  }
+
+	  function replaceReducer(nextReducer) {
+	    if (typeof nextReducer !== 'function') {
+	      throw new Error('Expected the nextReducer to be a function. ');
+	    }
+
+	    currentReducer = nextReducer;
+	    dispatch({ type: ActionTypes.INIT });
+	  }
+
+	  function observable() {
+	    var outerSubscribe = subscribe;
+	    return _defineProperty({
+	      subscribe: function subscribe(observer) {
+	        if ((typeof observer === 'undefined' ? 'undefined' : _typeof(observer)) !== 'object') {
+	          throw new TypeError('Expected the observer to be an object.');
+	        }
+
+	        function observeState() {
+	          if (observer.next) {
+	            observer.next(getState());
+	          }
+	        }
+
+	        observeState();
+
+	        var unsubscribe = outerSubscribe(observeState);
+	        return { unsubscribe: unsubscribe };
+	      }
+	    }, $$observable, function () {
+	      return this;
+	    });
+	  }
+
+	  console.log(' >>>>>>>>>>>>>>>>>>>>>\u521D\u59CB\u5316state\uFF0C\u6267\u884Cdispatch, start<<<<<<<<<<<<<<<<<<');
+	  dispatch({ type: ActionTypes.INIT });
+	  console.log(' >>>>>>>>>>>>>>>>>>>>>\u521D\u59CB\u5316state\uFF0C\u6267\u884Cdispatch, end<<<<<<<<<<<<<<<<<<');
+
+	  return _defineProperty({
+	    dispatch: dispatch,
+	    subscribe: subscribe,
+	    getState: getState,
+	    replaceReducer: replaceReducer
+	  }, $$observable, observable);
+	}
+
+	var NODE_ENV = typeof process !== 'undefined' ? process.env.NODE_ENV : 'development';
+
+	function warning(message) {
+	  if (typeof console !== 'undefined' && typeof console.error === 'function') {
+	    console.error(message);
+	  }
+
+	  try {
+	    throw new Error(message);
+	  } catch (e) {}
+	}
+
+	function getUndefinedStateErrorMessage(key, action) {
+	  var actionType = action && action.type;
+	  var actionName = actionType && '"' + actionType.toString() + '"' || 'an action';
+
+	  return 'Given action ' + actionName + ', reducer "' + key + '" returned undefined.\n        To ignore an action, you must explicitly return the previous state.';
+	}
+
+	function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
+	  var reducerKeys = Object.keys(reducers);
+	  var argumentName = action && action.type === ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received to the reducer';
+
+	  if (reducerKeys.length === 0) {
+	    return 'Store does not have a valid reducer. Make sure the argument passed\n          to combineReducers is an object whose values are reducers.';
+	  }
+
+	  var unexpectedKeys = Object.keys(inputState).filter(function (key) {
+	    return !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key];
+	  });
+
+	  unexpectedKeys.forEach(function (key) {
+	    unexpectedKeyCache[key] = true;
+	  });
+
+	  if (unexpectedKeys.length > 0) {
+	    return 'Unexpected ' + (unexpectedKeys.length > 1 ? 'keys' : 'key') + '\n          "' + unexpectedKeys.join('","') + '" found in ' + argumentName + '.\n          Expected to find one of the known reducer keys instead:\n          "' + reducerKeys.join('","') + '". Unexpected keys will be ignored.';
+	  }
+	}
+
+	//验证reducer是否健壮
+	function assertReducerSanity(reducers) {
+	  Object.keys(reducers).forEach(function (key) {
+	    //通过key，获取相关reducer
+	    var reducer = reducers[key];
+	    console.log('   \u901A\u8FC7key\uFF0C\u83B7\u53D6\u76F8\u5173reducer\uFF0Creducer key : "' + key + '"');
+	    //执行reducer，返回默认状态，
+	    var initialState = reducer(undefined, { type: ActionTypes.INIT });
+
+	    console.log('   \u8FD4\u56DEreducer\u7684\u521D\u59CB\u5316state\uFF1A"' + initialState + '"');
+
+	    //判断返回值是否为undefined，如果是，则报错
+	    if (typeof initialState === 'undefined') {
+	      throw new Error('Reducer "' + key + '" returned undefined during initialization.\n              If the state passed to the reducer is undefined, you must\n              explicitly return the initial state. The initial state may\n              not be undefined');
+	    }
+
+	    var type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.');
+
+	    if (typeof reducer(undefined, { type: type }) === 'undefined') {
+	      throw new Error('Reducer "{$key}" returned undefined when probed with a random type.\n              Don\'t try to handle ' + ActionTypes.INIT + ' or other actions in "redux/*"\n              namespace. They are considered private. Instead, you must return the\n              current state for any unknown actions, unless it is undefined,\n              in which case you must return the initial state, regardless of the\n              action type. The initial state may not be undefined.');
+	    }
+	  });
+	}
+
+	function combineReducers(reducers) {
+	  var reducerKeys = Object.keys(reducers);
+	  var finalReducers = {};
+	  //将 key对应的对象不是function的reducer过滤掉
+	  for (var i = 0; i < reducerKeys.length; i++) {
+	    var key = reducerKeys[i];
+
+	    if (NODE_ENV !== 'production') {
+	      if (typeof reducers[key] === 'undefined') {
+	        warning('No reducer provided for key "' + key + '"');
+	      }
+	    }
+
+	    if (typeof reducers[key] === 'function') {
+	      finalReducers[key] = reducers[key];
+	    }
+	  }
+
+	  //typeof reducer === 'function'
+	  var finalReducerKeys = Object.keys(finalReducers);
+	  console.log('reducer keys: ' + finalReducerKeys.join(','));
+
+	  if (NODE_ENV !== 'production') {
+	    var unexpectedKeyCache = {};
+	  }
+
+	  var sanityError;
+	  try {
+	    //验证reducer是否符合规则，如果不符合则报错
+	    console.log('------------以下验证reducer是否合规-------');
+	    assertReducerSanity(finalReducers);
+	    console.log('------------以上验证reducer是否合规-------');
+	  } catch (e) {
+	    sanityError = e;
+	  }
+
+	  //combineReducers({})执行后，返回combination方法，执行该方法，返回一个合成state对象，state对象的结构由传入的多个reducer的key决定
+	  // state对象的结构： {reducerName1: state1, reducerName2: state2}
+	  return function combination() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	    var action = arguments[1];
+
+	    if (sanityError) {
+	      throw sanityError;
+	    }
+
+	    if (NODE_ENV !== 'production') {
+	      var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
+	      if (warningMessage) {
+	        warning(warningMessage);
+	      }
+	    }
+
+	    var hasChanged = false;
+	    var nextState = {};
+	    for (var i = 0; i < finalReducerKeys.length; i++) {
+	      var key = finalReducerKeys[i];
+	      var reducer = finalReducers[key];
+	      var previousStateForKey = state[key];
+	      var nextStateForKey = reducer(previousStateForKey, action);
+
+	      console.log('       \u540D\u79F0\u4E3A\'' + key + '\'\u7684reducer,\u4F20\u5165\u53C2\u6570\'' + previousStateForKey + '\'\u3001\'' + JSON.stringify(action) + '\',\u8FD4\u56DEstate: \'' + nextStateForKey + '\'');
+
+	      if (typeof nextStateForKey === 'undefined') {
+	        var errorMessage = getUndefinedStateErrorMessage(key, action);
+	        throw new Error(errorMessage);
+	      }
+
+	      nextState[key] = nextStateForKey;
+	      console.log('         \u6267\u884Creducer\'' + key + '\'\u540E\uFF0Cstate\u4E3A\uFF1A\'' + JSON.stringify(nextState) + '\'');
+	      hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
+	    }
+
+	    return hasChanged ? nextState : state;
+	  };
+	}
+
+	//将多个reducer合并成一个combination方法，执行该方法，可以获取当前应用程序的state
+	console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>> combineReducers start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
+	var reducers = combineReducers({ selectedReddit: selectedReddit, postsByReddit: postsByReddit });
+	console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>> combineReducers end <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
+
+	console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>> createStore start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
+	var store = createStore(reducers);
+	console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>> createStore end <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
+	// export default store
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(216)(module), __webpack_require__(5)))
 
 /***/ }
 /******/ ]);

@@ -2,10 +2,10 @@
 
   1. reducers
 
-      #### 每个传入combineReducers的 reducer都需要满足以下规则：
-      #### 1). 所有未匹配到的action，必须把它接收到的第一个参数也就是那个state原封不动返回。
-      #### 2). 永远不能返回undefined。当过早return时非常容易犯这个错误，为了避免错误扩散，遇到这种情况时 combineReducers会抛出异常。
-      #### 3). 如果传入的state是undefined， 一定要返回对应reducer的初始state。根据上一条规则，初始state禁止使用undefined。使用ES6的默认参数值语法来设置初始state很容易，但你也可以手动检查第一个参数是否为undefined
+      每个传入combineReducers的 reducer都需要满足以下规则：
+      1. 所有未匹配到的action，必须把它接收到的第一个参数也就是那个state原封不动返回。
+      2. 永远不能返回undefined。当过早return时非常容易犯这个错误，为了避免错误扩散，遇到这种情况时 combineReducers会抛出异常。
+      3. 如果传入的state是undefined， 一定要返回对应reducer的初始state。根据上一条规则，初始state禁止使用undefined。使用ES6的默认参数值语法来设置初始state很容易，但你也可以手动检查第一个参数是否为undefined
 
     ```
       //reducer1

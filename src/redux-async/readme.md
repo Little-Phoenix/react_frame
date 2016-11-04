@@ -1,5 +1,23 @@
 # state初始化
 
+  最近在学习redux，对照着官网的示例学习，总有些不明白的地方，所以研究了一下redux源码，主要针对combineReducers、createStore进行分析
+
+
+  具体执行函数请参照[test.js](https://github.com/Little-Phoenix/react_frame/blob/master/src/redux-async/test.js)，可将该文中的所有内容直接拷贝到[Babel](https://babeljs.io/repl/)中，通过打印出的内容了解执行逻辑。
+
+  redux的工作原理：
+  1. actions： action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作，一般情况下，我们通过Action创建函数来生成action，如function addTodo = (text) => ({type: ADD_TODO, text});
+  2. reducers: 指明应用如何更新state。reducer就是一个纯函数，接收旧的state和action，返回新的state。通过combinReducers({reducer1, reducer2})将所有的reducer进行合并，返回一个combination(state, action)方法
+  3. store：通过createStore(reducer)创建store，该store对state进行了初始化，store有以下职责：
+  ```
+    维持应用的state;
+    提供getState()方法获取state;
+    提供dispatch(action)方法更新state;
+    通过subscribe(listener)注册监听器;
+    通过subscribe(listener)返回的函数注销监听器。
+  ```
+
+
   具体执行函数请参照[test.js](https://github.com/Little-Phoenix/react_frame/blob/master/src/redux-async/test.js)
 
   1. reducers

@@ -1,5 +1,7 @@
 # state初始化
 
+  具体执行函数请参照[test.js](https://github.com/Little-Phoenix/react_frame/blob/master/src/redux-async/test.js)
+
   1. reducers
 
       每个传入combineReducers的 reducer都需要满足以下规则：
@@ -27,7 +29,7 @@
           case REQUEST_POSTS:
             return {
               ...state,
-              //doSomething，具体请参照[test.js](https://github.com/Little-Phoenix/react_frame/blob/master/src/redux-async/test.js)
+              //doSomething
             }
           default:
             return state

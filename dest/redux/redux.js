@@ -57,11 +57,11 @@
 
 	var _redux = __webpack_require__(208);
 
-	var _Counter = __webpack_require__(284);
+	var _Counter = __webpack_require__(285);
 
 	var _Counter2 = _interopRequireDefault(_Counter);
 
-	var _reducers = __webpack_require__(285);
+	var _reducers = __webpack_require__(286);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -22499,7 +22499,8 @@
 /* 281 */,
 /* 282 */,
 /* 283 */,
-/* 284 */
+/* 284 */,
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22604,7 +22605,7 @@
 	exports.default = Counter;
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports) {
 
 	'use strict';

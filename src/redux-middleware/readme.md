@@ -125,4 +125,257 @@
       }
     }
 
+    //如果applyMiddlewareByMoneypatching 方法中没有在第一个middleware 执行时立即替换掉 store.dispatch ,那么store.dispatch将会一直指向原始的dispatch方法。也就是说，第二个middleware 依旧会作用在原始的dispatch 方法。
+    //但是，还有另一种方式来实现这种链式调用的效果。可以让middleware以方法参数的形式接收一个next()方法，而不是通过store的示例去获取
+
+    function logger(store){
+      return function wrapDispatchToAddLogging(next){
+        return function dispatchAndLog(action){
+          console.log('dispatching', action)
+          let result = next(action)
+          console.log('next state', store.getState())
+          return result
+        }
+      }
+    }
+
+    //ES6写法：
+
+    const logger = store => next => action => {
+      console.log('dispatching', action)
+      let result = next(action)
+      console.log('next state', store.getState())
+      return result
+    }
+
+    const crashReporter = store => next => action => {
+      try {
+        return next(action)
+      }catch(err){
+        console.log('Caught an exception!', err)
+        Raven.captureException(err, {
+          extra: {
+            action,
+            state: store.getState()
+          }
+          })
+        throw err
+      }
+    }
+
+  ```
+
+## 单纯地使用middleware
+
+  我们可以写一个applyMiddleware()方法替换掉原来的applyMiddlewareByMoneypatching()。在新的applyMiddleware()中，我们取得最终完整的被包装过的dispatch()函数，并返回一个store的副本：
+  ```
+    function applyMiddleware(store, middlewares){
+      middlewares = middlewares.slice()
+      middlewares.reverse()
+
+      let dispatch = store.dispatch
+      middlewares.forEach(middleware =>
+        dispatch = middleware(store)(dispatch))
+
+      return Object.assgin({}, store, { dispatch })
+    }
+
+  ```
+  这与Redux中 applyMiddleware() 的实现已经很接近了， 但是有三个重要的不同之处：
+  1. 它只暴露一个store API 的子集给middleware: dispatch(action) 和 getState()
+  2. 它用了一个非常巧妙的方式来保证你的middleware调用的是 store.dispatch(action) 而不是 next(action) ，从而使这个 action 会在包括当前middleware在内的整个middleware链中被正确的传递。这对异步的middleware非常有用。
+  3. 为了保证你只能应用middleware一次，它作用在 createStore() 上而不是 store 本身。因此它的签名不是(store, middlewares) => store, 而是 (...middlewares) => (createStore) => createStore.
+
+## 最终的方法：
+  刚刚所写的middleware:
+  ```
+    const logger = store => next => action => {
+      console.log('dispatching', action)
+      let result = next(action)
+      console.log('next state', store.getState())
+
+      return result
+    }
+
+    const crashReporter = store => next => action => {
+      try{
+        return next(action)
+      }catch (err) {
+        console.error('Caught an exception!', err)
+        Raven.captureException(err, {
+          extra: {
+            action,
+            state: store.getState()
+          }
+        })
+        throw err
+      }
+    }
+
+    //然后是将它们引用到Redux store中：
+
+    import { createStore, combineReducers, applyMiddleware } from 'redux'
+
+    //applyMiddleware 接收 createStore()
+    //并返回一个包含兼容 API 的函数
+    let createStoreWithMiddleware = applyMiddleware(logger, crashReporter)(createStore)
+
+    //像使用 createStore() 一样使用它
+    let todoApp = combineReducers(reducers)
+    let store = createStoreWithMiddleware(todoApp)
+
+    //现在任何被发送到store的action都会经过logger 和crashReporter：
+    //将经过 logger 和 crashReporter 两个 middleware!
+    store.dispatch(addTodo('Use Redux'))
+  ```
+
+## 7个示例
+  ```
+    /**
+     * 记录所有被发起的 action 以及产生的新的 state
+     */
+     const logger = store => next => action => {
+       console.group(action.type)
+       console.info('dispatching', action)
+       let result = next(action)
+       console.log('next state', store.getState())
+       console.groupEnd(action.type)
+       return result
+     }
+
+    /**
+     * 在 state 更新完成和 listener 被通知之后发送崩溃报告
+     */
+     const crashReporter = store => next => action => {
+        try{
+          return next(action)
+        } catch (err){
+          console.err('Caught an exception!', err)
+          Raven.captureException(err, {
+            extra: {
+              action,
+              state: store.getState()
+            }
+          })
+          throw err
+        }
+      }
+
+    /**
+     * 用{ meta: { delay: N } } 来让 action 延迟 N 毫秒
+     * 在这个案例中，让 'dispatch' 返回一个取消 timeout 的函数
+     */
+   const timeoutScheduler = store => next => action => {
+     if(!action.meta || !action.meta.delay){
+       return next(action)
+     }
+
+     let timeoutId = setTimeout(
+       () => next(action),
+       action.meta.dalay
+     )
+
+     return function cancel() {
+       clearTimeout(timeoutId)
+     }
+   }
+
+   /**
+    * 通过{meta: {raf: true}} 让 action 在一个 rAF 循环帧中被发起。
+    * 在这个案例中，让`dispatch` 返回一个从队列中移除该 action 的函数
+    */
+    const rafScheduler = store => next => {
+      let queuedActions = []
+      let frame = null
+
+      function loop(){
+        frame = null
+        try{
+          if (queuedActions.length){
+            next(queuedActions.shift())
+          }
+        } finally {
+          maybeRaf()
+        }
+      }
+
+      function maybeRaf() {
+        if (queuedActions.length && !frame){
+          frame = requestAnimationFrame(loop)
+        }
+      }
+
+      return action => {
+        if( !action.meta || !action.meta.raf ){
+          return next(action)
+        }
+
+        queuedActions.push(action)
+        maybeRaf()
+
+        return function cancel(){
+          queuedActions = queuedActions.filter(a => a !== action)
+        }
+      }
+    }
+
+    /**
+     * 使你除了 action 之外还可以发起 promise。
+     * 如果这个 promise 被 resolved， 他的结果将被作为 action 发起
+     * 这个promise 会被 `dispatch` 返回，因此调用者可以处理 rejection。
+     */
+    const vanillaPromise = store => next => action => {
+      if(typeof action.then !== 'function'){
+        return next(action)
+      }
+
+      return Promise.resolved(action).then(store.dispatch)
+    }
+
+    /**
+     * 让你可以发起带有一个{ promise } 属性的特殊 action.
+     * 这个 middleware 会在开始时发起一个 action， 并在这个 `promise` resolved 时发起另一个成功（或失败）的action
+     * 为了方便起见， `dispatch` 会返回这个 promise 让调用者可以等待。
+     */
+    const readyStatePromise = store => next => action => {
+      if(!action.promise){
+        return next(action)
+      }
+
+      function makeAction(ready, data){
+        let newAction = Object.assgin({}, action, { ready }, data)
+        delete newAction.promise
+        return newAction
+      }
+
+      next(makeAction(false))
+      return action.promise.then(
+        result => next(makeAction(true, { result })),
+        error => next(makeAction(true, { error }))
+      )
+    }
+
+    /**
+     * 让你可以发起一个函数来替代 action
+     * 这个函数接收`dispatch` 和 `getState` 作为参数
+     * 对于（根据`getState()`的情况）提前退出，或者异步控制流（`dispatch()` 一些其他东西）来说，这非常有用。
+     * `dispatch` 会返回被发起函数的返回值
+     */
+    const thunk = store => next => action =>
+      typeof action === 'function' ?
+        action(store.dispatch, store.getState) : next(action)
+
+    // 你可以使用以上全部的 middleware！（当然，这不意味着你必须全部都使用。）
+    let createStoreWithMiddleware = applyMiddleware(
+      rafScheduler,
+      timeoutScheduler,
+      thunk,
+      vanillaPromise,
+      readyStatePromise,
+      logger,
+      crashReporter
+    )(createStore)
+
+    let todoApp = combineReducers(reducers)
+    let store = createStoreWithMiddleware(todoApp)
   ```

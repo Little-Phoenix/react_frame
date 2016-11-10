@@ -54,7 +54,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _reactAddonsShallowCompare = __webpack_require__(287);
+	var _reactAddonsShallowCompare = __webpack_require__(297);
 
 	var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
 
@@ -21622,15 +21622,25 @@
 /* 284 */,
 /* 285 */,
 /* 286 */,
-/* 287 */
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(288);
+	module.exports = __webpack_require__(298);
 
 /***/ },
-/* 288 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**

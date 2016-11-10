@@ -57,21 +57,21 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _reduxLogger = __webpack_require__(238);
+	var _reduxLogger = __webpack_require__(248);
 
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-	var _reduxThunk = __webpack_require__(237);
+	var _reduxThunk = __webpack_require__(247);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _reducer = __webpack_require__(252);
+	var _reducer = __webpack_require__(262);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
-	var _action = __webpack_require__(256);
+	var _action = __webpack_require__(266);
 
-	var _App = __webpack_require__(259);
+	var _App = __webpack_require__(269);
 
 	var _App2 = _interopRequireDefault(_App);
 
@@ -23342,7 +23342,17 @@
 
 /***/ },
 /* 236 */,
-/* 237 */
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23370,7 +23380,7 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 238 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23389,11 +23399,11 @@
 	  value: true
 	});
 
-	var _core = __webpack_require__(239);
+	var _core = __webpack_require__(249);
 
-	var _helpers = __webpack_require__(240);
+	var _helpers = __webpack_require__(250);
 
-	var _defaults = __webpack_require__(243);
+	var _defaults = __webpack_require__(253);
 
 	var _defaults2 = _interopRequireDefault(_defaults);
 
@@ -23498,7 +23508,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 239 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23510,9 +23520,9 @@
 	});
 	exports.printBuffer = printBuffer;
 
-	var _helpers = __webpack_require__(240);
+	var _helpers = __webpack_require__(250);
 
-	var _diff = __webpack_require__(241);
+	var _diff = __webpack_require__(251);
 
 	var _diff2 = _interopRequireDefault(_diff);
 
@@ -23653,7 +23663,7 @@
 	}
 
 /***/ },
-/* 240 */
+/* 250 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23677,7 +23687,7 @@
 	var timer = exports.timer = typeof performance !== "undefined" && performance !== null && typeof performance.now === "function" ? performance : Date;
 
 /***/ },
-/* 241 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23687,7 +23697,7 @@
 	});
 	exports.default = diffLogger;
 
-	var _deepDiff = __webpack_require__(242);
+	var _deepDiff = __webpack_require__(252);
 
 	var _deepDiff2 = _interopRequireDefault(_deepDiff);
 
@@ -23775,7 +23785,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 242 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {'use strict';
@@ -24214,7 +24224,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 243 */
+/* 253 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24265,15 +24275,15 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24287,11 +24297,11 @@
 
 	var _redux = __webpack_require__(208);
 
-	var _cart = __webpack_require__(253);
+	var _cart = __webpack_require__(263);
 
 	var fromCart = _interopRequireWildcard(_cart);
 
-	var _products = __webpack_require__(255);
+	var _products = __webpack_require__(265);
 
 	var fromProducts = _interopRequireWildcard(_products);
 
@@ -24328,7 +24338,7 @@
 	};
 
 /***/ },
-/* 253 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24340,7 +24350,7 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _ActionTypes = __webpack_require__(254);
+	var _ActionTypes = __webpack_require__(264);
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -24409,7 +24419,7 @@
 	exports.default = cart;
 
 /***/ },
-/* 254 */
+/* 264 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24424,7 +24434,7 @@
 	var RECEIVE_PRODUCTS = exports.RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
 
 /***/ },
-/* 255 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24438,7 +24448,7 @@
 
 	var _redux = __webpack_require__(208);
 
-	var _ActionTypes = __webpack_require__(254);
+	var _ActionTypes = __webpack_require__(264);
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -24502,7 +24512,7 @@
 	};
 
 /***/ },
-/* 256 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24512,11 +24522,11 @@
 	});
 	exports.checkout = exports.addToCart = exports.getAllProducts = undefined;
 
-	var _shop = __webpack_require__(257);
+	var _shop = __webpack_require__(267);
 
 	var _shop2 = _interopRequireDefault(_shop);
 
-	var _ActionTypes = __webpack_require__(254);
+	var _ActionTypes = __webpack_require__(264);
 
 	var types = _interopRequireWildcard(_ActionTypes);
 
@@ -24576,7 +24586,7 @@
 	};
 
 /***/ },
-/* 257 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24585,7 +24595,7 @@
 	  value: true
 	});
 
-	var _products2 = __webpack_require__(258);
+	var _products2 = __webpack_require__(268);
 
 	var _products3 = _interopRequireDefault(_products2);
 
@@ -24607,7 +24617,7 @@
 	};
 
 /***/ },
-/* 258 */
+/* 268 */
 /***/ function(module, exports) {
 
 	[
@@ -24631,7 +24641,7 @@
 
 
 /***/ },
-/* 259 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24644,11 +24654,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProductsContainer = __webpack_require__(260);
+	var _ProductsContainer = __webpack_require__(270);
 
 	var _ProductsContainer2 = _interopRequireDefault(_ProductsContainer);
 
-	var _CartContainer = __webpack_require__(264);
+	var _CartContainer = __webpack_require__(274);
 
 	var _CartContainer2 = _interopRequireDefault(_CartContainer);
 
@@ -24673,7 +24683,7 @@
 	exports.default = App;
 
 /***/ },
-/* 260 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24688,15 +24698,15 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _action = __webpack_require__(256);
+	var _action = __webpack_require__(266);
 
-	var _products = __webpack_require__(255);
+	var _products = __webpack_require__(265);
 
-	var _ProductItem = __webpack_require__(261);
+	var _ProductItem = __webpack_require__(271);
 
 	var _ProductItem2 = _interopRequireDefault(_ProductItem);
 
-	var _ProductsList = __webpack_require__(263);
+	var _ProductsList = __webpack_require__(273);
 
 	var _ProductsList2 = _interopRequireDefault(_ProductsList);
 
@@ -24739,7 +24749,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { addToCart: _action.addToCart })(ProductsContainer);
 
 /***/ },
-/* 261 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24752,7 +24762,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Product = __webpack_require__(262);
+	var _Product = __webpack_require__(272);
 
 	var _Product2 = _interopRequireDefault(_Product);
 
@@ -24789,7 +24799,7 @@
 	exports.default = ProductItem;
 
 /***/ },
-/* 262 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24827,7 +24837,7 @@
 	exports.default = Product;
 
 /***/ },
-/* 263 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24869,7 +24879,7 @@
 	exports.default = ProductsList;
 
 /***/ },
-/* 264 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24884,11 +24894,11 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _action = __webpack_require__(256);
+	var _action = __webpack_require__(266);
 
-	var _reducer = __webpack_require__(252);
+	var _reducer = __webpack_require__(262);
 
-	var _Cart = __webpack_require__(265);
+	var _Cart = __webpack_require__(275);
 
 	var _Cart2 = _interopRequireDefault(_Cart);
 
@@ -24927,7 +24937,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { checkout: _action.checkout })(CartContainer);
 
 /***/ },
-/* 265 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24940,7 +24950,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Product = __webpack_require__(262);
+	var _Product = __webpack_require__(272);
 
 	var _Product2 = _interopRequireDefault(_Product);
 

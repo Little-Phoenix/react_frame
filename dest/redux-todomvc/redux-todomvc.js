@@ -57,13 +57,13 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _App = __webpack_require__(266);
+	var _App = __webpack_require__(276);
 
 	var _App2 = _interopRequireDefault(_App);
 
 	var _redux = __webpack_require__(208);
 
-	var _reducer = __webpack_require__(271);
+	var _reducer = __webpack_require__(281);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
@@ -23355,7 +23355,17 @@
 /* 263 */,
 /* 264 */,
 /* 265 */,
-/* 266 */
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23370,17 +23380,17 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _action = __webpack_require__(267);
+	var _action = __webpack_require__(277);
 
 	var TodoActions = _interopRequireWildcard(_action);
 
 	var _redux = __webpack_require__(208);
 
-	var _Header = __webpack_require__(269);
+	var _Header = __webpack_require__(279);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _TodoItem = __webpack_require__(270);
+	var _TodoItem = __webpack_require__(280);
 
 	var _TodoItem2 = _interopRequireDefault(_TodoItem);
 
@@ -23419,7 +23429,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
 
 /***/ },
-/* 267 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23429,7 +23439,7 @@
 	});
 	exports.clearCompleted = exports.completedAll = exports.completedTodo = exports.editTodo = exports.deleteTodo = exports.addTodo = undefined;
 
-	var _Todo = __webpack_require__(268);
+	var _Todo = __webpack_require__(278);
 
 	var addTodo = exports.addTodo = function addTodo(text) {
 	  return { type: _Todo.ADD_TODO, text: text };
@@ -23451,7 +23461,7 @@
 	};
 
 /***/ },
-/* 268 */
+/* 278 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23470,7 +23480,7 @@
 	var SHOW_ACTIVE = exports.SHOW_ACTIVE = 'SHOW_ACTIVE';
 
 /***/ },
-/* 269 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23541,7 +23551,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 270 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23634,7 +23644,7 @@
 	exports.default = Todo;
 
 /***/ },
-/* 271 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23645,7 +23655,7 @@
 
 	var _redux = __webpack_require__(208);
 
-	var _todo = __webpack_require__(272);
+	var _todo = __webpack_require__(282);
 
 	var _todo2 = _interopRequireDefault(_todo);
 
@@ -23656,7 +23666,7 @@
 	exports.default = rootReducer;
 
 /***/ },
-/* 272 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23673,7 +23683,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Todo = __webpack_require__(268);
+	var _Todo = __webpack_require__(278);
 
 	var Type = _interopRequireWildcard(_Todo);
 

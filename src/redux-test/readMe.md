@@ -44,3 +44,37 @@
         expect(actions.addTodo(text)).toEqual(expectedAction)
       })
     })
+
+## 异步 Action Creators
+  对于使用 Redux Thunk 或其它中间件的异步action creator，最好完全模拟Redux store 来测试。你可以使用 applyMiddleware()和一个模拟的store，如下所示（可在redux-mock-store中找到以下代码）。也可以使用 nock 来模拟HTTP请求
+
+### 示例
+    function fetchTodosRequest(){
+      return {
+        type: FETCH_TODOS_REQUEST
+      }
+    }
+
+    function fetchTodosSuccess(body){
+      return {
+        type: FETCH_TODOS_SUCCESS,
+        body
+      }
+    }
+
+    function fetchTodosFailure(ex){
+      return {
+        type: FETCH_TODOS_FAILURE,
+        ex
+      }
+    }
+
+    export function fetchTodos(){
+      return dispatch => {
+        dispatch(fetchTodosRequest())
+        return fetch('http://example.com/todos')
+          .then(res => res.json())
+          .then(json => dispatch(fetchTodosSuccess(json.body)))
+          .catch(ex => dispatch(fetchTodosFailure(ex)))
+      }
+    }

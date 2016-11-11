@@ -6,8 +6,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base dest",
-    "eject": "react-scripts eject",
-    "test": "react-scripts test"
+    "test": "mocha --compilers js:babel-core/register "
   },
   "keywords": [
     "webpack",

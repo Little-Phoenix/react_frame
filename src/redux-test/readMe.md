@@ -7,6 +7,7 @@
     npm install --save-dev mocha
 
   若想结合 Babel 使用，在package.json 的scripts 里加入这一段：
+    ```
     {
       ...
       "scripts": {
@@ -16,6 +17,13 @@
       },
       ...
     }
+    ```
+  然后在根目录增加.babelrc文件，文件中编辑如下：
+  ```
+    {
+      "presets": ["es2015"]
+    }
+  ```
   然后运行 npm test 就能单词运行了， 或者也可以使用 npm run test:watch 在每次有文件改变时自动执行测试。
 
 ## Action Creators

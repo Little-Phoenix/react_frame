@@ -3,11 +3,12 @@
 
 ## 设置
   用Mocha作为测试引擎。<br>
-  注意因为是在node环境下运行，所以不能访问DOM
+  注意因为是在node环境下运行，所以不能访问DOM <br>
     npm install --save-dev mocha
 
   若想结合 Babel 使用，在package.json 的scripts 里加入这一段：
-    ```
+  
+  ```
     {
       ...
       "scripts": {
@@ -17,8 +18,11 @@
       },
       ...
     }
-    ```
+    
+  ```
+  
   然后在根目录增加.babelrc文件，文件中编辑如下：
+  
   ```
     {
       "presets": ["es2015"]

@@ -7,7 +7,7 @@ gulp + webpack + react框架搭建 取代react-frame
   gulp中可以配置sass的构建，同时可以将webpack的执行命令放到gulp中进行控制，这样开发的时候，只需要执行gulp命令即可，原来需要开两个git bash,一个执行gulp，一个执行webpack -w
 
 ### gulpfile.js:
- ```
+```
   gulp.task('webpack', function(){
   return gulp.src('./src')
              .pipe(webpack(webpackConfig))
@@ -30,10 +30,10 @@ gulp + webpack + react框架搭建 取代react-frame
 
   })
 
-  ```
+```
 ### webpack.config.js:
 
-  ```
+```
   var webpack = require('webpack')
   var path = require('path')
   var HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -100,4 +100,4 @@ gulp + webpack + react框架搭建 取代react-frame
 
 
 
-  ```
+```

@@ -228,7 +228,81 @@
         this.moveChild(prevChild, nextIndex, lastIndex);
         lastIndex = Math.max(prevChild._mountIndex, lastIndex);
         prevChild._mountIndex = nextIndex;
+      } else {
+        if (prevChild){
+          lastIndex = Math.max(preChild._mountIndex, lastIndex);
+          this._mountIndex(prevChild);
+        }
+
+        this._mountChildIndex(
+            nextChild, nextIndex, transaction, context
+        );
+      }
+
+      nextIndex++;
+    }
+
+    for(name in prevChildren){
+      if(prevChildren.hasOwnProperty(name) && !(nextChildren && nextChildren.hasOwnProperty(name))){
+        this._unmountChild(prevChilren[name])
       }
     }
-  }
+
+    this._renderedChildren = nextChildren;
+
+  },
+
+  moveChild: function(child, toIndex, lastIndex){
+    if (child._mountIndex < lastIndex) {
+      this.prepareToManageChildren();
+      enqueueMove(this, child._mountIndex, toIndex);
+    }
+  },
+
+  createChild: function(child, mountImage){
+    this.prepareToManageChildren();
+    enqueueInsertMarkup(this, mountImage, child._mountIndex)
+  },
+
+  removeChild: function(child){
+    this.prepareToManageChildren();
+    enqueueRemove(this, child._mountIndex)
+  },
+
+  _unmountChild: function(child){
+    this.removeChild(child)
+    child._mountIndex = null;
+  },
+
+  mountChildAtIndex: function(
+    child,
+    index,
+    transaction,
+    context
+    ) {
+      var mountImage = ReactReconciler.mountComponent(
+        child,
+        transaction,
+        this,
+        this._nativeContainerInfo,
+        context
+        );
+        child._mountIndex = index;
+        this.createChild(child, mountImage)
+    },
 ```
+  当然，React diff 还是存在些许不足与待优化的地方，如下图所示，若新集合的节点更新为： D、A、B、C，与老集合对比只有 D 节点移动，而 A、B、C仍然保持原有的顺序，理论上 diff 应该只需对 D 执行移动操作，然而 由于 D 在老集合的位置是最大的，导致其他节点的_mountIndex < lastIndex，造成 D 没有执行移动操作，而是A、B、C 全部移动到 D 节点后面的现象。
+
+```
+  建议：在开发过程中，尽量减少类似将最后一个节点移动到列表首部的操作，当节点数量过大或更新操作国语频繁时，在一定程度上会影响 React 的渲染性能。
+```
+![img](./imgs/tu7.jpg)
+
+# 总结
+
+  * React 通过指定大胆的 diff 策略，将O(n³) 复杂度的问题转换成O(n)复杂度的问题；
+  * React 通过分层求异的策略，对 tree diff 进行算法优化；
+  * React 通过相同类生成相似树形结构，不同类生成不同树形结构的策略，对 component diff 进行算法优化；
+  * React 通过设置唯一key的策略，对 element diff 进行算法优化；
+  * 建议，在开发组件时，保持稳定的 DOM 结构会有助于性能的提升；
+  * 建议，在开发过程中，尽量减少类似将最后一个节点移动到列表首部的操作，当节点数量过大或更新操作过于频繁时，在一定程度上会影响 React 的渲染性能。

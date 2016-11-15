@@ -16,20 +16,20 @@
 
   render执行的结果得到的不是真正的 DOM 节点。结果仅仅是轻量级的 JavaScript 对象，称之为 virtual DOM。<br>
 
-  React 要从这个表现形式当中尝试找到前一个渲染结果到后一个的最小步数。比如，当我们挂载了 <MyComponent first={true}/>，然后用 <MyComponent first={false} /> 替换，然后又取消挂载，这样一个过程的 DOM 的指令是这样的：<br>
+  React 要从这个表现形式当中尝试找到前一个渲染结果到后一个的最小步数。比如，当我们挂载了 ```<MyComponent first={true}/>```，然后用 ```<MyComponent first={false} />``` 替换，然后又取消挂载，这样一个过程的 DOM 的指令是这样的：<br>
 
   从没有到第一步
 
-  * 创建节点：<div className="first"><span>A Span</span></div>
+  * 创建节点：```<div className="first"><span>A Span</span></div>```
 
   从第一步到第二步
 
   * 替换树形：className = "first" 到 className = "second"
-  * 替换节点：<span>A Span</span> 到 <p>A Paragraph</p>
+  * 替换节点：```<span>A Span</span> 到 <p>A Paragraph</p>```
 
   从第二步到没有
 
-  * 删除节点：<div className="second"><p>A Paragraph</p></div>
+  * 删除节点：```<div className="second"><p>A Paragraph</p></div>```
 
 #### 按照层级
 
@@ -51,7 +51,7 @@
   通常结果是一个主要是很多 div 组成的树。<br>
   这个信息也被 React 的 diff 算法考虑进去，React 只会匹配相同 class 的 component <br><br>
 
-  比如，如果有个 <Header> 被 <ExampleBlock> 替换掉了，<br>
+  比如，如果有个 `<Header>` 被 `<ExampleBlock>` 替换掉了，<br>
   React 会删除掉 header 再创建一个 example block。<br>
   我们不需要花宝贵的时间去匹配两个不大可能有相似之处的 component <br><br>
 

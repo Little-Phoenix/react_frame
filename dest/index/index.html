@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Flash Cast and Crew</title>
+    <style media="screen">
+      body{
+        margin: 0;
+        padding: 0;
+      }
+
+      .title{
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title">
+      The Flash Cast and Crew
+    </div>
+    <div class="body">
+      <ul>
+
+      </ul>
+    </div>
+
+    <script src="jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        getDate();
+      })
+
+      var getDate = function(){
+        $.ajax({
+          url: './theFlash.json',
+          type: 'get',
+          textType: 'json',
+          success: function(data){
+            console.log(data);
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

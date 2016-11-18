@@ -279,6 +279,230 @@ const NodeMixin = {
     throw new Error(
       'You cannot render an ART component standalone. ' +
       'You need to wrap it in a Surface.'
-    )
+    );
   }
 }
+
+
+const Group = createComponent('Group', NodeMixin, ContainerMixin, {
+  mountComponent: function(
+    transaction,
+    nativeParent,
+    nativeContainerInfo,
+    context
+  ) {
+    this.node = Mode.Group();
+    const props = this._currentElement.props;
+    this.applyGroupProps(emptyObject, props);
+    this.mountAndInjectChildren(props.children, transaction, context);
+    return this.node;
+  },
+
+  receiveComponent: function(nextComponent, transaction, context) {
+    const props = nextComponent.props;
+    const oldProps = this._currentElement.props;
+    this.applyGroupProps(oldProps, props);
+    this.updateChildren(props.children, transaction, context);
+    this._currentElement = nextComponent;
+  },
+
+  applyGroupProps: function(oldProps, props){
+    this.node.width = props.width;
+    this.node.height = props.height;
+    this.applyNodeProps(oldProps, props);
+  },
+
+  unmountComponent: function() {
+    this.destroyEventListeners();
+    this.unmountChildren();
+  }
+});
+
+const ClippingRectangle = createComponent(
+  'ClippingRectangle', NodeMixin, ContainerMixin, {
+    mountComponent: function(
+      transaction,
+      nativeParent,
+      nativeContainerInfo,
+      context
+    ) {
+      this.node = Mode.ClippingRectangle();
+      const props = this._currentElement.props;
+      this.applyClippingProps(emptyObject, props);
+      this.mountAndInjectChildren(props.children, transaction, context);
+
+      return this.node;
+    },
+
+    receiveComponent: function(nextComponent, transaction, context) {
+      const props = nextComponent.props;
+      const oldProps = this._currentElement.props;
+      this.applyClippingProps(oldProps, props);
+      this.updateChildren(props.children, transaction, context);
+      this._currentElement = nextComponent;
+    },
+
+    applyClippingProps: function(oldProps, props){
+      this.node.width = props.width;
+      this.node.height = props.height;
+      this.node.x = props.x;
+      this.node.y = props.y;
+      this.applyNodeProps(oldProps, props);
+    },
+
+    unmountComponent: function() {
+      this.destroyEventListeners();
+      this.unmountChildren();
+    }
+  }
+);
+
+const RenderableMixin = assign({}, NodeMixin, {
+
+  applyRenderableProps: function(oldProps, props) {
+    if(oldProps.fill !== props.fill) {
+      if(props.fill && props.fill.applyFill) {
+        props.fill.applyFill(this.node);
+      } else {
+        this.node.fill(props.fill)
+      }
+    }
+
+    if(
+      oldProps.stroke !== props.stroke ||
+      oldProps.strokeWidth !== props.strokeWidth ||
+      oldProps.strokeCap !== props.strokeCap ||
+      oldProps.strokeJoin !== props.strokeJoin ||
+      oldProps.strokeDash !== props.strokeDash
+    ) {
+      this.node.stroke (
+        props.stroke,
+        props.strokeWidth,
+        props.strokeCap,
+        props.strokeJoin,
+        props.strokeDash
+      );
+    }
+
+    this.applyNodeProps(oldProps, props);
+  },
+
+  unmountComponent: function(){
+    this.destroyEventListeners();
+  }
+
+})
+
+const Shape = createComponent('Shape', RenderableMixin, {
+  construct: function(element) {
+    this._currentElement = element;
+    this._oldDelta = null;
+    this.oldPath = null;
+  },
+
+  mountComponent: function(
+    transaction,
+    nativeParent,
+    nativeContainerInfo,
+    context
+  ) {
+    this.node = Mode.Shape();
+    const props = this._currentElement.props;
+    this.applyShapeProps(emptyObject, props);
+    return this.node;
+  },
+
+  receiveComponent: function(nextComponent, transaction, context) {
+    const props = nextComponent.props;
+    const oldProps = this._currentElement.props;
+    this.applyShapeProps(oldProps, props);
+    this._currentElement = nextComponent;
+  },
+
+  applyShapeProps: function(oldProps, props){
+    const oldDelta = this._oldDelta;
+    const oldPath = this._oldPath;
+    const path = props.d || childrenAsString(props.children);
+
+    if(path.delta !== oldDelta ||
+      path !== oldPath ||
+      oldProps.width !== props.width ||
+      oldProps.height !== props.height) {
+        this.node.draw(
+          path,
+          props.width,
+          props.height
+        );
+
+        this._oldPath = path;
+        this.oldDelta = path.delta;
+      }
+
+    this.applyRenderableProps(oldProps, props);
+  }
+})
+
+const Text = createComponent('Text', RenderableMixin, {
+  construct: function(element){
+    this._currentElement = element;
+    this._oldString = null;
+  },
+
+  mountComponent: function(
+    transaction,
+    nativeParent,
+    nativeContainerInfo,
+    context
+  ) {
+    const props = this._currentElement.props;
+    const newString = childrenAsString(props.children);
+    this.node = Mode.Text(newString, props.font, props.alignment, props.path);
+    this._oldString = newString;
+    this.applyRenderableProps(emptyObject, props);
+    return this.node;
+  },
+
+  isSameFont: function(oldFont, newFont){
+    if(oldFont === newFont){
+      return true;
+    }
+
+    if(typeof newFont === 'string' || typeof oldFont === 'string'){
+      return false;
+    }
+
+    return (
+      newFont.fontSize === oldFont.fontSize &&
+      newFont.fontStyle === oldFont.fontStyle &&
+      newFont.fontVariant === oldFont.fontVariant &&
+      newFont.fontWeight === oldFont.fontWeight &&
+      newFont.fontFamily === oldFont.fontFamily
+    );
+  },
+
+  receiveComponent: function(nextComponent, transaction, context) {
+    const props = nextComponent.props;
+    const oldProps = this._currentElement.props;
+
+    const oldString = this._oldString;
+    const newString = childrenAsString(props.children);
+
+    if(oldString !== newString ||
+       !this.isSameFont(oldProps.font, props.font) ||
+       oldProps.alignment !== props.alignment ||
+       oldProps.path !== props.path
+    ) {
+      this.node.draw(
+        newString,
+        props.font,
+        props.alignment,
+        props.path
+      );
+
+      this._oldString = newString;
+    }
+
+    this.applyRenderableProps(oldProps, props);
+    this._currentElement = nextComponent;
+  }
+})

@@ -20,7 +20,8 @@ module.exports = {
     'select': '省市联动',
     'redux-shopping-cart': 'shopping cart',
     'redux-async': '异步',
-    'redux-act': 'action creator'
+    'redux-act': 'action creator',
+    'react-router': 'react-router',
     // 'video' : 'video'
   }
 }

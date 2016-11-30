@@ -22,6 +22,8 @@ module.exports = {
     'redux-async': '异步',
     'redux-act': 'action creator',
     'react-router': 'react-router',
+    'router-01-setting-up': 'react-router-第一课',
+    'router-02-rendering-a-route': 'rendering a route',
     // 'video' : 'video'
   }
 }

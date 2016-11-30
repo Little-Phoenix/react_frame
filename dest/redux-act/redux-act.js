@@ -52,7 +52,7 @@
 
 	var _redux = __webpack_require__(208);
 
-	var _reduxAct = __webpack_require__(237);
+	var _reduxAct = __webpack_require__(303);
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -1196,7 +1196,7 @@
 
 /***/ },
 
-/***/ 237:
+/***/ 303:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1206,7 +1206,7 @@
 	});
 	exports.types = exports.loggers = exports.disbatch = exports.batch = exports.bindAll = exports.assignAll = exports.createReducer = exports.createAction = undefined;
 
-	var _createAction = __webpack_require__(238);
+	var _createAction = __webpack_require__(304);
 
 	Object.defineProperty(exports, 'createAction', {
 	  enumerable: true,
@@ -1215,7 +1215,7 @@
 	  }
 	});
 
-	var _createReducer = __webpack_require__(240);
+	var _createReducer = __webpack_require__(306);
 
 	Object.defineProperty(exports, 'createReducer', {
 	  enumerable: true,
@@ -1224,7 +1224,7 @@
 	  }
 	});
 
-	var _assignAll = __webpack_require__(242);
+	var _assignAll = __webpack_require__(308);
 
 	Object.defineProperty(exports, 'assignAll', {
 	  enumerable: true,
@@ -1233,7 +1233,7 @@
 	  }
 	});
 
-	var _bindAll = __webpack_require__(243);
+	var _bindAll = __webpack_require__(309);
 
 	Object.defineProperty(exports, 'bindAll', {
 	  enumerable: true,
@@ -1242,7 +1242,7 @@
 	  }
 	});
 
-	var _batch = __webpack_require__(241);
+	var _batch = __webpack_require__(307);
 
 	Object.defineProperty(exports, 'batch', {
 	  enumerable: true,
@@ -1251,7 +1251,7 @@
 	  }
 	});
 
-	var _disbatch = __webpack_require__(244);
+	var _disbatch = __webpack_require__(310);
 
 	Object.defineProperty(exports, 'disbatch', {
 	  enumerable: true,
@@ -1260,7 +1260,7 @@
 	  }
 	});
 
-	var _loggers = __webpack_require__(245);
+	var _loggers = __webpack_require__(311);
 
 	Object.defineProperty(exports, 'loggers', {
 	  enumerable: true,
@@ -1269,7 +1269,7 @@
 	  }
 	});
 
-	var _types2 = __webpack_require__(239);
+	var _types2 = __webpack_require__(305);
 
 	var _types = _interopRequireWildcard(_types2);
 
@@ -1293,7 +1293,7 @@
 
 /***/ },
 
-/***/ 238:
+/***/ 304:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1312,7 +1312,7 @@
 
 	exports.default = createAction;
 
-	var _types = __webpack_require__(239);
+	var _types = __webpack_require__(305);
 
 	var id = 0;
 
@@ -1459,7 +1459,7 @@
 
 /***/ },
 
-/***/ 239:
+/***/ 305:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1496,7 +1496,7 @@
 
 /***/ },
 
-/***/ 240:
+/***/ 306:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1506,7 +1506,7 @@
 	});
 	exports.default = createReducer;
 
-	var _batch = __webpack_require__(241);
+	var _batch = __webpack_require__(307);
 
 	var _batch2 = _interopRequireDefault(_batch);
 
@@ -1588,7 +1588,7 @@
 
 /***/ },
 
-/***/ 241:
+/***/ 307:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1597,7 +1597,7 @@
 	  value: true
 	});
 
-	var _createAction = __webpack_require__(238);
+	var _createAction = __webpack_require__(304);
 
 	var _createAction2 = _interopRequireDefault(_createAction);
 
@@ -1618,7 +1618,7 @@
 
 /***/ },
 
-/***/ 242:
+/***/ 308:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1642,7 +1642,7 @@
 
 /***/ },
 
-/***/ 243:
+/***/ 309:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1666,7 +1666,7 @@
 
 /***/ },
 
-/***/ 244:
+/***/ 310:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1676,7 +1676,7 @@
 	});
 	exports.default = disbatch;
 
-	var _batch = __webpack_require__(241);
+	var _batch = __webpack_require__(307);
 
 	var _batch2 = _interopRequireDefault(_batch);
 
@@ -1712,7 +1712,7 @@
 
 /***/ },
 
-/***/ 245:
+/***/ 311:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1721,7 +1721,7 @@
 	  value: true
 	});
 
-	var _reduxLogger = __webpack_require__(246);
+	var _reduxLogger = __webpack_require__(312);
 
 	var reduxLogger = _interopRequireWildcard(_reduxLogger);
 
@@ -1743,7 +1743,7 @@
 
 /***/ },
 
-/***/ 246:
+/***/ 312:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1754,7 +1754,7 @@
 	exports.logger = undefined;
 	exports.actionTransformer = actionTransformer;
 
-	var _batch = __webpack_require__(241);
+	var _batch = __webpack_require__(307);
 
 	var _batch2 = _interopRequireDefault(_batch);
 

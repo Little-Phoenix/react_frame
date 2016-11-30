@@ -57,13 +57,13 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _App = __webpack_require__(276);
+	var _App = __webpack_require__(342);
 
 	var _App2 = _interopRequireDefault(_App);
 
 	var _redux = __webpack_require__(208);
 
-	var _reducer = __webpack_require__(281);
+	var _reducer = __webpack_require__(347);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
@@ -23365,7 +23365,73 @@
 /* 273 */,
 /* 274 */,
 /* 275 */,
-/* 276 */
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */,
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23380,17 +23446,17 @@
 
 	var _reactRedux = __webpack_require__(223);
 
-	var _action = __webpack_require__(277);
+	var _action = __webpack_require__(343);
 
 	var TodoActions = _interopRequireWildcard(_action);
 
 	var _redux = __webpack_require__(208);
 
-	var _Header = __webpack_require__(279);
+	var _Header = __webpack_require__(345);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _TodoItem = __webpack_require__(280);
+	var _TodoItem = __webpack_require__(346);
 
 	var _TodoItem2 = _interopRequireDefault(_TodoItem);
 
@@ -23429,7 +23495,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
 
 /***/ },
-/* 277 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23439,7 +23505,7 @@
 	});
 	exports.clearCompleted = exports.completedAll = exports.completedTodo = exports.editTodo = exports.deleteTodo = exports.addTodo = undefined;
 
-	var _Todo = __webpack_require__(278);
+	var _Todo = __webpack_require__(344);
 
 	var addTodo = exports.addTodo = function addTodo(text) {
 	  return { type: _Todo.ADD_TODO, text: text };
@@ -23461,7 +23527,7 @@
 	};
 
 /***/ },
-/* 278 */
+/* 344 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23480,7 +23546,7 @@
 	var SHOW_ACTIVE = exports.SHOW_ACTIVE = 'SHOW_ACTIVE';
 
 /***/ },
-/* 279 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23551,7 +23617,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 280 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23644,7 +23710,7 @@
 	exports.default = Todo;
 
 /***/ },
-/* 281 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23655,7 +23721,7 @@
 
 	var _redux = __webpack_require__(208);
 
-	var _todo = __webpack_require__(282);
+	var _todo = __webpack_require__(348);
 
 	var _todo2 = _interopRequireDefault(_todo);
 
@@ -23666,7 +23732,7 @@
 	exports.default = rootReducer;
 
 /***/ },
-/* 282 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23683,7 +23749,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Todo = __webpack_require__(278);
+	var _Todo = __webpack_require__(344);
 
 	var Type = _interopRequireWildcard(_Todo);
 
